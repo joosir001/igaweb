@@ -24,12 +24,13 @@ export default function HeroSection() {
   const [animatedElements, setAnimatedElements] = useState<AnimatedElementStyle[]>([]);
 
   useEffect(() => {
+    // Ensure this code runs only on the client
     const elements: AnimatedElementStyle[] = [...Array(15)].map(() => ({
       width: Math.random() * 100 + 50,
       height: Math.random() * 100 + 50,
       left: `${Math.random() * 100}%`,
       top: `${Math.random() * 100}%`,
-      duration: Math.random() * 5 + 5,
+      duration: Math.random() * 3 + 4, // Duration between 4-7 seconds
       delay: Math.random() * 3,
     }));
     setAnimatedElements(elements);
@@ -85,7 +86,7 @@ export default function HeroSection() {
             key={i}
             className="absolute bg-primary/30 rounded-full"
             initial={{ opacity: 0, scale: 0 }}
-            animate={{ opacity: [0, 0.5, 0], scale: 1 }}
+            animate={{ opacity: [0, 0.15, 0], scale: 1 }} // Reduced max opacity
             transition={{
               duration: style.duration,
               repeat: Infinity,
@@ -146,4 +147,3 @@ export default function HeroSection() {
     </section>
   );
 }
-

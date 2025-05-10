@@ -1,3 +1,4 @@
+
 "use client";
 
 import { useState } from 'react';
@@ -9,7 +10,7 @@ import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle }
 import { Checkbox } from '@/components/ui/checkbox';
 import { Label } from '@/components/ui/label';
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select';
-import { Textarea } from '@/components/ui/textarea'; // Assuming Textarea is for displaying results, not input
+// import { Textarea } from '@/components/ui/textarea'; // Not used for input here
 import { integrationAdvisor, IntegrationAdvisorInput } from '@/ai/flows/integration-advisor';
 import { Loader2, Sparkles } from 'lucide-react';
 import { motion } from 'framer-motion';
@@ -180,14 +181,20 @@ export default function AiAdvisorSection() {
                   </div>
                 </CardContent>
                 <CardFooter>
-                  <Button type="submit" disabled={isLoading} className="w-full bg-primary hover:bg-primary/90 text-primary-foreground">
-                    {isLoading ? (
-                      <Loader2 className="mr-2 h-4 w-4 animate-spin" />
-                    ) : (
-                      <Sparkles className="mr-2 h-4 w-4" />
-                    )}
-                    Get AI Advice
-                  </Button>
+                  <motion.div
+                    whileHover={{ scale: 1.02, boxShadow: "0 0 15px hsl(var(--primary))" }}
+                    whileTap={{ scale: 0.98 }}
+                    className="w-full"
+                  >
+                    <Button type="submit" disabled={isLoading} className="w-full bg-primary hover:bg-primary/90 text-primary-foreground">
+                      {isLoading ? (
+                        <Loader2 className="mr-2 h-4 w-4 animate-spin" />
+                      ) : (
+                        <Sparkles className="mr-2 h-4 w-4" />
+                      )}
+                      Get AI Advice
+                    </Button>
+                  </motion.div>
                 </CardFooter>
               </form>
             </Card>

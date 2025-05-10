@@ -1,8 +1,9 @@
+
 "use client";
 
 import { motion } from 'framer-motion';
 import Image from 'next/image';
-import { Target, Eye, Zap, Users, ShieldCheck } from 'lucide-react';
+import { Target, Eye, Zap, Users, ShieldCheckIcon } from 'lucide-react';
 
 export default function AboutUsSection() {
   const sectionVariants = {
@@ -80,12 +81,16 @@ export default function AboutUsSection() {
             {[
               { icon: Zap, title: 'Innovation', text: 'Continuously exploring new technologies to provide cutting-edge solutions.' },
               { icon: Users, title: 'Client-Centricity', text: 'Our clients success is our success. We build partnerships based on trust and mutual growth.' },
-              { icon: ShieldCheck, title: 'Integrity & Reliability', text: 'Operating with transparency and delivering dependable solutions that our clients can count on.' }
+              { icon: ShieldCheckIcon, title: 'Integrity & Reliability', text: 'Operating with transparency and delivering dependable solutions that our clients can count on.' }
             ].map((value, index) => (
               <motion.div 
                 key={index} 
                 variants={itemVariants}
-                className="bg-card p-6 rounded-lg shadow-xl hover:shadow-accent/20 transition-shadow duration-300 border border-transparent hover:border-accent/50"
+                whileHover={{ 
+                  y: -5,
+                  boxShadow: "0px 8px 16px hsla(var(--accent), 0.2), 0px 0px 12px hsla(var(--accent), 0.3)" 
+                }}
+                className="bg-card p-6 rounded-lg shadow-xl hover:shadow-accent/20 transition-shadow duration-300 border border-transparent hover:border-accent/50 h-full"
               >
                 <div className="flex justify-center mb-4">
                   <div className="p-3 bg-accent/10 rounded-full">

@@ -1,9 +1,10 @@
+
 "use client";
 
 import { motion } from 'framer-motion';
 import Image from 'next/image';
 import { Card, CardContent } from '@/components/ui/card';
-import { Star, Users } from 'lucide-react';
+import { Star } from 'lucide-react'; // Removed Users as it's not used
 
 const clientLogos = [
   { name: "Client Alpha", src: "https://picsum.photos/seed/logoA/200/100", dataAiHint: "company logo" },
@@ -107,9 +108,17 @@ export default function ClientsSection() {
           </motion.h3>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
             {testimonials.map((testimonial, index) => (
-              <motion.div key={index} variants={itemVariants} className="h-full">
+              <motion.div 
+                key={index} 
+                variants={itemVariants} 
+                className="h-full"
+                whileHover={{ 
+                  y: -5,
+                  boxShadow: "0px 8px 16px hsla(var(--accent), 0.2), 0px 0px 12px hsla(var(--accent), 0.3)"
+                }}
+              >
                 <Card className="h-full bg-card/80 backdrop-blur-sm p-6 rounded-lg shadow-xl border border-transparent hover:border-accent/50 hover:shadow-accent/20 transition-all duration-300">
-                  <CardContent className="flex flex-col h-full">
+                  <CardContent className="flex flex-col h-full p-0"> {/* Adjusted padding to p-0 as it's on Card */}
                     <div className="flex mb-2">
                       {[...Array(5)].map((_, i) => (
                         <Star key={i} className="w-5 h-5 text-yellow-400 fill-current" />

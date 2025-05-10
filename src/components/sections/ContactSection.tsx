@@ -1,3 +1,4 @@
+
 "use client";
 
 import { useForm, SubmitHandler } from 'react-hook-form';
@@ -116,7 +117,6 @@ export default function ContactSection() {
             <p className="text-muted-foreground text-sm">
               We typically respond within 24 business hours. For urgent inquiries, please call us.
             </p>
-            {/* Placeholder for map or office image */}
              <div className="aspect-video bg-card rounded-lg overflow-hidden shadow-lg">
               <Image 
                 src="https://picsum.photos/seed/mapOffice/600/338" 
@@ -161,14 +161,20 @@ export default function ContactSection() {
                     <Textarea id="message" {...register("message")} placeholder="How can we help you?" rows={5} className="mt-1"/>
                     {errors.message && <p className="text-sm text-destructive mt-1">{errors.message.message}</p>}
                   </div>
-                  <Button type="submit" disabled={isSubmitting} className="w-full bg-primary hover:bg-primary/90 text-primary-foreground">
-                    {isSubmitting ? (
-                      <Loader2 className="mr-2 h-4 w-4 animate-spin" />
-                    ) : (
-                      <Send className="mr-2 h-4 w-4" />
-                    )}
-                    Send Message
-                  </Button>
+                  <motion.div
+                    whileHover={{ scale: 1.02, boxShadow: "0 0 15px hsl(var(--primary))" }}
+                    whileTap={{ scale: 0.98 }}
+                    className="w-full"
+                  >
+                    <Button type="submit" disabled={isSubmitting} className="w-full bg-primary hover:bg-primary/90 text-primary-foreground">
+                      {isSubmitting ? (
+                        <Loader2 className="mr-2 h-4 w-4 animate-spin" />
+                      ) : (
+                        <Send className="mr-2 h-4 w-4" />
+                      )}
+                      Send Message
+                    </Button>
+                  </motion.div>
                 </form>
               </CardContent>
             </Card>
@@ -178,4 +184,3 @@ export default function ContactSection() {
     </section>
   );
 }
-
