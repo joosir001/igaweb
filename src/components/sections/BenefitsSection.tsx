@@ -1,6 +1,6 @@
 "use client";
 
-import { motion, useInView } from 'framer-motion';
+import { motion, useInView, animate } from 'framer-motion';
 import { TrendingUp, Zap, ShieldCheck, Users, Clock, DollarSign } from 'lucide-react';
 import { useEffect, useRef, useState } from 'react';
 
@@ -58,7 +58,7 @@ const AnimatedCounter: React.FC<AnimatedCounterProps> = ({ to, duration = 2, suf
 
   useEffect(() => {
     if (isInView) {
-      const controls = motion.animate(0, to, {
+      const controls = animate(0, to, {
         duration,
         ease: "easeOut",
         onUpdate: (value) => setCount(Math.round(value)),
