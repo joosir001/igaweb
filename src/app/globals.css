@@ -82,10 +82,11 @@ body {
   }
   body {
     @apply bg-background text-foreground;
+    font-family: var(--font-geist-sans), system-ui, sans-serif;
     scroll-behavior: smooth;
   }
   h1, h2, h3, h4, h5, h6 {
-    font-family: var(--font-geist-sans); /* Ensure headings use Geist Sans or a similar modern font */
+    font-family: var(--font-geist-sans), system-ui, sans-serif; 
   }
   section {
     @apply py-16 md:py-24;

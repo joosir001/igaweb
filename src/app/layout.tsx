@@ -1,10 +1,7 @@
 import type { Metadata } from 'next';
-import { GeistSans, GeistMono } from 'geist/font'; // Corrected import from geist/font
+import { GeistSans, GeistMono } from 'geist/font';
 import './globals.css';
 import { Toaster } from "@/components/ui/toaster";
-
-const geistSans = GeistSans; // Corrected usage
-const geistMono = GeistMono; // Corrected usage
 
 export const metadata: Metadata = {
   title: 'NeonConnect - iGaming API Solutions',
@@ -18,7 +15,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" className="dark"> {/* Apply dark theme by default */}
-      <body className={`${geistSans.variable} ${geistMono.variable} antialiased bg-background text-foreground`}>
+      <body className={`${GeistSans.variable} ${GeistMono.variable} antialiased bg-background text-foreground`}>
         {children}
         <Toaster />
       </body>
