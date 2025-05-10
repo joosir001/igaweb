@@ -1,10 +1,15 @@
-
+// src/components/sections/ClientsSection.tsx
 "use client";
 
-import { motion } from 'framer-motion';
+import { useRef, useEffect } from 'react';
+import { gsap } from 'gsap';
+import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import Image from 'next/image';
 import { Card, CardContent } from '@/components/ui/card';
-import { Star } from 'lucide-react'; // Removed Users as it's not used
+import { Star } from 'lucide-react';
+import { motion } from 'framer-motion'; // Keep for individual logo hover and testimonial hover
+
+gsap.registerPlugin(ScrollTrigger);
 
 const clientLogos = [
   { name: "Client Alpha", src: "https://picsum.photos/seed/logoA/200/100", dataAiHint: "company logo" },
@@ -39,78 +44,140 @@ const testimonials = [
 ];
 
 export default function ClientsSection() {
-  const sectionVariants = {
-    hidden: { opacity: 0 },
-    visible: { 
-      opacity: 1,
-      transition: { staggerChildren: 0.2, delayChildren: 0.2 }
-    }
-  };
+  const sectionRef = useRef<HTMLDivElement>(null);
+  const logosContainerRef = useRef<HTMLDivElement>(null);
+  const testimonialsGridRef = useRef<HTMLDivElement>(null);
 
-  const itemVariants = {
-    hidden: { opacity: 0, y: 20 },
-    visible: { opacity: 1, y: 0, transition: { duration: 0.5 } }
-  };
+  useEffect(() => {
+    const ctx = gsap.context(() => {
+      // Animate section title and paragraph
+      gsap.fromTo(
+        ['.clients-title', '.clients-paragraph'],
+        { opacity: 0, y: 30, skewX: -3 },
+        {
+          opacity: 1,
+          y: 0,
+          skewX: 0,
+          duration: 0.7,
+          stagger: 0.15,
+          ease: 'power2.out',
+          scrollTrigger: {
+            trigger: sectionRef.current,
+            start: 'top 80%',
+            toggleActions: 'play none none none',
+            once: true,
+          },
+        }
+      );
+
+      // Animate client logos
+      if (logosContainerRef.current) {
+        gsap.fromTo(
+          logosContainerRef.current.children,
+          { opacity: 0, y: 20, scale: 0.8 },
+          {
+            opacity: 1,
+            y: 0,
+            scale: 1,
+            duration: 0.5,
+            stagger: 0.1,
+            ease: 'back.out(1.7)',
+            scrollTrigger: {
+              trigger: logosContainerRef.current,
+              start: 'top 85%',
+              toggleActions: 'play none none none',
+              once: true,
+            },
+          }
+        );
+      }
+
+      // Animate testimonials title
+       gsap.fromTo(
+        '.testimonials-title',
+        { opacity: 0, y: 30 },
+        {
+          opacity: 1,
+          y: 0,
+          duration: 0.7,
+          ease: 'power3.out',
+          scrollTrigger: {
+            trigger: '.testimonials-title',
+            start: 'top 85%',
+            toggleActions: 'play none none none',
+            once: true,
+          },
+        }
+      );
+
+      // Animate testimonial cards
+      if (testimonialsGridRef.current) {
+        gsap.fromTo(
+          testimonialsGridRef.current.children,
+          { opacity: 0, y: 50, filter: "blur(4px)" },
+          {
+            opacity: 1,
+            y: 0,
+            filter: "blur(0px)",
+            duration: 0.8,
+            stagger: 0.2,
+            ease: 'power3.out',
+            scrollTrigger: {
+              trigger: testimonialsGridRef.current,
+              start: 'top 80%',
+              toggleActions: 'play none none none',
+              once: true,
+            },
+          }
+        );
+      }
+    }, sectionRef);
+
+    return () => ctx.revert();
+  }, []);
 
   return (
-    <section id="clients" className="bg-background">
+    <section id="clients" className="bg-background" ref={sectionRef}>
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-        <motion.div
-          initial="hidden"
-          whileInView="visible"
-          viewport={{ once: true }}
-          variants={sectionVariants}
-          className="text-center"
-        >
-          <motion.h2 variants={itemVariants} className="text-4xl md:text-5xl font-bold mb-4">
+        <div className="text-center">
+          <h2 className="clients-title text-4xl md:text-5xl font-bold mb-4">
             Trusted by <span className="neon-text-primary">Industry Leaders</span>
-          </motion.h2>
-          <motion.p variants={itemVariants} className="text-lg text-muted-foreground max-w-2xl mx-auto mb-12 md:mb-16">
+          </h2>
+          <p className="clients-paragraph text-lg text-muted-foreground max-w-2xl mx-auto mb-12 md:mb-16">
             We partner with innovative iGaming businesses worldwide, helping them achieve their technological and market goals.
-          </motion.p>
-        </motion.div>
+          </p>
+        </div>
 
-        {/* Client Logos */}
-        <motion.div 
+        <div 
+          ref={logosContainerRef}
           className="flex flex-wrap justify-center items-center gap-8 md:gap-12 mb-16 md:mb-24"
-          initial="hidden"
-          whileInView="visible"
-          viewport={{ once: true }}
-          variants={sectionVariants}
         >
           {clientLogos.map((logo, index) => (
-            <motion.div
+            <motion.div // GSAP handles entrance, Framer Motion for hover
               key={index}
-              variants={itemVariants}
               className="relative h-12 w-32 md:h-16 md:w-40 filter grayscale hover:grayscale-0 transition-all duration-300"
               whileHover={{ scale: 1.1 }}
             >
               <Image 
                 src={logo.src} 
                 alt={logo.name} 
-                layout="fill" 
-                objectFit="contain"
+                fill // Use fill instead of layout
+                sizes="(max-width: 768px) 128px, 160px" // Provide sizes for responsiveness with fill
+                className="object-contain" // Use object-contain with fill
                 data-ai-hint={logo.dataAiHint}
               />
             </motion.div>
           ))}
-        </motion.div>
+        </div>
 
-        {/* Testimonials */}
-        <motion.div
-          initial="hidden"
-          whileInView="visible"
-          viewport={{ once: true }}
-          variants={sectionVariants}
-        >
-          <motion.h3 variants={itemVariants} className="text-3xl font-bold text-center mb-12">
+        <div>
+          <h3 className="testimonials-title text-3xl font-bold text-center mb-12">
             What Our <span className="neon-text-accent">Partners Say</span>
-          </motion.h3>
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+          </h3>
+          <div ref={testimonialsGridRef} className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
             {testimonials.map((testimonial, index) => (
-              <motion.div 
+              <motion.div // GSAP handles entrance, Framer Motion for hover
                 key={index} 
-                variants={itemVariants} 
                 className="h-full"
                 whileHover={{ 
                   y: -5,
@@ -118,7 +185,7 @@ export default function ClientsSection() {
                 }}
               >
                 <Card className="h-full bg-card/80 backdrop-blur-sm p-6 rounded-lg shadow-xl border border-transparent hover:border-accent/50 hover:shadow-accent/20 transition-all duration-300">
-                  <CardContent className="flex flex-col h-full p-0"> {/* Adjusted padding to p-0 as it's on Card */}
+                  <CardContent className="flex flex-col h-full p-0">
                     <div className="flex mb-2">
                       {[...Array(5)].map((_, i) => (
                         <Star key={i} className="w-5 h-5 text-yellow-400 fill-current" />
@@ -130,8 +197,9 @@ export default function ClientsSection() {
                         <Image 
                           src={testimonial.avatar} 
                           alt={testimonial.author} 
-                          layout="fill" 
-                          objectFit="cover"
+                          fill
+                          sizes="48px"
+                          className="object-cover"
                           data-ai-hint={testimonial.dataAiHint}
                         />
                       </div>
@@ -145,7 +213,7 @@ export default function ClientsSection() {
               </motion.div>
             ))}
           </div>
-        </motion.div>
+        </div>
       </div>
     </section>
   );

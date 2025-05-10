@@ -1,6 +1,7 @@
-
+// src/components/sections/ContactSection.tsx
 "use client";
 
+import { useRef, useEffect, useState } from 'react';
 import { useForm, SubmitHandler } from 'react-hook-form';
 import { zodResolver } from '@hookform/resolvers/zod';
 import { z } from 'zod';
@@ -11,28 +12,28 @@ import { Label } from '@/components/ui/label';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
 import { useToast } from "@/hooks/use-toast";
 import { Loader2, Send, Mail, Phone } from 'lucide-react';
-import { motion } from 'framer-motion';
-import { useState } from 'react';
+import { motion } from 'framer-motion'; // Keep for button hover
 import Image from 'next/image';
+import { gsap } from 'gsap';
+import { ScrollTrigger } from 'gsap/ScrollTrigger';
+
+gsap.registerPlugin(ScrollTrigger);
 
 const contactFormSchema = z.object({
   name: z.string().min(2, { message: "Name must be at least 2 characters." }),
   email: z.string().email({ message: "Please enter a valid email address." }),
   company: z.string().optional(),
   message: z.string().min(10, { message: "Message must be at least 10 characters." }),
-  servicesOfInterest: z.array(z.string()).optional(), // Example, can be checkboxes
+  servicesOfInterest: z.array(z.string()).optional(),
 });
 
 type ContactFormValues = z.infer<typeof contactFormSchema>;
 
 async function submitContactForm(data: ContactFormValues) {
-  // Simulate API call
   console.log("Form data submitted:", data);
   await new Promise(resolve => setTimeout(resolve, 1500));
-  // throw new Error("Simulated server error"); // Uncomment to test error handling
   return { success: true, message: "Your message has been sent successfully!" };
 }
-
 
 export default function ContactSection() {
   const { toast } = useToast();
@@ -40,6 +41,79 @@ export default function ContactSection() {
   const { register, handleSubmit, formState: { errors }, reset } = useForm<ContactFormValues>({
     resolver: zodResolver(contactFormSchema),
   });
+
+  const sectionRef = useRef<HTMLDivElement>(null);
+  const contactInfoRef = useRef<HTMLDivElement>(null);
+  const formCardRef = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    const ctx = gsap.context(() => {
+      // Animate section title and paragraph
+      gsap.fromTo(
+        ['.contact-title', '.contact-paragraph'],
+        { opacity: 0, y: 30, skewX: -2 },
+        {
+          opacity: 1,
+          y: 0,
+          skewX: 0,
+          duration: 0.7,
+          stagger: 0.15,
+          ease: 'power2.out',
+          scrollTrigger: {
+            trigger: sectionRef.current,
+            start: 'top 80%',
+            toggleActions: 'play none none none',
+            once: true,
+          },
+        }
+      );
+
+      // Animate contact info block
+      if (contactInfoRef.current) {
+        gsap.fromTo(
+          contactInfoRef.current,
+          { opacity: 0, x: -50, filter: "blur(5px)" },
+          {
+            opacity: 1,
+            x: 0,
+            filter: "blur(0px)",
+            duration: 0.9,
+            ease: 'power3.out',
+            scrollTrigger: {
+              trigger: contactInfoRef.current,
+              start: 'top 85%',
+              toggleActions: 'play none none none',
+              once: true,
+            },
+          }
+        );
+      }
+
+      // Animate form card
+      if (formCardRef.current) {
+        gsap.fromTo(
+          formCardRef.current,
+          { opacity: 0, x: 50, scale: 0.95 },
+          {
+            opacity: 1,
+            x: 0,
+            scale: 1,
+            duration: 0.9,
+            delay: 0.15,
+            ease: 'power3.out',
+            scrollTrigger: {
+              trigger: formCardRef.current,
+              start: 'top 85%',
+              toggleActions: 'play none none none',
+              once: true,
+            },
+          }
+        );
+      }
+    }, sectionRef);
+
+    return () => ctx.revert();
+  }, []);
 
   const onSubmit: SubmitHandler<ContactFormValues> = async (data) => {
     setIsSubmitting(true);
@@ -66,44 +140,22 @@ export default function ContactSection() {
     }
   };
 
-  const sectionVariants = {
-    hidden: { opacity: 0 },
-    visible: { 
-      opacity: 1,
-      transition: { staggerChildren: 0.2, delayChildren: 0.2 }
-    }
-  };
-
-  const itemVariants = {
-    hidden: { opacity: 0, y: 20 },
-    visible: { opacity: 1, y: 0, transition: { duration: 0.5 } }
-  };
-
   return (
-    <section id="contact" className="bg-background">
+    <section id="contact" className="bg-background" ref={sectionRef}>
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-        <motion.div
-          initial="hidden"
-          whileInView="visible"
-          viewport={{ once: true }}
-          variants={sectionVariants}
-          className="text-center"
-        >
-          <motion.h2 variants={itemVariants} className="text-4xl md:text-5xl font-bold mb-4">
+        <div className="text-center">
+          <h2 className="contact-title text-4xl md:text-5xl font-bold mb-4">
             Let's <span className="neon-text-primary">Connect</span>
-          </motion.h2>
-          <motion.p variants={itemVariants} className="text-lg text-muted-foreground max-w-2xl mx-auto mb-12 md:mb-16">
+          </h2>
+          <p className="contact-paragraph text-lg text-muted-foreground max-w-2xl mx-auto mb-12 md:mb-16">
             Ready to elevate your iGaming platform? Reach out to us for a consultation or a custom quote. We're here to help you succeed.
-          </motion.p>
-        </motion.div>
+          </p>
+        </div>
 
         <div className="grid md:grid-cols-5 gap-8 md:gap-12 items-start">
-          <motion.div 
+          <div 
+            ref={contactInfoRef}
             className="md:col-span-2 space-y-8"
-            initial={{ opacity: 0, x: -50 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.6 }}
           >
             <h3 className="text-2xl font-semibold text-foreground mb-4">Direct Contact</h3>
             <a href="mailto:info@neonconnect.dev" className="flex items-center space-x-3 group">
@@ -126,14 +178,11 @@ export default function ContactSection() {
                 data-ai-hint="city map" 
               />
             </div>
-          </motion.div>
+          </div>
 
-          <motion.div 
+          <div 
+            ref={formCardRef}
             className="md:col-span-3"
-            initial={{ opacity: 0, x: 50 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.6, delay: 0.15 }}
           >
             <Card className="shadow-xl border-primary/30 neon-border-primary">
               <CardHeader>
@@ -161,7 +210,7 @@ export default function ContactSection() {
                     <Textarea id="message" {...register("message")} placeholder="How can we help you?" rows={5} className="mt-1"/>
                     {errors.message && <p className="text-sm text-destructive mt-1">{errors.message.message}</p>}
                   </div>
-                  <motion.div
+                  <motion.div // Keep Framer motion for button hover
                     whileHover={{ scale: 1.02, boxShadow: "0 0 15px hsl(var(--primary))" }}
                     whileTap={{ scale: 0.98 }}
                     className="w-full"
@@ -178,7 +227,7 @@ export default function ContactSection() {
                 </form>
               </CardContent>
             </Card>
-          </motion.div>
+          </div>
         </div>
       </div>
     </section>

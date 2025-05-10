@@ -1,8 +1,14 @@
+// src/components/sections/ServicesSection.tsx
 "use client";
 
+import { useRef, useEffect } from 'react';
+import { gsap } from 'gsap';
+import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import ServiceCard from '@/components/ui/ServiceCard';
 import { Blocks, BarChartBig, CreditCard, UserCog, ShieldCheck, Handshake } from 'lucide-react';
-import { motion } from 'framer-motion';
+import { motion } from 'framer-motion'; // Keep for section title animation if needed
+
+gsap.registerPlugin(ScrollTrigger);
 
 const services = [
   {
@@ -38,10 +44,40 @@ const services = [
 ];
 
 export default function ServicesSection() {
+  const sectionRef = useRef<HTMLDivElement>(null);
+  const cardsGridRef = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    const ctx = gsap.context(() => {
+      if (cardsGridRef.current) {
+        gsap.fromTo(
+          cardsGridRef.current.children,
+          { opacity: 0, y: 60, scale: 0.95 },
+          {
+            opacity: 1,
+            y: 0,
+            scale: 1,
+            duration: 0.8,
+            stagger: 0.15,
+            ease: 'power3.out',
+            scrollTrigger: {
+              trigger: cardsGridRef.current,
+              start: 'top 85%',
+              toggleActions: 'play none none none',
+              once: true,
+            },
+          }
+        );
+      }
+    }, sectionRef); // Scope GSAP animations to this section
+
+    return () => ctx.revert(); // Cleanup GSAP animations on unmount
+  }, []);
+
   return (
-    <section id="services" className="bg-background">
+    <section id="services" className="bg-background" ref={sectionRef}>
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-        <motion.div
+        <motion.div // Keep Framer Motion for title if desired, or convert to GSAP
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
@@ -55,14 +91,15 @@ export default function ServicesSection() {
           </p>
         </motion.div>
         
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <div ref={cardsGridRef} className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
           {services.map((service, index) => (
+            // ServiceCard will have its own hover effects (Framer Motion), GSAP handles entrance
             <ServiceCard
               key={service.title}
               icon={service.icon}
               title={service.title}
               description={service.description}
-              index={index}
+              // index prop removed as GSAP handles staggering from parent
             />
           ))}
         </div>

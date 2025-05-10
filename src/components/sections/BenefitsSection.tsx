@@ -1,8 +1,13 @@
+// src/components/sections/BenefitsSection.tsx
 "use client";
 
-import { motion, useInView, animate } from 'framer-motion';
-import { TrendingUp, Zap, ShieldCheck, Users, Clock, DollarSign } from 'lucide-react';
 import { useEffect, useRef, useState } from 'react';
+import { gsap } from 'gsap';
+import { ScrollTrigger } from 'gsap/ScrollTrigger';
+import { motion, useInView, animate } from 'framer-motion'; // Keep Framer Motion for AnimatedCounter and potentially title
+import { TrendingUp, Zap, ShieldCheck, Users, Clock, DollarSign } from 'lucide-react';
+
+gsap.registerPlugin(ScrollTrigger);
 
 interface Benefit {
   icon: React.ElementType;
@@ -58,7 +63,7 @@ const AnimatedCounter: React.FC<AnimatedCounterProps> = ({ to, duration = 2, suf
 
   useEffect(() => {
     if (isInView) {
-      const controls = animate(0, to, {
+      const controls = animate(0, to, { // Framer Motion's animate function
         duration,
         ease: "easeOut",
         onUpdate: (value) => setCount(Math.round(value)),
@@ -70,57 +75,91 @@ const AnimatedCounter: React.FC<AnimatedCounterProps> = ({ to, duration = 2, suf
   return <span ref={ref} className={className}>{prefix}{count}{suffix}</span>;
 };
 
+const stats = [
+  { value: 5000, suffix: "+", label: "Games Integrated" },
+  { value: 99.9, suffix: "%", label: "Uptime SLA" },
+  { value: 24, prefix:"", suffix: "/7", label: "Support" },
+];
 
 export default function BenefitsSection() {
-  const sectionVariants = {
-    hidden: { opacity: 0 },
-    visible: { 
-      opacity: 1,
-      transition: { staggerChildren: 0.1, delayChildren: 0.2 }
-    }
-  };
+  const sectionRef = useRef<HTMLDivElement>(null);
+  const benefitsGridRef = useRef<HTMLDivElement>(null);
+  const statsGridRef = useRef<HTMLDivElement>(null);
 
-  const itemVariants = {
-    hidden: { opacity: 0, y: 30 },
-    visible: { opacity: 1, y: 0, transition: { duration: 0.6, ease: "easeOut" } }
-  };
-  
-  const stats = [
-    { value: 5000, suffix: "+", label: "Games Integrated" },
-    { value: 99.9, suffix: "%", label: "Uptime SLA" },
-    { value: 24, prefix:"", suffix: "/7", label: "Support" },
-  ];
+  useEffect(() => {
+    const ctx = gsap.context(() => {
+      // Animate benefit cards
+      if (benefitsGridRef.current) {
+        gsap.fromTo(
+          benefitsGridRef.current.children,
+          { opacity: 0, y: 50, scale: 0.9 },
+          {
+            opacity: 1,
+            y: 0,
+            scale: 1,
+            duration: 0.7,
+            stagger: 0.1,
+            ease: 'power2.out',
+            scrollTrigger: {
+              trigger: benefitsGridRef.current,
+              start: 'top 80%',
+              toggleActions: 'play none none none',
+              once: true,
+            },
+          }
+        );
+      }
+
+      // Animate stats cards
+      if (statsGridRef.current) {
+        gsap.fromTo(
+          statsGridRef.current.children,
+          { opacity: 0, y: 40, filter: "blur(5px)" },
+          {
+            opacity: 1,
+            y: 0,
+            filter: "blur(0px)",
+            duration: 0.9,
+            stagger: 0.2,
+            ease: 'circ.out',
+            scrollTrigger: {
+              trigger: statsGridRef.current,
+              start: 'top 85%',
+              toggleActions: 'play none none none',
+              once: true,
+            },
+          }
+        );
+      }
+    }, sectionRef);
+
+    return () => ctx.revert();
+  }, []);
 
   return (
-    <section id="benefits" className="bg-background">
+    <section id="benefits" className="bg-background" ref={sectionRef}>
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-        <motion.div
-          initial="hidden"
-          whileInView="visible"
+        <motion.div // Title animation can remain Framer Motion or be converted
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          variants={sectionVariants}
+          transition={{ duration: 0.5 }}
           className="text-center"
         >
-          <motion.h2 variants={itemVariants} className="text-4xl md:text-5xl font-bold mb-4">
+          <h2 className="text-4xl md:text-5xl font-bold mb-4">
             Unlock Your <span className="neon-text-primary">Platform's Potential</span>
-          </motion.h2>
-          <motion.p variants={itemVariants} className="text-lg text-muted-foreground max-w-3xl mx-auto mb-12 md:mb-16">
+          </h2>
+          <p className="text-lg text-muted-foreground max-w-3xl mx-auto mb-12 md:mb-16">
             Partnering with NeonConnect brings tangible benefits to your iGaming business, accelerating growth and enhancing operational efficiency.
-          </motion.p>
+          </p>
         </motion.div>
 
-        <motion.div 
-          className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mb-16"
-          initial="hidden"
-          whileInView="visible"
-          viewport={{ once: true }}
-          variants={sectionVariants}
-        >
+        <div ref={benefitsGridRef} className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mb-16">
           {benefits.map((benefit, index) => (
-            <motion.div 
+            <motion.div // Keep Framer Motion for hover effects on the card
               key={index} 
-              variants={itemVariants}
-              className="bg-card p-6 rounded-lg shadow-xl hover:shadow-primary/20 transition-shadow duration-300 border border-transparent hover:border-primary/50"
+              whileHover={{ y: -5, boxShadow: "0px 6px 12px hsla(var(--primary), 0.15)" }}
+              className="bg-card p-6 rounded-lg shadow-xl border border-transparent hover:border-primary/50"
             >
               <div className="flex items-center mb-4">
                 <div className="p-3 bg-primary/10 rounded-full mr-4">
@@ -131,19 +170,12 @@ export default function BenefitsSection() {
               <p className="text-muted-foreground text-sm leading-relaxed">{benefit.description}</p>
             </motion.div>
           ))}
-        </motion.div>
+        </div >
         
-        <motion.div 
-            className="grid grid-cols-1 md:grid-cols-3 gap-8 text-center"
-            initial="hidden"
-            whileInView="visible"
-            viewport={{ once: true }}
-            variants={sectionVariants}
-        >
+        <div ref={statsGridRef} className="grid grid-cols-1 md:grid-cols-3 gap-8 text-center">
           {stats.map((stat, index) => (
-            <motion.div 
+            <div // GSAP handles entrance, so no Framer Motion variants needed here
               key={index} 
-              variants={itemVariants} 
               className="p-6 bg-card/80 backdrop-blur-sm rounded-lg shadow-lg"
             >
               <AnimatedCounter 
@@ -153,9 +185,9 @@ export default function BenefitsSection() {
                 className="block text-5xl font-bold neon-text-accent mb-2" 
               />
               <p className="text-muted-foreground">{stat.label}</p>
-            </motion.div>
+            </div>
           ))}
-        </motion.div>
+        </div>
       </div>
     </section>
   );

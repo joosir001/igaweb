@@ -1,7 +1,7 @@
-
+// src/components/sections/AiAdvisorSection.tsx
 "use client";
 
-import { useState } from 'react';
+import { useState, useRef, useEffect } from 'react';
 import { useForm, Controller, SubmitHandler } from 'react-hook-form';
 import { zodResolver } from '@hookform/resolvers/zod';
 import { z } from 'zod';
@@ -10,11 +10,14 @@ import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle }
 import { Checkbox } from '@/components/ui/checkbox';
 import { Label } from '@/components/ui/label';
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select';
-// import { Textarea } from '@/components/ui/textarea'; // Not used for input here
 import { integrationAdvisor, IntegrationAdvisorInput } from '@/ai/flows/integration-advisor';
 import { Loader2, Sparkles } from 'lucide-react';
-import { motion } from 'framer-motion';
+import { motion } from 'framer-motion'; // Keep for internal elements like button hover or loader
 import { useToast } from "@/hooks/use-toast";
+import { gsap } from 'gsap';
+import { ScrollTrigger } from 'gsap/ScrollTrigger';
+
+gsap.registerPlugin(ScrollTrigger);
 
 const servicesOptions = [
   { id: 'casino_games', label: 'Casino Games' },
@@ -44,6 +47,10 @@ export default function AiAdvisorSection() {
   const [isLoading, setIsLoading] = useState(false);
   const [advice, setAdvice] = useState<string | null>(null);
   const { toast } = useToast();
+  
+  const sectionRef = useRef<HTMLDivElement>(null);
+  const formCardRef = useRef<HTMLDivElement>(null);
+  const adviceCardRef = useRef<HTMLDivElement>(null);
 
   const form = useForm<FormValues>({
     resolver: zodResolver(FormSchema),
@@ -54,6 +61,75 @@ export default function AiAdvisorSection() {
   });
 
   const { control, handleSubmit, formState: { errors } } = form;
+
+  useEffect(() => {
+    const ctx = gsap.context(() => {
+      // Animate section title and paragraph (if they were separate components or had classes)
+      gsap.fromTo(
+        ['.ai-advisor-title', '.ai-advisor-paragraph'],
+        { opacity: 0, y: 20 },
+        {
+          opacity: 1,
+          y: 0,
+          duration: 0.6,
+          stagger: 0.2,
+          ease: 'power2.out',
+          scrollTrigger: {
+            trigger: sectionRef.current,
+            start: 'top 80%',
+            toggleActions: 'play none none none',
+            once: true,
+          },
+        }
+      );
+
+      // Animate form card
+      if (formCardRef.current) {
+        gsap.fromTo(
+          formCardRef.current,
+          { opacity: 0, x: -50, scale: 0.95 },
+          {
+            opacity: 1,
+            x: 0,
+            scale: 1,
+            duration: 0.8,
+            ease: 'power3.out',
+            scrollTrigger: {
+              trigger: formCardRef.current,
+              start: 'top 85%',
+              toggleActions: 'play none none none',
+              once: true,
+            },
+          }
+        );
+      }
+
+      // Animate advice card
+      if (adviceCardRef.current) {
+         gsap.fromTo(
+          adviceCardRef.current,
+          { opacity: 0, x: 50, scale: 0.95 },
+          {
+            opacity: 1,
+            x: 0,
+            scale: 1,
+            duration: 0.8,
+            delay: 0.2, // Slight delay if desired
+            ease: 'power3.out',
+            scrollTrigger: {
+              trigger: adviceCardRef.current,
+              start: 'top 85%',
+              toggleActions: 'play none none none',
+              once: true,
+            },
+          }
+        );
+      }
+    }, sectionRef);
+
+    return () => ctx.revert();
+  }, []);
+
 
   const onSubmit: SubmitHandler<FormValues> = async (data) => {
     setIsLoading(true);
@@ -84,29 +160,19 @@ export default function AiAdvisorSection() {
   };
 
   return (
-    <section id="ai-advisor" className="bg-background/70 backdrop-blur-sm">
+    <section id="ai-advisor" className="bg-background/70 backdrop-blur-sm" ref={sectionRef}>
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.5 }}
-        >
-          <h2 className="text-4xl md:text-5xl font-bold text-center mb-4">
+        <div> {/* Container for title animations */}
+          <h2 className="ai-advisor-title text-4xl md:text-5xl font-bold text-center mb-4">
             AI-Powered <span className="neon-text-accent">Integration Advisor</span>
           </h2>
-          <p className="text-lg text-muted-foreground text-center max-w-2xl mx-auto mb-12 md:mb-16">
+          <p className="ai-advisor-paragraph text-lg text-muted-foreground text-center max-w-2xl mx-auto mb-12 md:mb-16">
             Get personalized recommendations for your API integration strategy. Tell us your needs, and our AI will suggest the optimal approach.
           </p>
-        </motion.div>
+        </div>
 
         <div className="grid md:grid-cols-2 gap-8 md:gap-12 items-start">
-          <motion.div
-            initial={{ opacity: 0, x: -50 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.6 }}
-          >
+          <div ref={formCardRef}> {/* GSAP target */}
             <Card className="shadow-xl border-primary/30 neon-border-primary">
               <CardHeader>
                 <CardTitle className="text-2xl flex items-center gap-2">
@@ -181,7 +247,7 @@ export default function AiAdvisorSection() {
                   </div>
                 </CardContent>
                 <CardFooter>
-                  <motion.div
+                  <motion.div // Framer Motion for button hover
                     whileHover={{ scale: 1.02, boxShadow: "0 0 15px hsl(var(--primary))" }}
                     whileTap={{ scale: 0.98 }}
                     className="w-full"
@@ -198,14 +264,9 @@ export default function AiAdvisorSection() {
                 </CardFooter>
               </form>
             </Card>
-          </motion.div>
+          </div>
           
-          <motion.div
-            initial={{ opacity: 0, x: 50 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.6, delay: 0.2 }}
-          >
+          <div ref={adviceCardRef}> {/* GSAP target */}
             <Card className="min-h-[400px] shadow-xl border-accent/30 neon-border-accent">
               <CardHeader>
                 <CardTitle className="text-2xl flex items-center gap-2">
@@ -224,7 +285,7 @@ export default function AiAdvisorSection() {
                   </div>
                 )}
                 {!isLoading && advice && (
-                  <motion.div
+                  <motion.div // Framer motion for content reveal after loading
                     initial={{ opacity: 0 }}
                     animate={{ opacity: 1 }}
                     transition={{ duration: 0.5 }}
@@ -241,7 +302,7 @@ export default function AiAdvisorSection() {
                 )}
               </CardContent>
             </Card>
-          </motion.div>
+          </div>
         </div>
       </div>
     </section>

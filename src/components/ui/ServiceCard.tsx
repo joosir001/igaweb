@@ -1,3 +1,4 @@
+// src/components/ui/ServiceCard.tsx
 "use client";
 
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
@@ -8,22 +9,19 @@ interface ServiceCardProps {
   icon: LucideIcon;
   title: string;
   description: string;
-  index: number;
 }
 
-export default function ServiceCard({ icon: Icon, title, description, index }: ServiceCardProps) {
+export default function ServiceCard({ icon: Icon, title, description }: ServiceCardProps) {
   return (
     <motion.div
-      initial={{ opacity: 0, y: 50 }}
-      whileInView={{ opacity: 1, y: 0 }}
-      viewport={{ once: true }}
-      transition={{ duration: 0.5, delay: index * 0.1 }}
+      // Removed initial, whileInView, viewport, and transition for entrance.
+      // Entrance animation is now handled by GSAP in ServicesSection.tsx.
       whileHover={{ 
         y: -8, 
         boxShadow: "0px 10px 20px hsla(var(--primary), 0.2), 0px 0px 15px hsla(var(--primary), 0.3)",
         borderColor: "hsl(var(--primary))"
       }}
-      className="h-full"
+      className="h-full" // Ensure div takes full height for consistent layout
     >
       <Card className="h-full bg-card/80 backdrop-blur-sm border-2 border-transparent transition-all duration-300 ease-in-out transform hover:border-primary">
         <CardHeader className="items-center text-center">
