@@ -1,16 +1,40 @@
+
 "use client";
 
-import { useEffect, useRef } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import { gsap } from 'gsap';
 import { Button } from '@/components/ui/button';
 import { motion } from 'framer-motion';
 import Link from 'next/link';
 import { ArrowRight, Zap } from 'lucide-react';
 
+interface AnimatedElementStyle {
+  width: number;
+  height: number;
+  left: string;
+  top: string;
+  duration: number;
+  delay: number;
+}
+
 export default function HeroSection() {
   const headlineRef = useRef<HTMLHeadingElement>(null);
   const subheadingRef = useRef<HTMLParagraphElement>(null);
   const ctaRef = useRef<HTMLDivElement>(null);
+  const [animatedElements, setAnimatedElements] = useState<AnimatedElementStyle[]>([]);
+
+  useEffect(() => {
+    const elements: AnimatedElementStyle[] = [...Array(15)].map(() => ({
+      width: Math.random() * 100 + 50,
+      height: Math.random() * 100 + 50,
+      left: `${Math.random() * 100}%`,
+      top: `${Math.random() * 100}%`,
+      duration: Math.random() * 5 + 5,
+      delay: Math.random() * 3,
+    }));
+    setAnimatedElements(elements);
+  }, []);
+
 
   useEffect(() => {
     const tl = gsap.timeline({ defaults: { ease: 'power3.out' } });
@@ -56,23 +80,23 @@ export default function HeroSection() {
     <section id="hero" className="relative min-h-screen flex items-center justify-center overflow-hidden pt-16">
       {/* Animated Background Elements */}
       <div className="absolute inset-0 z-0">
-        {[...Array(15)].map((_, i) => (
+        {animatedElements.map((style, i) => (
           <motion.div
             key={i}
             className="absolute bg-primary/30 rounded-full"
             initial={{ opacity: 0, scale: 0 }}
             animate={{ opacity: [0, 0.5, 0], scale: 1 }}
             transition={{
-              duration: Math.random() * 5 + 5,
+              duration: style.duration,
               repeat: Infinity,
               repeatType: 'loop',
-              delay: Math.random() * 3,
+              delay: style.delay,
             }}
             style={{
-              width: Math.random() * 100 + 50,
-              height: Math.random() * 100 + 50,
-              left: `${Math.random() * 100}%`,
-              top: `${Math.random() * 100}%`,
+              width: style.width,
+              height: style.height,
+              left: style.left,
+              top: style.top,
             }}
           />
         ))}
@@ -122,3 +146,4 @@ export default function HeroSection() {
     </section>
   );
 }
+

@@ -1,8 +1,15 @@
+
+"use client";
 import Link from 'next/link';
 import { Linkedin, Twitter, Github, Gamepad2 } from 'lucide-react';
+import { useEffect, useState } from 'react';
 
 export default function Footer() {
-  const currentYear = new Date().getFullYear();
+  const [currentYear, setCurrentYear] = useState<number | null>(null);
+
+  useEffect(() => {
+    setCurrentYear(new Date().getFullYear());
+  }, []);
 
   return (
     <footer className="bg-background/50 border-t border-border/50 py-12">
@@ -31,7 +38,7 @@ export default function Footer() {
           </a>
         </div>
         <p className="text-sm text-muted-foreground">
-          &copy; {currentYear} NeonConnect. All rights reserved.
+          &copy; {currentYear !== null ? currentYear : 'Loading...'} NeonConnect. All rights reserved.
         </p>
         <p className="text-xs text-muted-foreground mt-2">
           Empowering the future of iGaming integration.
@@ -40,3 +47,4 @@ export default function Footer() {
     </footer>
   );
 }
+

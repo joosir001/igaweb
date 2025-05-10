@@ -1,10 +1,19 @@
+
+"use client";
 import Navbar from '@/components/layout/Navbar';
 import Footer from '@/components/layout/Footer';
 import { Button } from '@/components/ui/button';
 import Link from 'next/link';
 import { ArrowLeft } from 'lucide-react';
+import { useEffect, useState } from 'react';
 
 export default function PrivacyPolicyPage() {
+  const [lastUpdatedDate, setLastUpdatedDate] = useState('');
+
+  useEffect(() => {
+    setLastUpdatedDate(new Date().toLocaleDateString());
+  }, []);
+
   return (
     <div className="flex flex-col min-h-screen">
       <Navbar />
@@ -18,7 +27,7 @@ export default function PrivacyPolicyPage() {
           <h1 className="text-4xl font-bold neon-text-primary mb-8">Privacy Policy</h1>
           
           <div className="prose prose-lg dark:prose-invert max-w-none space-y-6">
-            <p><strong>Last Updated: {new Date().toLocaleDateString()}</strong></p>
+            <p><strong>Last Updated: {lastUpdatedDate || 'Loading...'}</strong></p>
 
             <p>NeonConnect ("us", "we", or "our") operates the NeonConnect website (the "Service"). This page informs you of our policies regarding the collection, use, and disclosure of personal data when you use our Service and the choices you have associated with that data.</p>
 
@@ -69,3 +78,4 @@ export default function PrivacyPolicyPage() {
     </div>
   );
 }
+

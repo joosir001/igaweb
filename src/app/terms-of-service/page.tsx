@@ -1,10 +1,19 @@
+
+"use client";
 import Navbar from '@/components/layout/Navbar';
 import Footer from '@/components/layout/Footer';
 import { Button } from '@/components/ui/button';
 import Link from 'next/link';
 import { ArrowLeft } from 'lucide-react';
+import { useEffect, useState } from 'react';
 
 export default function TermsOfServicePage() {
+  const [lastUpdatedDate, setLastUpdatedDate] = useState('');
+
+  useEffect(() => {
+    setLastUpdatedDate(new Date().toLocaleDateString());
+  }, []);
+
   return (
     <div className="flex flex-col min-h-screen">
       <Navbar />
@@ -18,7 +27,7 @@ export default function TermsOfServicePage() {
           <h1 className="text-4xl font-bold neon-text-primary mb-8">Terms of Service</h1>
           
           <div className="prose prose-lg dark:prose-invert max-w-none space-y-6">
-            <p><strong>Last Updated: {new Date().toLocaleDateString()}</strong></p>
+            <p><strong>Last Updated: {lastUpdatedDate || 'Loading...'}</strong></p>
 
             <p>Please read these Terms of Service ("Terms", "Terms of Service") carefully before using the NeonConnect website (the "Service") operated by NeonConnect ("us", "we", or "our").</p>
 
@@ -70,3 +79,4 @@ export default function TermsOfServicePage() {
     </div>
   );
 }
+
