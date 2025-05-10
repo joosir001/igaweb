@@ -1,5 +1,6 @@
 import type { Metadata } from 'next';
-import { GeistSans, GeistMono } from 'geist/font';
+import { GeistSans } from 'geist/font/sans';
+import { GeistMono } from 'geist/font/mono';
 import './globals.css';
 import { Toaster } from "@/components/ui/toaster";
 
@@ -14,7 +15,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" className="dark"> {/* Apply dark theme by default */}
+    <html lang="en" className="dark">
       <body className={`${GeistSans.variable} ${GeistMono.variable} antialiased bg-background text-foreground`}>
         {children}
         <Toaster />

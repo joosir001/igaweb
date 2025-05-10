@@ -2,7 +2,7 @@
 
 import { motion } from 'framer-motion';
 import Image from 'next/image';
-import { Target, Eye, Zap, Users } from 'lucide-react';
+import { Target, Eye, Zap, Users, ShieldCheck } from 'lucide-react';
 
 export default function AboutUsSection() {
   const sectionVariants = {
