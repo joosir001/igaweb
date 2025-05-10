@@ -8,6 +8,7 @@ body {
 
 @layer base {
   :root {
+    /* Default Dark Theme Variables */
     --background: 220 25% 10%; /* Deep Dark Blue/Gray */
     --foreground: 210 20% 95%; /* Light Gray/White */
 
@@ -38,16 +39,26 @@ body {
 
     --radius: 0.5rem;
 
-    /* Chart colors (can be adjusted to fit neon theme) */
+    /* Chart colors */
     --chart-1: 182 100% 74.3%; /* Electric Blue */
     --chart-2: 109 100% 54.3%; /* Neon Green */
     --chart-3: 270 100% 70%; /* Neon Purple */
     --chart-4: 330 100% 70%; /* Neon Pink */
     --chart-5: 60 100% 60%;  /* Neon Yellow */
+
+    /* Sidebar variables for dark theme */
+    --sidebar-background: 220 25% 8%;
+    --sidebar-foreground: 210 20% 90%;
+    --sidebar-primary: 182 100% 70%;
+    --sidebar-primary-foreground: 220 25% 10%;
+    --sidebar-accent: 109 100% 50%;
+    --sidebar-accent-foreground: 220 25% 10%;
+    --sidebar-border: 220 20% 18%;
+    --sidebar-ring: 182 100% 70%;
   }
 
   .dark {
-    /* Dark theme is default, but if a .dark class is used, these would be the overrides */
+    /* Explicit dark theme overrides if needed, mostly inherits from :root */
     --background: 220 25% 10%;
     --foreground: 210 20% 95%;
     --card: 220 25% 12%;
@@ -62,7 +73,7 @@ body {
     --muted-foreground: 220 20% 60%;
     --accent: 109 100% 54.3%;
     --accent-foreground: 220 25% 10%;
-    --destructive: 0 62.8% 30.6%; /* Keep destructive distinct */
+    --destructive: 0 70% 50%; 
     --destructive-foreground: 0 0% 98%;
     --border: 220 20% 20%;
     --input: 220 20% 22%;
@@ -73,6 +84,62 @@ body {
     --chart-3: 270 100% 70%;
     --chart-4: 330 100% 70%;
     --chart-5: 60 100% 60%;
+
+    --sidebar-background: 220 25% 8%;
+    --sidebar-foreground: 210 20% 90%;
+    --sidebar-primary: 182 100% 70%;
+    --sidebar-primary-foreground: 220 25% 10%;
+    --sidebar-accent: 109 100% 50%;
+    --sidebar-accent-foreground: 220 25% 10%;
+    --sidebar-border: 220 20% 18%;
+    --sidebar-ring: 182 100% 70%;
+  }
+
+  .light {
+    --background: 300 100% 99%; /* Very light pinkish-white */
+    --foreground: 300 20% 15%; /* Dark purplish-gray */
+
+    --card: 0 0% 100%; /* White */
+    --card-foreground: 300 20% 15%;
+
+    --popover: 0 0% 100%;
+    --popover-foreground: 300 20% 15%;
+
+    --primary: 300 70% 60%; /* Pinkish-Purple */
+    --primary-foreground: 0 0% 100%; /* White */
+
+    --secondary: 300 50% 90%; /* Lighter Pinkish-Purple */
+    --secondary-foreground: 300 70% 50%; /* Darker Pinkish-Purple for text on secondary */
+
+    --muted: 300 50% 95%; /* Very light muted purple */
+    --muted-foreground: 300 20% 55%; /* Medium purplish-gray */
+
+    --accent: 10 85% 65%; /* Orangey-Pink */
+    --accent-foreground: 0 0% 100%; /* White */
+
+    --destructive: 0 70% 50%; 
+    --destructive-foreground: 0 0% 98%;
+
+    --border: 300 30% 88%; /* Light purple border */
+    --input: 300 40% 94%;  /* Light purple input background */
+    --ring: 300 70% 60%;   /* Pinkish-Purple for rings */
+
+    /* Chart colors for light mode */
+    --chart-1: 300 70% 60%; /* Pinkish-Purple */
+    --chart-2: 10 85% 65%;  /* Orangey-Pink */
+    --chart-3: 270 70% 65%; /* A complementary purple */
+    --chart-4: 330 80% 70%; /* A complementary pink */
+    --chart-5: 40 90% 65%;  /* A complementary orange/yellow */
+
+    /* Sidebar variables for light theme */
+    --sidebar-background: 300 80% 97%;
+    --sidebar-foreground: 300 20% 25%;
+    --sidebar-primary: 300 70% 55%;
+    --sidebar-primary-foreground: 0 0% 100%;
+    --sidebar-accent: 10 85% 60%;
+    --sidebar-accent-foreground: 0 0% 100%;
+    --sidebar-border: 300 30% 85%;
+    --sidebar-ring: 300 70% 55%;
   }
 }
 
@@ -93,7 +160,7 @@ body {
   }
 }
 
-/* Custom neon glow effect */
+/* Custom neon glow effect - works with both themes */
 .neon-text-primary {
   color: hsl(var(--primary));
   text-shadow:
@@ -102,6 +169,14 @@ body {
     0 0 20px hsl(var(--primary) / 0.5),
     0 0 40px hsl(var(--primary) / 0.3);
 }
+.dark .neon-text-primary { /* Ensure dark mode has sufficient glow if base opacity is too low */
+   text-shadow:
+    0 0 5px hsl(var(--primary)),
+    0 0 10px hsl(var(--primary)),
+    0 0 20px hsl(var(--primary) / 0.8),
+    0 0 40px hsl(var(--primary) / 0.6);
+}
+
 
 .neon-text-accent {
   color: hsl(var(--accent));
@@ -111,16 +186,31 @@ body {
     0 0 20px hsl(var(--accent) / 0.5),
     0 0 40px hsl(var(--accent) / 0.3);
 }
+.dark .neon-text-accent { /* Ensure dark mode has sufficient glow */
+  text-shadow:
+    0 0 5px hsl(var(--accent)),
+    0 0 10px hsl(var(--accent)),
+    0 0 20px hsl(var(--accent) / 0.8),
+    0 0 40px hsl(var(--accent) / 0.6);
+}
 
 .neon-border-primary {
   border-color: hsl(var(--primary));
   box-shadow: 0 0 5px hsl(var(--primary) / 0.7), 0 0 10px hsl(var(--primary) / 0.5);
 }
+.dark .neon-border-primary {
+  box-shadow: 0 0 5px hsl(var(--primary)), 0 0 10px hsl(var(--primary) / 0.8);
+}
+
 
 .neon-border-accent {
   border-color: hsl(var(--accent));
   box-shadow: 0 0 5px hsl(var(--accent) / 0.7), 0 0 10px hsl(var(--accent) / 0.5);
 }
+.dark .neon-border-accent {
+  box-shadow: 0 0 5px hsl(var(--accent)), 0 0 10px hsl(var(--accent) / 0.8);
+}
+
 
 /* Hide scrollbar for aesthetic purposes if desired, ensure accessibility is maintained */
 /* For Webkit browsers */
@@ -138,4 +228,24 @@ body {
 }
 ::-webkit-scrollbar-thumb:hover {
   background: hsl(var(--primary));
+}
+
+/* Prose styles for light mode */
+.light .prose-invert {
+  --tw-prose-body: hsl(var(--foreground));
+  --tw-prose-headings: hsl(var(--foreground));
+  --tw-prose-lead: hsl(var(--muted-foreground));
+  --tw-prose-links: hsl(var(--primary));
+  --tw-prose-bold: hsl(var(--foreground));
+  --tw-prose-counters: hsl(var(--muted-foreground));
+  --tw-prose-bullets: hsl(var(--border));
+  --tw-prose-hr: hsl(var(--border));
+  --tw-prose-quotes: hsl(var(--foreground));
+  --tw-prose-quote-borders: hsl(var(--primary));
+  --tw-prose-captions: hsl(var(--muted-foreground));
+  --tw-prose-code: hsl(var(--primary));
+  --tw-prose-pre-code: hsl(var(--card-foreground));
+  --tw-prose-pre-bg: hsl(var(--card));
+  --tw-prose-th-borders: hsl(var(--border));
+  --tw-prose-td-borders: hsl(var(--border));
 }

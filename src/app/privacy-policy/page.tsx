@@ -26,12 +26,12 @@ export default function PrivacyPolicyPage() {
           </Button>
           <h1 className="text-4xl font-bold neon-text-primary mb-8">Privacy Policy</h1>
           
-          <div className="prose prose-lg dark:prose-invert max-w-none space-y-6">
+          <div className="prose prose-lg dark:prose-invert prose-headings:neon-text-accent prose-strong:text-foreground max-w-none space-y-6">
             <p><strong>Last Updated: {lastUpdatedDate || 'Loading...'}</strong></p>
 
             <p>NeonConnect ("us", "we", or "our") operates the NeonConnect website (the "Service"). This page informs you of our policies regarding the collection, use, and disclosure of personal data when you use our Service and the choices you have associated with that data.</p>
 
-            <h2 className="text-2xl font-semibold neon-text-accent">Information Collection and Use</h2>
+            <h2 className="text-2xl font-semibold">Information Collection and Use</h2>
             <p>We collect several different types of information for various purposes to provide and improve our Service to you.</p>
             
             <h3 className="text-xl font-semibold">Types of Data Collected</h3>
@@ -48,7 +48,7 @@ export default function PrivacyPolicyPage() {
             <h4>Usage Data</h4>
             <p>We may also collect information on how the Service is accessed and used ("Usage Data"). This Usage Data may include information such as your computer's Internet Protocol address (e.g. IP address), browser type, browser version, the pages of our Service that you visit, the time and date of your visit, the time spent on those pages, unique device identifiers and other diagnostic data.</p>
 
-            <h2 className="text-2xl font-semibold neon-text-accent">Use of Data</h2>
+            <h2 className="text-2xl font-semibold">Use of Data</h2>
             <p>NeonConnect uses the collected data for various purposes:</p>
             <ul>
               <li>To provide and maintain our Service</li>
@@ -60,13 +60,13 @@ export default function PrivacyPolicyPage() {
               <li>To detect, prevent and address technical issues</li>
             </ul>
 
-            <h2 className="text-2xl font-semibold neon-text-accent">Security of Data</h2>
+            <h2 className="text-2xl font-semibold">Security of Data</h2>
             <p>The security of your data is important to us, but remember that no method of transmission over the Internet or method of electronic storage is 100% secure. While we strive to use commercially acceptable means to protect your Personal Data, we cannot guarantee its absolute security.</p>
 
-            <h2 className="text-2xl font-semibold neon-text-accent">Changes to This Privacy Policy</h2>
+            <h2 className="text-2xl font-semibold">Changes to This Privacy Policy</h2>
             <p>We may update our Privacy Policy from time to time. We will notify you of any changes by posting the new Privacy Policy on this page. We will let you know via email and/or a prominent notice on our Service, prior to the change becoming effective and update the "effective date" at the top of this Privacy Policy. You are advised to review this Privacy Policy periodically for any changes. Changes to this Privacy Policy are effective when they are posted on this page.</p>
 
-            <h2 className="text-2xl font-semibold neon-text-accent">Contact Us</h2>
+            <h2 className="text-2xl font-semibold">Contact Us</h2>
             <p>If you have any questions about this Privacy Policy, please contact us:</p>
             <ul>
               <li>By email: privacy@neonconnect.dev</li>
@@ -78,4 +78,3 @@ export default function PrivacyPolicyPage() {
     </div>
   );
 }
-

@@ -7,6 +7,7 @@ import { useState, useEffect } from 'react';
 import { Button } from '@/components/ui/button';
 import { Sheet, SheetContent, SheetTrigger } from '@/components/ui/sheet';
 import { motion } from 'framer-motion';
+import ThemeToggle from '@/components/ThemeToggle'; // Import ThemeToggle
 
 const navItems = [
   { name: 'Services', href: '#services' },
@@ -64,16 +65,18 @@ export default function Navbar() {
                 {item.name}
               </NavLink>
             ))}
-            <Button asChild variant="outline" className="ml-4 neon-border-primary hover:bg-primary/10">
+            <ThemeToggle /> {/* Add ThemeToggle here */}
+            <Button asChild variant="outline" className="ml-2 neon-border-primary hover:bg-primary/10">
               <Link href="#contact">Get Started</Link>
             </Button>
           </div>
 
           {/* Mobile Navigation Trigger */}
-          <div className="md:hidden">
+          <div className="md:hidden flex items-center">
+             <ThemeToggle /> {/* Add ThemeToggle for mobile too */}
             <Sheet open={mobileMenuOpen} onOpenChange={setMobileMenuOpen}>
               <SheetTrigger asChild>
-                <Button variant="ghost" size="icon">
+                <Button variant="ghost" size="icon" className="ml-2">
                   <Menu className="h-6 w-6 text-primary" />
                   <span className="sr-only">Open menu</span>
                 </Button>
@@ -112,6 +115,11 @@ export default function Navbar() {
           text-shadow:
             0 0 3px hsl(var(--primary) / 0.7),
             0 0 6px hsl(var(--primary) / 0.5);
+        }
+        .dark .neon-text-primary-hover:hover {
+           text-shadow:
+            0 0 3px hsl(var(--primary)),
+            0 0 6px hsl(var(--primary) / 0.8);
         }
       `}</style>
     </motion.nav>

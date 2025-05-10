@@ -12,7 +12,7 @@ import { Label } from '@/components/ui/label';
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select';
 import { integrationAdvisor, IntegrationAdvisorInput } from '@/ai/flows/integration-advisor';
 import { Loader2, Sparkles } from 'lucide-react';
-import { motion } from 'framer-motion'; // Keep for internal elements like button hover or loader
+import { motion } from 'framer-motion';
 import { useToast } from "@/hooks/use-toast";
 import { gsap } from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
@@ -51,6 +51,9 @@ export default function AiAdvisorSection() {
   const sectionRef = useRef<HTMLDivElement>(null);
   const formCardRef = useRef<HTMLDivElement>(null);
   const adviceCardRef = useRef<HTMLDivElement>(null);
+  const titleRef = useRef<HTMLHeadingElement>(null);
+  const paragraphRef = useRef<HTMLParagraphElement>(null);
+
 
   const form = useForm<FormValues>({
     resolver: zodResolver(FormSchema),
@@ -64,38 +67,38 @@ export default function AiAdvisorSection() {
 
   useEffect(() => {
     const ctx = gsap.context(() => {
-      // Animate section title and paragraph (if they were separate components or had classes)
-      gsap.fromTo(
-        ['.ai-advisor-title', '.ai-advisor-paragraph'],
-        { opacity: 0, y: 20 },
-        {
-          opacity: 1,
-          y: 0,
-          duration: 0.6,
-          stagger: 0.2,
-          ease: 'power2.out',
-          scrollTrigger: {
-            trigger: sectionRef.current,
-            start: 'top 80%',
-            toggleActions: 'play none none none',
-            once: true,
-          },
-        }
-      );
-
-      // Animate form card
-      if (formCardRef.current) {
+      if (titleRef.current) {
         gsap.fromTo(
-          formCardRef.current,
-          { opacity: 0, x: -50, scale: 0.95 },
+          titleRef.current,
+          { opacity: 0, y: 20, filter: "blur(5px)" },
           {
             opacity: 1,
-            x: 0,
-            scale: 1,
+            y: 0,
+            filter: "blur(0px)",
             duration: 0.8,
             ease: 'power3.out',
             scrollTrigger: {
-              trigger: formCardRef.current,
+              trigger: titleRef.current,
+              start: 'top 85%',
+              toggleActions: 'play none none none',
+              once: true,
+            },
+          }
+        );
+      }
+      if (paragraphRef.current) {
+        gsap.fromTo(
+          paragraphRef.current,
+          { opacity: 0, y: 20, filter: "blur(3px)" },
+          {
+            opacity: 1,
+            y: 0,
+            filter: "blur(0px)",
+            duration: 0.8,
+            delay: 0.2,
+            ease: 'power3.out',
+            scrollTrigger: {
+              trigger: paragraphRef.current,
               start: 'top 85%',
               toggleActions: 'play none none none',
               once: true,
@@ -104,21 +107,42 @@ export default function AiAdvisorSection() {
         );
       }
 
-      // Animate advice card
-      if (adviceCardRef.current) {
-         gsap.fromTo(
-          adviceCardRef.current,
-          { opacity: 0, x: 50, scale: 0.95 },
+      if (formCardRef.current) {
+        gsap.fromTo(
+          formCardRef.current,
+          { opacity: 0, x: -50, rotateY: 15, scale: 0.95 },
           {
             opacity: 1,
             x: 0,
+            rotateY: 0,
             scale: 1,
-            duration: 0.8,
-            delay: 0.2, // Slight delay if desired
-            ease: 'power3.out',
+            duration: 0.9,
+            ease: 'expo.out',
+            scrollTrigger: {
+              trigger: formCardRef.current,
+              start: 'top 80%',
+              toggleActions: 'play none none none',
+              once: true,
+            },
+          }
+        );
+      }
+
+      if (adviceCardRef.current) {
+         gsap.fromTo(
+          adviceCardRef.current,
+          { opacity: 0, x: 50, rotateY: -15, scale: 0.95 },
+          {
+            opacity: 1,
+            x: 0,
+            rotateY: 0,
+            scale: 1,
+            duration: 0.9,
+            delay: 0.15, 
+            ease: 'expo.out',
             scrollTrigger: {
               trigger: adviceCardRef.current,
-              start: 'top 85%',
+              start: 'top 80%',
               toggleActions: 'play none none none',
               once: true,
             },
@@ -162,17 +186,17 @@ export default function AiAdvisorSection() {
   return (
     <section id="ai-advisor" className="bg-background/70 backdrop-blur-sm" ref={sectionRef}>
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-        <div> {/* Container for title animations */}
-          <h2 className="ai-advisor-title text-4xl md:text-5xl font-bold text-center mb-4">
+        <div> 
+          <h2 ref={titleRef} className="text-4xl md:text-5xl font-bold text-center mb-4">
             AI-Powered <span className="neon-text-accent">Integration Advisor</span>
           </h2>
-          <p className="ai-advisor-paragraph text-lg text-muted-foreground text-center max-w-2xl mx-auto mb-12 md:mb-16">
+          <p ref={paragraphRef} className="text-lg text-muted-foreground text-center max-w-2xl mx-auto mb-12 md:mb-16">
             Get personalized recommendations for your API integration strategy. Tell us your needs, and our AI will suggest the optimal approach.
           </p>
         </div>
 
         <div className="grid md:grid-cols-2 gap-8 md:gap-12 items-start">
-          <div ref={formCardRef}> {/* GSAP target */}
+          <div ref={formCardRef}>
             <Card className="shadow-xl border-primary/30 neon-border-primary">
               <CardHeader>
                 <CardTitle className="text-2xl flex items-center gap-2">
@@ -247,7 +271,7 @@ export default function AiAdvisorSection() {
                   </div>
                 </CardContent>
                 <CardFooter>
-                  <motion.div // Framer Motion for button hover
+                  <motion.div 
                     whileHover={{ scale: 1.02, boxShadow: "0 0 15px hsl(var(--primary))" }}
                     whileTap={{ scale: 0.98 }}
                     className="w-full"
@@ -266,7 +290,7 @@ export default function AiAdvisorSection() {
             </Card>
           </div>
           
-          <div ref={adviceCardRef}> {/* GSAP target */}
+          <div ref={adviceCardRef}> 
             <Card className="min-h-[400px] shadow-xl border-accent/30 neon-border-accent">
               <CardHeader>
                 <CardTitle className="text-2xl flex items-center gap-2">
@@ -285,7 +309,7 @@ export default function AiAdvisorSection() {
                   </div>
                 )}
                 {!isLoading && advice && (
-                  <motion.div // Framer motion for content reveal after loading
+                  <motion.div 
                     initial={{ opacity: 0 }}
                     animate={{ opacity: 1 }}
                     transition={{ duration: 0.5 }}
