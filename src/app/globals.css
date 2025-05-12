@@ -8,140 +8,145 @@ body {
 
 @layer base {
   :root {
-    /* Default Dark Theme Variables */
-    --background: 220 25% 10%; /* Deep Dark Blue/Gray */
-    --foreground: 210 20% 95%; /* Light Gray/White */
+    /* Refined Dark Theme - Inspired by sophisticated palettes */
+    --background: 225 15% 9%; /* Deeper, slightly desaturated blue-black */
+    --foreground: 215 20% 90%; /* Off-white, slightly cool */
 
-    --card: 220 25% 12%; /* Slightly Lighter Dark for Cards */
-    --card-foreground: 210 20% 95%;
+    --card: 225 15% 12%; /* Slightly lighter dark for cards */
+    --card-foreground: 215 20% 90%;
 
-    --popover: 220 25% 10%;
-    --popover-foreground: 210 20% 95%;
+    --popover: 225 15% 8%; /* Darker popover */
+    --popover-foreground: 215 20% 90%;
 
-    --primary: 182 100% 74.3%; /* Electric Blue */
-    --primary-foreground: 220 25% 10%; /* Dark text on Electric Blue */
+    /* Primary: Refined Teal/Cyan */
+    --primary: 180 70% 60%; /* A balanced, less electric teal */
+    --primary-foreground: 225 15% 10%; /* Dark text on primary */
 
-    --secondary: 220 20% 25%; /* Darker shade for secondary elements */
-    --secondary-foreground: 210 20% 95%;
+    /* Secondary: Muted Cool Gray */
+    --secondary: 220 10% 25%; /* Cooler, muted gray */
+    --secondary-foreground: 215 20% 85%;
 
-    --muted: 220 20% 20%;
-    --muted-foreground: 220 20% 60%;
+    --muted: 220 10% 18%; /* Darker muted */
+    --muted-foreground: 220 15% 60%; /* Softer muted text */
 
-    --accent: 109 100% 54.3%; /* Neon Green */
-    --accent-foreground: 220 25% 10%; /* Dark text on Neon Green */
+    /* Accent: Sophisticated Gold/Amber */
+    --accent: 40 85% 65%; /* Warm, rich gold/amber */
+    --accent-foreground: 225 15% 10%; /* Dark text on accent */
 
-    --destructive: 0 70% 50%;
+    --destructive: 0 65% 55%; /* Slightly deeper red */
     --destructive-foreground: 0 0% 98%;
 
-    --border: 220 20% 20%;
-    --input: 220 20% 22%;
-    --ring: 182 100% 74.3%; /* Electric Blue for rings */
+    --border: 220 10% 20%; /* Subtle border */
+    --input: 220 10% 15%; /* Darker input background */
+    --ring: 180 70% 65%; /* Primary color for rings */
 
-    --radius: 0.5rem;
+    --radius: 0.75rem; /* Slightly larger radius for a softer feel */
 
-    /* Chart colors */
-    --chart-1: 182 100% 74.3%; /* Electric Blue */
-    --chart-2: 109 100% 54.3%; /* Neon Green */
-    --chart-3: 270 100% 70%; /* Neon Purple */
-    --chart-4: 330 100% 70%; /* Neon Pink */
-    --chart-5: 60 100% 60%;  /* Neon Yellow */
+    /* Chart colors - Using Primary, Accent and complementary tones */
+    --chart-1: 180 70% 60%; /* Primary Teal */
+    --chart-2: 40 85% 65%;  /* Accent Gold */
+    --chart-3: 260 60% 70%; /* Complementary Soft Purple */
+    --chart-4: 210 70% 65%; /* Complementary Soft Blue */
+    --chart-5: 140 50% 60%; /* Complementary Soft Green */
 
     /* Sidebar variables for dark theme */
-    --sidebar-background: 220 25% 8%;
-    --sidebar-foreground: 210 20% 90%;
-    --sidebar-primary: 182 100% 70%;
-    --sidebar-primary-foreground: 220 25% 10%;
-    --sidebar-accent: 109 100% 50%;
-    --sidebar-accent-foreground: 220 25% 10%;
-    --sidebar-border: 220 20% 18%;
-    --sidebar-ring: 182 100% 70%;
+    --sidebar-background: 225 15% 7%;
+    --sidebar-foreground: 215 20% 85%;
+    --sidebar-primary: 180 70% 60%;
+    --sidebar-primary-foreground: 225 15% 10%;
+    --sidebar-accent: 40 85% 65%;
+    --sidebar-accent-foreground: 225 15% 10%;
+    --sidebar-border: 220 10% 18%;
+    --sidebar-ring: 180 70% 60%;
   }
 
   .dark {
     /* Explicit dark theme overrides if needed, mostly inherits from :root */
-    --background: 220 25% 10%;
-    --foreground: 210 20% 95%;
-    --card: 220 25% 12%;
-    --card-foreground: 210 20% 95%;
-    --popover: 220 25% 10%;
-    --popover-foreground: 210 20% 95%;
-    --primary: 182 100% 74.3%;
-    --primary-foreground: 220 25% 10%;
-    --secondary: 220 20% 25%;
-    --secondary-foreground: 210 20% 95%;
-    --muted: 220 20% 20%;
-    --muted-foreground: 220 20% 60%;
-    --accent: 109 100% 54.3%;
-    --accent-foreground: 220 25% 10%;
-    --destructive: 0 70% 50%;
+    --background: 225 15% 9%;
+    --foreground: 215 20% 90%;
+    --card: 225 15% 12%;
+    --card-foreground: 215 20% 90%;
+    --popover: 225 15% 8%;
+    --popover-foreground: 215 20% 90%;
+    --primary: 180 70% 60%;
+    --primary-foreground: 225 15% 10%;
+    --secondary: 220 10% 25%;
+    --secondary-foreground: 215 20% 85%;
+    --muted: 220 10% 18%;
+    --muted-foreground: 220 15% 60%;
+    --accent: 40 85% 65%;
+    --accent-foreground: 225 15% 10%;
+    --destructive: 0 65% 55%;
     --destructive-foreground: 0 0% 98%;
-    --border: 220 20% 20%;
-    --input: 220 20% 22%;
-    --ring: 182 100% 74.3%;
+    --border: 220 10% 20%;
+    --input: 220 10% 15%;
+    --ring: 180 70% 65%;
 
-    --chart-1: 182 100% 74.3%;
-    --chart-2: 109 100% 54.3%;
-    --chart-3: 270 100% 70%;
-    --chart-4: 330 100% 70%;
-    --chart-5: 60 100% 60%;
+    --chart-1: 180 70% 60%;
+    --chart-2: 40 85% 65%;
+    --chart-3: 260 60% 70%;
+    --chart-4: 210 70% 65%;
+    --chart-5: 140 50% 60%;
 
-    --sidebar-background: 220 25% 8%;
-    --sidebar-foreground: 210 20% 90%;
-    --sidebar-primary: 182 100% 70%;
-    --sidebar-primary-foreground: 220 25% 10%;
-    --sidebar-accent: 109 100% 50%;
-    --sidebar-accent-foreground: 220 25% 10%;
-    --sidebar-border: 220 20% 18%;
-    --sidebar-ring: 182 100% 70%;
+    --sidebar-background: 225 15% 7%;
+    --sidebar-foreground: 215 20% 85%;
+    --sidebar-primary: 180 70% 60%;
+    --sidebar-primary-foreground: 225 15% 10%;
+    --sidebar-accent: 40 85% 65%;
+    --sidebar-accent-foreground: 225 15% 10%;
+    --sidebar-border: 220 10% 18%;
+    --sidebar-ring: 180 70% 60%;
   }
 
   .light {
-    --background: 0 0% 98%; /* Very light gray, almost white */
-    --foreground: 220 15% 25%; /* Dark, slightly desaturated blue-gray for text */
+    /* Refined Light Theme - Clean, airy, professional */
+    --background: 0 0% 99%; /* Very light, almost white */
+    --foreground: 220 15% 20%; /* Dark, slightly desaturated blue-gray text */
 
-    --card: 0 0% 100%; /* Pure white */
-    --card-foreground: var(--foreground);
+    --card: 0 0% 100%; /* White */
+    --card-foreground: 220 15% 20%;
 
     --popover: 0 0% 100%;
-    --popover-foreground: var(--foreground);
+    --popover-foreground: 220 15% 20%;
 
-    /* Updated Light Theme Primary and Accent */
-    --primary: 325 85% 58%; /* Vivid Pinkish-Purple - Increased saturation and slightly adjusted lightness */
+    /* Primary: Sophisticated Blue/Indigo */
+    --primary: 225 70% 55%; /* Deeper, more refined blue */
     --primary-foreground: 0 0% 100%; /* White text on primary */
 
-    --secondary: 320 60% 94%; /* Lighter, softer desaturated pink */
-    --secondary-foreground: 320 45% 35%; /* Darker pink-gray text on secondary */
+    /* Secondary: Light Cool Gray */
+    --secondary: 220 20% 95%; /* Very light cool gray */
+    --secondary-foreground: 220 10% 40%; /* Darker gray text */
 
-    --muted: 320 35% 96%; /* Even lighter, more neutral pink-gray */
-    --muted-foreground: 320 25% 55%; /* Medium pink-gray for less important text */
+    --muted: 220 15% 97%; /* Even lighter gray */
+    --muted-foreground: 220 10% 55%; /* Medium gray */
 
-    --accent: 5 90% 60%; /* Vibrant Orangey-Pink/Coral - Increased saturation */
+    /* Accent: Elegant Teal/Green */
+    --accent: 165 65% 45%; /* Rich, elegant teal */
     --accent-foreground: 0 0% 100%; /* White text on accent */
 
-
-    --destructive: 0 70% 50%;
+    --destructive: 0 75% 50%; /* Standard destructive red */
     --destructive-foreground: 0 0% 98%;
 
-    --border: 320 25% 90%; /* Subtle border, aligning with pinkish/purpleish muted tones */
-    --input: 320 25% 97%;  /* Very light input background */
-    --ring: var(--primary);   /* Ring color to match primary */
+    --border: 220 15% 90%; /* Subtle light border */
+    --input: 220 10% 98%;  /* Very light input */
+    --ring: 225 70% 60%;   /* Primary color for rings */
 
-    /* Chart colors for light mode - using primary and accent, and complementary */
-    --chart-1: var(--primary);
-    --chart-2: var(--accent);
-    --chart-3: 270 75% 68%; /* Complementary vibrant purple */
-    --chart-4: 210 85% 68%; /* Complementary vibrant blue */
-    --chart-5: 45 95% 62%;  /* Complementary vibrant yellow/gold */
+    /* Chart colors for light mode */
+    --chart-1: 225 70% 55%; /* Primary Blue */
+    --chart-2: 165 65% 45%; /* Accent Teal */
+    --chart-3: 330 70% 65%; /* Complementary Soft Pink */
+    --chart-4: 40 80% 60%;  /* Complementary Soft Orange */
+    --chart-5: 270 60% 70%; /* Complementary Soft Purple */
 
     /* Sidebar variables for light theme */
-    --sidebar-background: 320 65% 98%; /* Very light pinkish */
-    --sidebar-foreground: 320 35% 30%; /* Dark, desaturated pink-gray */
-    --sidebar-primary: var(--primary);
-    --sidebar-primary-foreground: var(--primary-foreground);
-    --sidebar-accent: var(--accent);
-    --sidebar-accent-foreground: var(--accent-foreground);
-    --sidebar-border: 320 35% 90%;
-    --sidebar-ring: var(--primary);
+    --sidebar-background: 220 25% 98%; /* Very light cool gray/blue */
+    --sidebar-foreground: 220 15% 30%; /* Darker text */
+    --sidebar-primary: 225 70% 55%;
+    --sidebar-primary-foreground: 0 0% 100%;
+    --sidebar-accent: 165 65% 45%;
+    --sidebar-accent-foreground: 0 0% 100%;
+    --sidebar-border: 220 15% 90%;
+    --sidebar-ring: 225 70% 60%;
   }
 }
 
@@ -153,130 +158,143 @@ body {
     @apply bg-background text-foreground;
     font-family: var(--font-geist-sans), system-ui, sans-serif;
     scroll-behavior: smooth;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
   }
   h1, h2, h3, h4, h5, h6 {
     font-family: var(--font-geist-sans), system-ui, sans-serif;
+    @apply font-semibold tracking-tight; /* Slightly tighter tracking for headings */
   }
+  h1 { @apply text-4xl md:text-5xl lg:text-6xl; }
+  h2 { @apply text-3xl md:text-4xl lg:text-5xl; }
+  h3 { @apply text-2xl md:text-3xl; }
+  h4 { @apply text-xl md:text-2xl; }
+  
   section {
-    @apply py-16 md:py-24;
+    @apply py-20 md:py-28 lg:py-32; /* Increased padding */
   }
 }
 
-/* Custom neon glow effect */
-.neon-text-primary {
+/* Subtle Text Highlighting */
+.highlight-text-primary {
   color: hsl(var(--primary));
-  text-shadow:
-    0 0 5px hsl(var(--primary) / 0.7),
-    0 0 10px hsl(var(--primary) / 0.7),
-    0 0 20px hsl(var(--primary) / 0.5),
-    0 0 40px hsl(var(--primary) / 0.3);
-}
-.dark .neon-text-primary {
-   text-shadow:
-    0 0 5px hsl(var(--primary)),
-    0 0 10px hsl(var(--primary)),
-    0 0 20px hsl(var(--primary) / 0.8),
-    0 0 40px hsl(var(--primary) / 0.6);
-}
-.light .neon-text-primary {
-  color: hsl(var(--primary)); /* Ensures text color is solid */
-  text-shadow:
-    0 0 4px hsl(var(--primary) / 0.9), /* More opaque first layer for light bg */
-    0 0 8px hsl(var(--primary) / 0.7),
-    0 0 15px hsl(var(--primary) / 0.5),
-    0 0 30px hsl(var(--primary) / 0.3);
+  /* Removed text-shadow for a cleaner look, relying on color */
 }
 
-
-.neon-text-accent {
+.highlight-text-accent {
   color: hsl(var(--accent));
-  text-shadow:
-    0 0 5px hsl(var(--accent) / 0.7),
-    0 0 10px hsl(var(--accent) / 0.7),
-    0 0 20px hsl(var(--accent) / 0.5),
-    0 0 40px hsl(var(--accent) / 0.3);
-}
-.dark .neon-text-accent {
-  text-shadow:
-    0 0 5px hsl(var(--accent)),
-    0 0 10px hsl(var(--accent)),
-    0 0 20px hsl(var(--accent) / 0.8),
-    0 0 40px hsl(var(--accent) / 0.6);
-}
-.light .neon-text-accent {
-  color: hsl(var(--accent));
-  text-shadow:
-    0 0 4px hsl(var(--accent) / 0.9),
-    0 0 8px hsl(var(--accent) / 0.7),
-    0 0 15px hsl(var(--accent) / 0.5),
-    0 0 30px hsl(var(--accent) / 0.3);
+  /* Removed text-shadow */
 }
 
-.neon-border-primary {
-  border-color: hsl(var(--primary));
-  box-shadow: 0 0 5px hsl(var(--primary) / 0.7), 0 0 10px hsl(var(--primary) / 0.5);
+/* Subtle Border Highlighting */
+.highlight-border-primary {
+  border-color: hsl(var(--primary) / 0.6); /* Softer border color */
+  box-shadow: 0 0 8px hsl(var(--primary) / 0.15); /* Very subtle glow */
 }
-.dark .neon-border-primary {
-  box-shadow: 0 0 5px hsl(var(--primary)), 0 0 10px hsl(var(--primary) / 0.8);
-}
-.light .neon-border-primary {
-  border-color: hsl(var(--primary));
-  box-shadow: 0 0 6px hsl(var(--primary) / 0.8), 0 0 12px hsl(var(--primary) / 0.6);
+.dark .highlight-border-primary {
+  border-color: hsl(var(--primary) / 0.7);
+  box-shadow: 0 0 10px hsl(var(--primary) / 0.2);
 }
 
-.neon-border-accent {
-  border-color: hsl(var(--accent));
-  box-shadow: 0 0 5px hsl(var(--accent) / 0.7), 0 0 10px hsl(var(--accent) / 0.5);
+.highlight-border-accent {
+  border-color: hsl(var(--accent) / 0.6);
+  box-shadow: 0 0 8px hsl(var(--accent) / 0.15);
 }
-.dark .neon-border-accent {
-  box-shadow: 0 0 5px hsl(var(--accent)), 0 0 10px hsl(var(--accent) / 0.8);
-}
-.light .neon-border-accent {
-  border-color: hsl(var(--accent));
-  box-shadow: 0 0 6px hsl(var(--accent) / 0.8), 0 0 12px hsl(var(--accent) / 0.6);
+.dark .highlight-border-accent {
+   border-color: hsl(var(--accent) / 0.7);
+  box-shadow: 0 0 10px hsl(var(--accent) / 0.2);
 }
 
-/* Gradient background for light mode */
+
+/* Gradient background for light mode - subtle */
 .light body {
-  background: linear-gradient(135deg, hsl(var(--primary) / 0.1), hsl(var(--accent) / 0.1));
-  /* Ensure text color still comes from --foreground for readability */
+  /* Removed the gradient background for a cleaner look. Can be re-added if desired. */
+  /* background: linear-gradient(145deg, hsl(var(--background)), hsl(var(--secondary) / 0.5)); */
+  background-color: hsl(var(--background)); /* Use solid background */
   color: hsl(var(--foreground));
 }
 
-/* Hide scrollbar for aesthetic purposes if desired, ensure accessibility is maintained */
-/* For Webkit browsers */
+/* Scrollbar Styling */
 ::-webkit-scrollbar {
-  width: 8px;
-  height: 8px;
+  width: 6px; /* Narrower scrollbar */
+  height: 6px;
 }
 ::-webkit-scrollbar-track {
-  background: hsl(var(--background) / 0.5);
+  background: hsl(var(--background) / 0.1); /* More transparent track */
   border-radius: 10px;
 }
 ::-webkit-scrollbar-thumb {
-  background: hsl(var(--primary) / 0.6);
+  background: hsl(var(--primary) / 0.5); /* Slightly transparent thumb */
   border-radius: 10px;
+  border: 1px solid hsl(var(--background) / 0.2); /* Subtle border */
 }
 ::-webkit-scrollbar-thumb:hover {
-  background: hsl(var(--primary));
+  background: hsl(var(--primary) / 0.7);
 }
 
-/* Prose styles for light mode */
-.light .prose-invert { /* .prose-invert might be counterintuitive for light, but it's for overriding dark theme defaults */
+/* Prose styles refinement */
+.prose {
+  /* Base prose styles adjustments */
+   @apply text-foreground max-w-none;
+}
+.prose h2, .prose h3, .prose h4 {
+   @apply text-foreground font-semibold mb-4 mt-8;
+}
+.prose strong {
+   @apply font-semibold text-foreground;
+}
+.prose a {
+   @apply text-primary hover:text-primary/80 transition-colors;
+}
+.prose blockquote {
+   @apply border-l-4 border-primary pl-4 italic text-muted-foreground;
+}
+.prose ul > li::marker {
+    color: hsl(var(--muted-foreground)); /* Style list markers */
+}
+
+/* Dark mode prose overrides */
+.dark .prose {
   --tw-prose-body: hsl(var(--foreground));
-  --tw-prose-headings: hsl(var(--foreground)); /* Headings can use primary/accent via neon-text classes if needed */
+  --tw-prose-headings: hsl(var(--foreground));
   --tw-prose-lead: hsl(var(--muted-foreground));
   --tw-prose-links: hsl(var(--primary));
   --tw-prose-bold: hsl(var(--foreground));
   --tw-prose-counters: hsl(var(--muted-foreground));
-  --tw-prose-bullets: hsl(var(--border));
+  --tw-prose-bullets: hsl(var(--muted-foreground)); /* Use muted-foreground for better visibility */
   --tw-prose-hr: hsl(var(--border));
   --tw-prose-quotes: hsl(var(--foreground));
   --tw-prose-quote-borders: hsl(var(--primary));
   --tw-prose-captions: hsl(var(--muted-foreground));
-  --tw-prose-code: hsl(var(--primary)); /* Code text color */
-  --tw-prose-pre-code: hsl(var(--card-foreground)); /* Code block text */
-  --tw-prose-pre-bg: hsl(var(--card)); /* Code block background */
+  --tw-prose-code: hsl(var(--primary));
+  --tw-prose-pre-code: hsl(var(--card-foreground));
+  --tw-prose-pre-bg: hsl(var(--muted)); /* Use darker muted for code bg */
   --tw-prose-th-borders: hsl(var(--border));
   --tw-prose-td-borders: hsl(var(--border));
+}
+
+/* Light mode prose overrides (using .light selector now) */
+.light .prose {
+  --tw-prose-body: hsl(var(--foreground));
+  --tw-prose-headings: hsl(var(--foreground));
+  --tw-prose-lead: hsl(var(--muted-foreground));
+  --tw-prose-links: hsl(var(--primary));
+  --tw-prose-bold: hsl(var(--foreground));
+  --tw-prose-counters: hsl(var(--muted-foreground));
+  --tw-prose-bullets: hsl(var(--muted-foreground));
+  --tw-prose-hr: hsl(var(--border));
+  --tw-prose-quotes: hsl(var(--foreground));
+  --tw-prose-quote-borders: hsl(var(--primary));
+  --tw-prose-captions: hsl(var(--muted-foreground));
+  --tw-prose-code: hsl(var(--primary));
+  --tw-prose-pre-code: hsl(var(--card-foreground));
+  --tw-prose-pre-bg: hsl(var(--secondary)); /* Use light secondary for code bg */
+  --tw-prose-th-borders: hsl(var(--border));
+  --tw-prose-td-borders: hsl(var(--border));
+}
+
+
+/* Apply background transition */
+body {
+  transition: background-color 0.3s ease-in-out, color 0.3s ease-in-out;
 }

@@ -8,7 +8,7 @@ const ThemeInitializer: FC = () => {
     (function() {
       function getInitialTheme() {
         try {
-          const persistedColorPreference = window.localStorage.getItem('neonconnect-theme');
+          const persistedColorPreference = window.localStorage.getItem('igamx-theme'); // Updated storage key
           if (typeof persistedColorPreference === 'string') {
             return persistedColorPreference;
           }
@@ -20,7 +20,7 @@ const ThemeInitializer: FC = () => {
           // Fallback if localStorage or matchMedia is not available (e.g., SSR pre-render)
           // console.warn('Could not determine initial theme from client preferences.');
         }
-        return 'dark'; // Default to dark if no preference found or in case of error
+        return 'dark'; // Default to dark as the primary theme
       }
       const theme = getInitialTheme();
       if (theme === 'light') {

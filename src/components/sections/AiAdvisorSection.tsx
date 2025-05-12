@@ -1,4 +1,4 @@
-// src/components/sections/AiAdvisorSection.tsx
+
 "use client";
 
 import { useState, useRef, useEffect } from 'react';
@@ -36,10 +36,13 @@ const platformTypeOptions = [
 
 const FormSchema = z.object({
   servicesNeeded: z.array(z.string()).min(1, { message: 'Please select at least one service.' }),
-  platformType: z.enum(platformTypeOptions, {
-    errorMap: () => ({ message: "Please select a platform type." }),
+  platformType: z.string({ // Use z.string() for better error handling with Select
+    required_error: "Please select a platform type.",
+  }).refine(val => platformTypeOptions.includes(val as typeof platformTypeOptions[number]), {
+    message: "Invalid platform type selected.",
   }),
 });
+
 
 type FormValues = z.infer<typeof FormSchema>;
 
@@ -47,7 +50,7 @@ export default function AiAdvisorSection() {
   const [isLoading, setIsLoading] = useState(false);
   const [advice, setAdvice] = useState<string | null>(null);
   const { toast } = useToast();
-  
+
   const sectionRef = useRef<HTMLDivElement>(null);
   const formCardRef = useRef<HTMLDivElement>(null);
   const adviceCardRef = useRef<HTMLDivElement>(null);
@@ -67,85 +70,65 @@ export default function AiAdvisorSection() {
 
   useEffect(() => {
     const ctx = gsap.context(() => {
-      if (titleRef.current) {
-        gsap.fromTo(
-          titleRef.current,
-          { opacity: 0, y: 20, filter: "blur(5px)" },
-          {
-            opacity: 1,
-            y: 0,
-            filter: "blur(0px)",
-            duration: 0.8,
-            ease: 'power3.out',
-            scrollTrigger: {
-              trigger: titleRef.current,
-              start: 'top 85%',
-              toggleActions: 'play none none none',
-              once: true,
-            },
-          }
-        );
-      }
-      if (paragraphRef.current) {
-        gsap.fromTo(
-          paragraphRef.current,
-          { opacity: 0, y: 20, filter: "blur(3px)" },
-          {
-            opacity: 1,
-            y: 0,
-            filter: "blur(0px)",
-            duration: 0.8,
-            delay: 0.2,
-            ease: 'power3.out',
-            scrollTrigger: {
-              trigger: paragraphRef.current,
-              start: 'top 85%',
-              toggleActions: 'play none none none',
-              once: true,
-            },
-          }
-        );
-      }
+      // Animate Title and Paragraph
+      gsap.fromTo(
+        [titleRef.current, paragraphRef.current],
+        { opacity: 0, y: 40 },
+        {
+          opacity: 1,
+          y: 0,
+          duration: 0.9, // Slower duration
+          stagger: 0.2,
+          ease: 'power3.out',
+          scrollTrigger: {
+            trigger: sectionRef.current,
+            start: 'top 80%',
+            toggleActions: 'play none none none',
+            once: true,
+          },
+        }
+      );
 
+      // Animate Form Card
       if (formCardRef.current) {
         gsap.fromTo(
           formCardRef.current,
-          { opacity: 0, x: -50, rotateY: 15, scale: 0.95 },
+          { opacity: 0, x: -50, scale: 0.98 }, // Start from left, slightly smaller
           {
             opacity: 1,
             x: 0,
-            rotateY: 0,
             scale: 1,
-            duration: 0.9,
-            ease: 'expo.out',
+            duration: 1.0, // Longer duration
+            ease: 'expo.out', // Smoother ease
             scrollTrigger: {
               trigger: formCardRef.current,
               start: 'top 80%',
               toggleActions: 'play none none none',
               once: true,
             },
+            delay: 0.2, // Slight delay after title
           }
         );
       }
 
+      // Animate Advice Card
       if (adviceCardRef.current) {
          gsap.fromTo(
           adviceCardRef.current,
-          { opacity: 0, x: 50, rotateY: -15, scale: 0.95 },
+          { opacity: 0, x: 50, scale: 0.98 }, // Start from right, slightly smaller
           {
             opacity: 1,
             x: 0,
-            rotateY: 0,
             scale: 1,
-            duration: 0.9,
-            delay: 0.15, 
-            ease: 'expo.out',
+            duration: 1.0, // Longer duration
+            ease: 'expo.out', // Smoother ease
             scrollTrigger: {
               trigger: adviceCardRef.current,
               start: 'top 80%',
               toggleActions: 'play none none none',
               once: true,
             },
+            delay: 0.3, // Slightly more delay
           }
         );
       }
@@ -168,7 +151,7 @@ export default function AiAdvisorSection() {
       toast({
         title: "AI Advisor Success",
         description: "Integration strategy generated successfully.",
-        variant: "default",
+        variant: "default", // Use default (or custom success variant if defined)
       });
     } catch (error) {
       console.error('Error fetching AI advice:', error);
@@ -184,23 +167,23 @@ export default function AiAdvisorSection() {
   };
 
   return (
-    <section id="ai-advisor" className="bg-background/70 backdrop-blur-sm" ref={sectionRef}>
+    <section id="ai-advisor" className="bg-gradient-to-b from-background to-background/90 backdrop-blur-sm" ref={sectionRef}> {/* Subtle gradient */}
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-        <div> 
-          <h2 ref={titleRef} className="text-4xl md:text-5xl font-bold text-center mb-4">
-            AI-Powered <span className="neon-text-accent">Integration Advisor</span>
+        <div>
+          <h2 ref={titleRef} className="text-3xl md:text-4xl lg:text-5xl font-bold text-center mb-4">
+            AI-Powered <span className="highlight-text-accent">Integration Advisor</span>
           </h2>
-          <p ref={paragraphRef} className="text-lg text-muted-foreground text-center max-w-2xl mx-auto mb-12 md:mb-16">
+          <p ref={paragraphRef} className="text-lg text-muted-foreground text-center max-w-2xl mx-auto mb-16 md:mb-20">
             Get personalized recommendations for your API integration strategy. Tell us your needs, and our AI will suggest the optimal approach.
           </p>
         </div>
 
         <div className="grid md:grid-cols-2 gap-8 md:gap-12 items-start">
           <div ref={formCardRef}>
-            <Card className="shadow-xl border-primary/30 neon-border-primary">
+            <Card className="shadow-lg border border-border/20 highlight-border-primary hover:shadow-xl transition-shadow duration-300"> {/* Subtle border */}
               <CardHeader>
-                <CardTitle className="text-2xl flex items-center gap-2">
-                  <Sparkles className="w-6 h-6 text-primary" />
+                <CardTitle className="text-2xl flex items-center gap-2 text-foreground"> {/* Use foreground color */}
+                  <Sparkles className="w-5 h-5 text-primary" /> {/* Adjusted icon size */}
                   Tell Us About Your Project
                 </CardTitle>
                 <CardDescription>
@@ -208,10 +191,10 @@ export default function AiAdvisorSection() {
                 </CardDescription>
               </CardHeader>
               <form onSubmit={handleSubmit(onSubmit)}>
-                <CardContent className="space-y-6">
+                <CardContent className="space-y-6 pt-0"> {/* Removed pt-0 from default */}
                   <div>
-                    <Label className="text-base font-semibold mb-2 block">Services Needed</Label>
-                    <div className="space-y-2">
+                    <Label className="text-base font-semibold mb-3 block text-foreground/90">Services Needed</Label> {/* Adjusted margin */}
+                    <div className="grid grid-cols-1 sm:grid-cols-2 gap-x-4 gap-y-2"> {/* Grid layout for checkboxes */}
                       {servicesOptions.map((service) => (
                         <Controller
                           key={service.id}
@@ -223,16 +206,18 @@ export default function AiAdvisorSection() {
                                 id={service.id}
                                 checked={field.value?.includes(service.label)}
                                 onCheckedChange={(checked) => {
+                                  const currentValues = field.value || [];
                                   return checked
-                                    ? field.onChange([...(field.value || []), service.label])
+                                    ? field.onChange([...currentValues, service.label])
                                     : field.onChange(
-                                        (field.value || []).filter(
+                                        currentValues.filter(
                                           (value) => value !== service.label
                                         )
                                       );
                                 }}
+                                aria-labelledby={`${service.id}-label`}
                               />
-                              <Label htmlFor={service.id} className="font-normal text-sm text-foreground/90">
+                              <Label htmlFor={service.id} id={`${service.id}-label`} className="font-normal text-sm text-foreground/90 cursor-pointer">
                                 {service.label}
                               </Label>
                             </div>
@@ -241,12 +226,12 @@ export default function AiAdvisorSection() {
                       ))}
                     </div>
                     {errors.servicesNeeded && (
-                      <p className="text-sm text-destructive mt-1">{errors.servicesNeeded.message}</p>
+                      <p className="text-sm text-destructive mt-2">{errors.servicesNeeded.message}</p>
                     )}
                   </div>
 
                   <div>
-                    <Label htmlFor="platformType" className="text-base font-semibold mb-2 block">Platform Type</Label>
+                    <Label htmlFor="platformType" className="text-base font-semibold mb-3 block text-foreground/90">Platform Type</Label>
                     <Controller
                       name="platformType"
                       control={control}
@@ -266,17 +251,17 @@ export default function AiAdvisorSection() {
                       )}
                     />
                     {errors.platformType && (
-                      <p className="text-sm text-destructive mt-1">{errors.platformType.message}</p>
+                      <p className="text-sm text-destructive mt-2">{errors.platformType.message}</p>
                     )}
                   </div>
                 </CardContent>
                 <CardFooter>
-                  <motion.div 
-                    whileHover={{ scale: 1.02, boxShadow: "0 0 15px hsl(var(--primary))" }}
+                  <motion.div
+                    whileHover={{ scale: 1.02, boxShadow: "0 0 12px hsla(var(--primary), 0.3)" }} // Subtle shadow
                     whileTap={{ scale: 0.98 }}
                     className="w-full"
                   >
-                    <Button type="submit" disabled={isLoading} className="w-full bg-primary hover:bg-primary/90 text-primary-foreground">
+                    <Button type="submit" disabled={isLoading} className="w-full bg-primary hover:bg-primary/90 text-primary-foreground transition-all duration-300">
                       {isLoading ? (
                         <Loader2 className="mr-2 h-4 w-4 animate-spin" />
                       ) : (
@@ -289,39 +274,42 @@ export default function AiAdvisorSection() {
               </form>
             </Card>
           </div>
-          
-          <div ref={adviceCardRef}> 
-            <Card className="min-h-[400px] shadow-xl border-accent/30 neon-border-accent">
+
+          <div ref={adviceCardRef}>
+            <Card className="min-h-[400px] shadow-lg border border-border/20 highlight-border-accent flex flex-col hover:shadow-xl transition-shadow duration-300"> {/* Subtle border, flex col */}
               <CardHeader>
-                <CardTitle className="text-2xl flex items-center gap-2">
-                  <Sparkles className="w-6 h-6 text-accent" />
+                <CardTitle className="text-2xl flex items-center gap-2 text-foreground">
+                  <Sparkles className="w-5 h-5 text-accent" />
                   AI-Generated Strategy
                 </CardTitle>
                 <CardDescription>
                   Our AI will analyze your input and provide a tailored integration strategy.
                 </CardDescription>
               </CardHeader>
-              <CardContent>
+              <CardContent className="flex-grow flex items-center justify-center p-6"> {/* Flex grow, center content */}
                 {isLoading && (
-                  <div className="flex flex-col items-center justify-center h-full text-muted-foreground">
-                    <Loader2 className="h-12 w-12 animate-spin text-accent mb-4" />
-                    <p>Generating your personalized strategy...</p>
+                  <div className="flex flex-col items-center justify-center h-full text-muted-foreground space-y-2">
+                    <Loader2 className="h-10 w-10 animate-spin text-accent" />
+                    <p className="text-sm">Generating your personalized strategy...</p>
                   </div>
                 )}
                 {!isLoading && advice && (
-                  <motion.div 
-                    initial={{ opacity: 0 }}
-                    animate={{ opacity: 1 }}
+                  <motion.div
+                    initial={{ opacity: 0, y: 10 }}
+                    animate={{ opacity: 1, y: 0 }}
                     transition={{ duration: 0.5 }}
-                    className="prose prose-sm sm:prose dark:prose-invert max-w-none p-4 bg-background/50 rounded-md max-h-[300px] overflow-y-auto"
+                    className="prose prose-sm dark:prose-invert max-w-none p-4 bg-background/50 rounded-md max-h-[350px] overflow-y-auto w-full" // Adjusted max height
                   >
-                    <p className="whitespace-pre-wrap">{advice}</p>
+                    {/* Render advice line by line */}
+                    {advice.split('\n').map((line, index) => (
+                        <p key={index} className="mb-2 last:mb-0">{line || '\u00A0'}</p> // Preserve empty lines, adjust margin
+                    ))}
                   </motion.div>
                 )}
                 {!isLoading && !advice && (
-                  <div className="flex flex-col items-center justify-center h-full text-muted-foreground p-8 text-center">
-                    <Sparkles className="h-12 w-12 text-accent/50 mb-4" />
-                    <p>Your personalized integration strategy will appear here once generated.</p>
+                  <div className="flex flex-col items-center justify-center h-full text-muted-foreground p-8 text-center space-y-3">
+                    <Sparkles className="h-12 w-12 text-accent/40" /> {/* Softer icon color */}
+                    <p className="text-sm">Your personalized integration strategy will appear here once generated.</p>
                   </div>
                 )}
               </CardContent>

@@ -1,4 +1,4 @@
-// src/components/sections/ServicesSection.tsx
+
 "use client";
 
 import { useRef, useEffect } from 'react';
@@ -6,7 +6,7 @@ import { gsap } from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import ServiceCard from '@/components/ui/ServiceCard';
 import { Blocks, BarChartBig, CreditCard, UserCog, ShieldCheck, Handshake } from 'lucide-react';
-import { motion } from 'framer-motion'; // Keep for section title animation if needed
+import { motion } from 'framer-motion';
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -46,60 +46,79 @@ const services = [
 export default function ServicesSection() {
   const sectionRef = useRef<HTMLDivElement>(null);
   const cardsGridRef = useRef<HTMLDivElement>(null);
+  const titleRef = useRef<HTMLHeadingElement>(null);
+  const paragraphRef = useRef<HTMLParagraphElement>(null);
 
   useEffect(() => {
     const ctx = gsap.context(() => {
+      // Animate Title and Paragraph
+      gsap.fromTo(
+        [titleRef.current, paragraphRef.current],
+        { opacity: 0, y: 40 },
+        {
+          opacity: 1,
+          y: 0,
+          duration: 0.8,
+          stagger: 0.2,
+          ease: 'power3.out',
+          scrollTrigger: {
+            trigger: sectionRef.current,
+            start: 'top 80%', // Trigger earlier
+            toggleActions: 'play none none none',
+            once: true,
+          },
+        }
+      );
+
+      // Animate Service Cards
       if (cardsGridRef.current) {
         gsap.fromTo(
           cardsGridRef.current.children,
-          { opacity: 0, y: 60, scale: 0.95 },
+          { opacity: 0, y: 50, scale: 0.98 }, // Start slightly scaled up
           {
             opacity: 1,
             y: 0,
             scale: 1,
-            duration: 0.8,
-            stagger: 0.15,
+            duration: 0.7, // Slightly faster duration
+            stagger: {
+              amount: 0.4, // Total time for stagger
+              from: "start", // Stagger from the first item
+              ease: "power1.out"
+            },
             ease: 'power3.out',
             scrollTrigger: {
               trigger: cardsGridRef.current,
-              start: 'top 85%',
+              start: 'top 85%', // Trigger cards slightly later than title
               toggleActions: 'play none none none',
               once: true,
             },
           }
         );
       }
-    }, sectionRef); // Scope GSAP animations to this section
+    }, sectionRef);
 
-    return () => ctx.revert(); // Cleanup GSAP animations on unmount
+    return () => ctx.revert();
   }, []);
 
   return (
     <section id="services" className="bg-background" ref={sectionRef}>
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-        <motion.div // Keep Framer Motion for title if desired, or convert to GSAP
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.5 }}
-        >
-          <h2 className="text-4xl md:text-5xl font-bold text-center mb-4">
-            Comprehensive <span className="neon-text-primary">API Solutions</span>
+        <div className="text-center">
+          <h2 ref={titleRef} className="text-3xl md:text-4xl lg:text-5xl font-bold mb-4"> {/* Adjusted heading sizes */}
+            Comprehensive <span className="highlight-text-primary">API Solutions</span>
           </h2>
-          <p className="text-lg text-muted-foreground text-center max-w-2xl mx-auto mb-12 md:mb-16">
+          <p ref={paragraphRef} className="text-lg text-muted-foreground max-w-2xl mx-auto mb-16 md:mb-20"> {/* Increased bottom margin */}
             We provide a full suite of API integration services tailored to the iGaming industry, ensuring seamless operation and maximum performance.
           </p>
-        </motion.div>
-        
+        </div>
+
         <div ref={cardsGridRef} className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-          {services.map((service, index) => (
-            // ServiceCard will have its own hover effects (Framer Motion), GSAP handles entrance
+          {services.map((service) => (
             <ServiceCard
               key={service.title}
               icon={service.icon}
               title={service.title}
               description={service.description}
-              // index prop removed as GSAP handles staggering from parent
             />
           ))}
         </div>

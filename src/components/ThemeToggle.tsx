@@ -9,36 +9,46 @@ export default function ThemeToggle() {
   const [theme, setTheme] = useState<string | null>(null);
 
   useEffect(() => {
-    // Set initial theme based on what ThemeInitializer set or current class
-    // This ensures the button icon is correct after hydration.
-    if (document.documentElement.classList.contains('light')) {
-      setTheme('light');
-    } else {
-      setTheme('dark');
-    }
+    // Function to determine theme from class list
+    const getCurrentTheme = () => {
+      return document.documentElement.classList.contains('light') ? 'light' : 'dark';
+    };
+
+    // Set initial theme after component mounts
+    setTheme(getCurrentTheme());
+
+    // Optional: Listen for changes triggered elsewhere (e.g., system preference change)
+    // This might be overkill if ThemeInitializer is the only source of truth initially.
+    const observer = new MutationObserver(() => {
+        setTheme(getCurrentTheme());
+    });
+    observer.observe(document.documentElement, { attributes: true, attributeFilter: ['class'] });
+
+    return () => observer.disconnect();
+
   }, []);
 
   const toggleTheme = () => {
-    const newTheme = theme === 'light' ? 'dark' : 'light';
-    setTheme(newTheme);
+    const currentTheme = document.documentElement.classList.contains('light') ? 'light' : 'dark';
+    const newTheme = currentTheme === 'light' ? 'dark' : 'light';
+    setTheme(newTheme); // Optimistically update state
     try {
-      localStorage.setItem('neonconnect-theme', newTheme);
+      localStorage.setItem('igamx-theme', newTheme); // Updated storage key
     } catch (e) {
       console.warn('Failed to set theme in localStorage');
     }
-    if (newTheme === 'light') {
-      document.documentElement.classList.remove('dark');
-      document.documentElement.classList.add('light');
-    } else {
-      document.documentElement.classList.remove('light');
-      document.documentElement.classList.add('dark');
-    }
+    // Apply class changes
+    document.documentElement.classList.remove(currentTheme);
+    document.documentElement.classList.add(newTheme);
   };
-  
-  // Wait until theme is determined to render to avoid hydration mismatch for the icon
-  if (theme === null) {
-    return <div className="w-10 h-10" />; // Placeholder for size matching
-  }
+
+  // Render placeholder initially to avoid hydration issues if theme state isn't ready
+   if (theme === null) {
+     // Render a placeholder with the same size as the button
+     // Use opacity-0 to prevent flash of placeholder content
+     return <div className="w-10 h-10 opacity-0" aria-hidden="true" />;
+   }
+
 
   return (
     <Button
@@ -46,7 +56,7 @@ export default function ThemeToggle() {
       size="icon"
       onClick={toggleTheme}
       aria-label={`Switch to ${theme === 'light' ? 'dark' : 'light'} mode`}
-      className="text-primary hover:text-primary/80 hover:bg-primary/10"
+      className="text-primary/80 hover:text-primary hover:bg-primary/10 transition-colors" // Adjusted colors
     >
       {theme === 'light' ? <Moon className="h-5 w-5" /> : <Sun className="h-5 w-5" />}
     </Button>
