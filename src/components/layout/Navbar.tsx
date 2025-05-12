@@ -71,8 +71,10 @@ export default function Navbar() {
               </NavLink>
             ))}
             <ThemeToggle /> {/* Add ThemeToggle here */}
-            <Button asChild variant="outline" size="sm" className="ml-3 border-primary text-primary hover:bg-primary/10 hover:text-primary highlight-border-primary"> {/* Adjusted styling */}
-              <Link href="#contact">Get Started</Link>
+            <Button asChild variant="outline" size="sm" className="ml-3 border-primary text-primary hover:bg-primary/10 hover:text-primary highlight-border-primary">
+              <Link href="#contact" legacyBehavior passHref>
+                <a>Get Started</a>
+              </Link>
             </Button>
           </div>
 
@@ -111,7 +113,9 @@ export default function Navbar() {
                     </Link>
                   ))}
                   <Button asChild variant="default" className="w-full mt-4 bg-primary hover:bg-primary/90 text-primary-foreground">
-                     <Link href="#contact" onClick={() => setMobileMenuOpen(false)}>Get Started</Link>
+                     <Link href="#contact" legacyBehavior passHref>
+                       <a onClick={() => setMobileMenuOpen(false)}>Get Started</a>
+                     </Link>
                   </Button>
                 </nav>
               </SheetContent>
