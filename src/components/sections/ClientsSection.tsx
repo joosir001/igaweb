@@ -1,4 +1,4 @@
-
+// src/components/sections/ClientsSection.tsx
 "use client";
 
 import { useRef, useEffect } from 'react';
@@ -8,27 +8,30 @@ import Image from 'next/image';
 import { Card, CardContent } from '@/components/ui/card';
 import { Star } from 'lucide-react';
 import { motion } from 'framer-motion';
+import Marquee from '@/components/magicui/marquee'; // Import Marquee
 
 gsap.registerPlugin(ScrollTrigger);
 
 const clientLogos = [
-  { name: "Client Alpha", src: "https://picsum.photos/seed/logoA/200/100", dataAiHint: "tech company logo" }, // Updated hints
+  { name: "Client Alpha", src: "https://picsum.photos/seed/logoA/200/100", dataAiHint: "tech company logo" },
   { name: "Client Beta", src: "https://picsum.photos/seed/logoB/200/100", dataAiHint: "gaming company logo" },
   { name: "Client Gamma", src: "https://picsum.photos/seed/logoC/200/100", dataAiHint: "finance company logo" },
   { name: "Client Delta", src: "https://picsum.photos/seed/logoD/200/100", dataAiHint: "startup logo" },
   { name: "Client Epsilon", src: "https://picsum.photos/seed/logoE/200/100", dataAiHint: "software company logo" },
+  { name: "Client Zeta", src: "https://picsum.photos/seed/logoF/200/100", dataAiHint: "e-commerce logo" },
+  { name: "Client Eta", src: "https://picsum.photos/seed/logoG/200/100", dataAiHint: "consulting firm logo" },
 ];
 
 const testimonials = [
   {
-    quote: "iGamX revolutionized our integration timeline. Their APIs are robust and their support is top-notch!", // Updated company name
+    quote: "iGamX revolutionized our integration timeline. Their APIs are robust and their support is top-notch!",
     author: "Jane Doe",
     title: "CTO, Alpha Gaming",
     avatar: "https://picsum.photos/seed/avatar1/100/100",
-    dataAiHint: "professional woman photo" // Updated hints
+    dataAiHint: "professional woman photo"
   },
   {
-    quote: "The scalability and reliability of iGamX's solutions have been a game-changer for our platform.", // Updated company name
+    quote: "The scalability and reliability of iGamX's solutions have been a game-changer for our platform.",
     author: "John Smith",
     title: "CEO, Beta Sports",
     avatar: "https://picsum.photos/seed/avatar2/100/100",
@@ -45,73 +48,53 @@ const testimonials = [
 
 export default function ClientsSection() {
   const sectionRef = useRef<HTMLDivElement>(null);
-  const logosContainerRef = useRef<HTMLDivElement>(null);
   const testimonialsGridRef = useRef<HTMLDivElement>(null);
   const titleRef = useRef<HTMLHeadingElement>(null);
   const paragraphRef = useRef<HTMLParagraphElement>(null);
   const testimonialsTitleRef = useRef<HTMLHeadingElement>(null);
+  const marqueeContainerRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
     const ctx = gsap.context(() => {
-      // Animate section title and paragraph
       gsap.fromTo(
         [titleRef.current, paragraphRef.current],
-        { opacity: 0, y: 40 },
+        { opacity: 0, y: 50, filter: "blur(5px)" },
         {
           opacity: 1,
           y: 0,
-          duration: 0.9,
-          stagger: 0.2,
-          ease: 'power3.out',
+          filter: "blur(0px)",
+          duration: 1,
+          stagger: 0.25,
+          ease: 'expo.out',
           scrollTrigger: {
             trigger: sectionRef.current,
-            start: 'top 80%',
+            start: 'top 75%',
             toggleActions: 'play none none none',
             once: true,
           },
         }
       );
 
-      // Animate client logos container (fade in)
-      if (logosContainerRef.current) {
-         gsap.fromTo(
-          logosContainerRef.current,
-          { opacity: 0 },
-          {
-            opacity: 1,
-            duration: 0.8,
-             scrollTrigger: {
-              trigger: logosContainerRef.current,
-              start: 'top 85%',
-              toggleActions: 'play none none none',
-              once: true,
-            },
-             delay: 0.3 // Delay after title
-          }
-         );
-         // Stagger individual logos
+      if (marqueeContainerRef.current) {
         gsap.fromTo(
-          logosContainerRef.current.children,
-          { opacity: 0, scale: 0.8, y: 10 },
+          marqueeContainerRef.current,
+          { opacity: 0, y: 30 },
           {
             opacity: 1,
-            scale: 1,
             y: 0,
-            duration: 0.6,
-            stagger: 0.1,
-            ease: 'back.out(1.5)', // Bounce effect
+            duration: 1,
+            ease: 'power3.out',
             scrollTrigger: {
-              trigger: logosContainerRef.current,
-              start: 'top 85%',
+              trigger: marqueeContainerRef.current,
+              start: 'top 80%',
               toggleActions: 'play none none none',
               once: true,
             },
-            delay: 0.4 // Delay slightly more
+            delay: 0.3, // Delay after title/paragraph
           }
         );
       }
-
-      // Animate testimonials title
+      
       if (testimonialsTitleRef.current) {
         gsap.fromTo(
           testimonialsTitleRef.current,
@@ -127,30 +110,29 @@ export default function ClientsSection() {
               toggleActions: 'play none none none',
               once: true,
             },
-             delay: 0.2 // Delay after logos start
+            delay: 0.2
           }
         );
       }
 
-
-      // Animate testimonial cards
       if (testimonialsGridRef.current) {
         gsap.fromTo(
           testimonialsGridRef.current.children,
-          { opacity: 0, y: 50 }, // Simple fade-up
+          { opacity: 0, y: 50, scale: 0.95 },
           {
             opacity: 1,
             y: 0,
-            duration: 0.8, // Slightly longer duration
+            scale: 1,
+            duration: 0.8,
             stagger: 0.2,
             ease: 'power3.out',
             scrollTrigger: {
               trigger: testimonialsGridRef.current,
-              start: 'top 80%', // Trigger slightly earlier
+              start: 'top 80%',
               toggleActions: 'play none none none',
               once: true,
             },
-             delay: 0.4 // Delay after testimonial title
+            delay: 0.4
           }
         );
       }
@@ -160,79 +142,73 @@ export default function ClientsSection() {
   }, []);
 
   return (
-    <section id="clients" className="bg-background" ref={sectionRef}>
+    <section id="clients" className="bg-background py-24 md:py-32" ref={sectionRef}>
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center">
-          <h2 ref={titleRef} className="text-3xl md:text-4xl lg:text-5xl font-bold mb-4">
+          <h2 ref={titleRef} className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6 leading-tight">
             Trusted by <span className="highlight-text-primary">Industry Leaders</span>
           </h2>
-          <p ref={paragraphRef} className="text-lg text-muted-foreground max-w-2xl mx-auto mb-16 md:mb-20">
+          <p ref={paragraphRef} className="text-lg md:text-xl text-muted-foreground max-w-3xl mx-auto mb-20 md:mb-24">
             We partner with innovative iGaming businesses worldwide, helping them achieve their technological and market goals.
           </p>
         </div>
 
-        <div
-          ref={logosContainerRef}
-          className="flex flex-wrap justify-center items-center gap-8 md:gap-12 mb-20 md:mb-24" // Increased bottom margin
-        >
-          {clientLogos.map((logo, index) => (
-            <motion.div
-              key={index}
-              className="relative h-12 w-32 md:h-14 md:w-36 filter grayscale hover:grayscale-0 transition-all duration-300 ease-in-out" // Adjusted size
-              whileHover={{ scale: 1.08, filter: "grayscale(0%)" }} // Slightly more scale on hover
-              transition={{ type: "spring", stiffness: 400 }}
-            >
-              <Image
-                src={logo.src}
-                alt={logo.name}
-                fill
-                sizes="(max-width: 768px) 128px, 144px"
-                className="object-contain"
-                data-ai-hint={logo.dataAiHint}
-              />
-            </motion.div>
-          ))}
+        <div ref={marqueeContainerRef} className="mb-20 md:mb-28">
+          <Marquee pauseOnHover className="[--duration:90s] [--gap:2rem]">
+            {clientLogos.map((logo) => (
+              <div key={logo.name} className="relative h-16 w-40 md:h-20 md:w-48 filter grayscale hover:grayscale-0 opacity-70 hover:opacity-100 transition-all duration-300 ease-in-out flex-shrink-0 mx-4">
+                <Image
+                  src={logo.src}
+                  alt={logo.name}
+                  fill
+                  sizes="(max-width: 768px) 160px, 192px"
+                  className="object-contain"
+                  data-ai-hint={logo.dataAiHint}
+                />
+              </div>
+            ))}
+          </Marquee>
         </div>
 
         <div>
-          <h3 ref={testimonialsTitleRef} className="text-2xl md:text-3xl font-bold text-center mb-12">
+          <h3 ref={testimonialsTitleRef} className="text-3xl md:text-4xl font-bold text-center mb-16">
             What Our <span className="highlight-text-accent">Partners Say</span>
           </h3>
-          <div ref={testimonialsGridRef} className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+          <div ref={testimonialsGridRef} className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 md:gap-10">
             {testimonials.map((testimonial, index) => (
               <motion.div
                 key={index}
-                className="h-full" // Ensure card takes full height in grid
+                className="h-full"
                 whileHover={{
-                  y: -6, // Subtle lift
-                  boxShadow: "0px 10px 25px -8px hsla(var(--accent), 0.15), 0px 5px 15px -8px hsla(var(--accent), 0.1)" // Refined shadow
+                  y: -8,
+                  boxShadow: "0px 15px 30px -10px hsla(var(--accent)/0.2), 0px 8px 15px -10px hsla(var(--accent)/0.15)"
                 }}
-                 transition={{ type: "spring", stiffness: 300 }}
+                 transition={{ type: "spring", stiffness: 280, damping: 18 }}
               >
-                <Card className="h-full bg-card/90 backdrop-blur-sm p-6 rounded-lg shadow-md border border-border/20 hover:border-accent/40 transition-all duration-300 flex flex-col"> {/* Added flex-col */}
-                  <CardContent className="flex flex-col flex-grow p-0"> {/* Flex-grow for content */}
-                    <div className="flex mb-3"> {/* Adjusted margin */}
+                <Card className="h-full bg-card p-6 md:p-8 rounded-xl shadow-lg border border-border/30 hover:border-accent/50 transition-all duration-300 flex flex-col transform hover:scale-[1.015]">
+                  <CardContent className="flex flex-col flex-grow p-0">
+                    <div className="flex mb-4">
                       {[...Array(5)].map((_, i) => (
-                        <Star key={i} className="w-4 h-4 text-yellow-400 fill-current" /> // Slightly smaller stars
+                        <Star key={i} className="w-5 h-5 text-yellow-400 fill-current" />
                       ))}
                     </div>
-                    <blockquote className="text-foreground italic mb-4 flex-grow text-sm md:text-base"> {/* Adjusted text size */}
+                    <blockquote className="text-foreground/90 italic text-base md:text-lg mb-6 flex-grow leading-relaxed">
                       "{testimonial.quote}"
                     </blockquote>
-                    <div className="flex items-center mt-auto pt-4 border-t border-border/10"> {/* Added top border */}
-                      <div className="relative w-10 h-10 rounded-full overflow-hidden mr-3"> {/* Adjusted size */}
+                    <div className="flex items-center mt-auto pt-4 border-t border-border/20">
+                      <div className="relative w-12 h-12 rounded-full overflow-hidden mr-4 shadow-inner">
                         <Image
                           src={testimonial.avatar}
                           alt={testimonial.author}
                           fill
-                          sizes="40px"
+                          sizes="48px"
                           className="object-cover"
                           data-ai-hint={testimonial.dataAiHint}
                         />
                       </div>
                       <div>
-                        <p className="font-semibold text-foreground text-sm">{testimonial.author}</p>
-                        <p className="text-xs text-muted-foreground">{testimonial.title}</p> {/* Adjusted size */}
+                        <p className="font-semibold text-foreground text-md">{testimonial.author}</p>
+                        <p className="text-sm text-muted-foreground">{testimonial.title}</p>
                       </div>
                     </div>
                   </CardContent>

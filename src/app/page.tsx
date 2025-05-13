@@ -8,6 +8,7 @@ import AboutUsSection from '@/components/sections/AboutUsSection';
 import ClientsSection from '@/components/sections/ClientsSection';
 import AiAdvisorSection from '@/components/sections/AiAdvisorSection';
 import ContactSection from '@/components/sections/ContactSection';
+import WhyChooseUsSection from '@/components/sections/WhyChooseUsSection'; // Import new section
 import { Separator } from '@/components/ui/separator';
 import { cn } from '@/lib/utils';
 
@@ -15,7 +16,7 @@ import { cn } from '@/lib/utils';
 const SectionSeparator = ({ className = '' }: { className?: string }) => (
   <Separator
     className={cn(
-      "my-0 h-[1px] border-none bg-gradient-to-r from-transparent via-border/50 to-transparent", // Subtle border gradient
+      "my-0 h-[1px] border-none bg-gradient-to-r from-transparent via-border/30 to-transparent dark:via-border/20", 
       className
     )}
   />
@@ -23,24 +24,25 @@ const SectionSeparator = ({ className = '' }: { className?: string }) => (
 
 export default function HomePage() {
   return (
-    <div className="flex flex-col min-h-screen">
+    <div className="flex flex-col min-h-screen bg-background">
       <Navbar />
-      {/* Removed flex-grow from main, sections handle their own padding */}
       <main>
         <HeroSection />
         {/* No separator immediately after hero */}
         <ServicesSection />
         <SectionSeparator />
+        <WhyChooseUsSection /> {/* Add new section */}
+        <SectionSeparator className="dark:via-accent/15 via-accent/25" />
         <TechnologySection />
-        <SectionSeparator className="via-accent/20" /> {/* Accent variation */}
+        <SectionSeparator className="dark:via-primary/15 via-primary/25" /> 
         <BenefitsSection />
         <SectionSeparator />
         <AiAdvisorSection />
-        <SectionSeparator className="via-accent/20" />
+        <SectionSeparator className="dark:via-accent/15 via-accent/25" />
         <AboutUsSection />
-        <SectionSeparator /> {/* Removed leading space */}
+        <SectionSeparator /> 
         <ClientsSection />
-        <SectionSeparator className="via-primary/20" /> {/* Removed leading space, primary variation */}
+        <SectionSeparator className="dark:via-primary/15 via-primary/25" /> 
         <ContactSection />
         {/* No separator immediately before footer */}
       </main>
@@ -48,10 +50,3 @@ export default function HomePage() {
     </div>
   );
 }
-
-// cn function is already in lib/utils, so this local one can be removed if not used elsewhere in this file.
-// If it is used, ensure it's the same as the one in lib/utils or imported.
-// For this fix, assuming cn is globally available via import from "@/lib/utils"
-// function cn(...inputs: (string | undefined | null | false)[]) {
-//   return inputs.filter(Boolean).join(' ');
-// }

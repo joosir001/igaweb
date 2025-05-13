@@ -1,4 +1,4 @@
-
+// src/components/ui/ServiceCard.tsx
 "use client";
 
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
@@ -15,29 +15,28 @@ export default function ServiceCard({ icon: Icon, title, description }: ServiceC
   return (
     <motion.div
       whileHover={{
-        y: -6, // Slightly less lift
-        boxShadow: "0px 8px 25px -5px hsla(var(--primary), 0.15), 0px 4px 15px -5px hsla(var(--primary), 0.1)", // More subtle shadow
+        y: -8, 
+        boxShadow: "0px 12px 30px -8px hsla(var(--primary)/0.25), 0px 6px 15px -8px hsla(var(--primary)/0.2)",
+        scale: 1.02,
       }}
-      transition={{ type: "spring", stiffness: 300, damping: 20 }} // Spring animation for hover
+      transition={{ type: "spring", stiffness: 280, damping: 18 }}
       className="h-full"
     >
-      {/* Apply border transition directly on Card */}
-      <Card className="h-full bg-card/90 backdrop-blur-sm border border-border/30 hover:border-primary/50 transition-all duration-300 ease-out overflow-hidden group">
-        <CardHeader className="items-center text-center pt-8 pb-4"> {/* Adjusted padding */}
+      <Card className="h-full bg-card/80 dark:bg-card/90 backdrop-blur-lg border border-border/40 hover:border-primary/60 transition-all duration-300 ease-out overflow-hidden group shadow-lg hover:shadow-xl rounded-xl">
+        <CardHeader className="items-center text-center pt-8 pb-5">
           <motion.div
-            className="p-4 bg-gradient-to-br from-primary/10 to-primary/5 rounded-full mb-5 inline-block transition-all duration-300 group-hover:scale-110" // Gradient background and scale on group hover
-            whileHover={{ rotate: 10 }} // Slight rotate on icon hover
-            transition={{ type: "spring", stiffness: 400 }}
+            className="p-4 bg-gradient-to-br from-primary/15 to-primary/5 dark:from-primary/20 dark:to-primary/10 rounded-full mb-5 inline-block transition-all duration-300 group-hover:scale-110 group-hover:shadow-lg"
+            whileHover={{ rotate: 12, scale: 1.15 }}
+            transition={{ type: "spring", stiffness: 350, damping: 15 }}
           >
             <Icon className="h-10 w-10 text-primary transition-colors duration-300" />
           </motion.div>
-          <CardTitle className="text-xl font-semibold text-foreground">{title}</CardTitle> {/* Adjusted size */}
+          <CardTitle className="text-xl md:text-2xl font-semibold text-foreground">{title}</CardTitle>
         </CardHeader>
-        <CardContent className="text-center px-6 pb-8"> {/* Adjusted padding */}
-          <p className="text-muted-foreground text-sm leading-relaxed">{description}</p>
+        <CardContent className="text-center px-6 pb-8">
+          <p className="text-muted-foreground text-sm md:text-base leading-relaxed">{description}</p>
         </CardContent>
-        {/* Subtle decorative element */}
-        <div className="absolute bottom-0 left-0 w-full h-1 bg-primary/30 scale-x-0 group-hover:scale-x-100 transition-transform duration-500 ease-out origin-left"></div>
+        <div className="absolute bottom-0 left-0 w-full h-1.5 bg-gradient-to-r from-transparent via-primary/50 to-transparent scale-x-0 group-hover:scale-x-100 transition-transform duration-500 ease-out origin-center"></div>
       </Card>
     </motion.div>
   );
