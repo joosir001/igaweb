@@ -8,7 +8,7 @@ body {
 
 @layer base {
   :root {
-    /* Dark Theme: Neon & Aurora Inspired */
+    /* Dark Theme: Neon & Aurora Inspired - Professional Refinement */
     --background: 230 30% 7%; /* Deep Space Blue/Indigo */
     --foreground: 220 20% 93%; /* Light Cool Gray */
 
@@ -18,20 +18,20 @@ body {
     --popover: 230 35% 9%; /* Darker Popover, similar to card */
     --popover-foreground: 220 20% 93%;
 
-    /* Primary: Electric Blue/Cyan (Neon) */
+    /* Primary: Electric Blue (Neon) */
     --primary: 195 100% 50%;
     --primary-foreground: 230 30% 10%; /* Dark for contrast on neon */
 
-    /* Secondary: Vibrant Purple/Magenta (Aurora/Neon) */
+    /* Secondary: Vibrant Purple (Aurora) */
     --secondary: 280 80% 60%;
     --secondary-foreground: 220 20% 95%; /* Light for contrast */
 
     --muted: 230 20% 18%; /* Darker Muted Blue/Indigo */
     --muted-foreground: 220 15% 65%; /* Softer Muted Text */
 
-    /* Accent: Bright Teal/Green (Aurora/Neon) */
-    --accent: 165 90% 45%;
-    --accent-foreground: 230 30% 10%; /* Dark for contrast */
+    /* Accent: Neon Green (Neon) - For key visual elements as per guidelines */
+    --accent: 111 100% 55%; /* Approx #39FF14 */
+    --accent-foreground: 110 100% 10%; /* Very dark green/black for contrast */
 
     --destructive: 0 85% 55%; /* More vivid red */
     --destructive-foreground: 0 0% 98%;
@@ -42,22 +42,22 @@ body {
 
     --radius: 0.75rem;
 
-    /* Chart colors - Neon/Aurora Palette */
-    --chart-1: 195 100% 50%; /* Electric Blue/Cyan */
-    --chart-2: 280 80% 60%;  /* Vibrant Purple/Magenta */
-    --chart-3: 165 90% 45%;  /* Bright Teal/Green */
-    --chart-4: 330 100% 60%; /* Neon Pink */
-    --chart-5: 50 100% 55%;   /* Neon Yellow/Orange */
+    /* Chart colors - Neon/Aurora Palette - Professional Refinement */
+    --chart-1: hsl(var(--primary)); /* Electric Blue */
+    --chart-2: hsl(var(--secondary));  /* Vibrant Purple */
+    --chart-3: hsl(var(--accent));  /* Neon Green */
+    --chart-4: 330 100% 60%; /* Neon Pink (Distinct Highlight) */
+    --chart-5: 210 70% 70%;   /* Light Steel Blue (Professional Alternative) */
 
     /* Sidebar variables for dark theme */
     --sidebar-background: 230 30% 6%; /* Slightly darker than main bg */
     --sidebar-foreground: 220 20% 90%;
-    --sidebar-primary: 195 100% 50%;
-    --sidebar-primary-foreground: 230 30% 10%;
-    --sidebar-accent: 165 90% 45%;
-    --sidebar-accent-foreground: 230 30% 10%;
+    --sidebar-primary: hsl(var(--primary));
+    --sidebar-primary-foreground: hsl(var(--primary-foreground));
+    --sidebar-accent: hsl(var(--accent));
+    --sidebar-accent-foreground: hsl(var(--accent-foreground));
     --sidebar-border: 230 25% 15%;
-    --sidebar-ring: 195 100% 55%;
+    --sidebar-ring: hsl(var(--ring));
   }
 
   .dark {
@@ -74,43 +74,43 @@ body {
     --secondary-foreground: 220 20% 95%;
     --muted: 230 20% 18%;
     --muted-foreground: 220 15% 65%;
-    --accent: 165 90% 45%;
-    --accent-foreground: 230 30% 10%;
+    --accent: 111 100% 55%;
+    --accent-foreground: 110 100% 10%;
     --destructive: 0 85% 55%;
     --destructive-foreground: 0 0% 98%;
     --border: 230 25% 20%;
     --input: 230 25% 15%;
     --ring: 195 100% 55%;
 
-    --chart-1: 195 100% 50%;
-    --chart-2: 280 80% 60%;
-    --chart-3: 165 90% 45%;
+    --chart-1: hsl(var(--primary));
+    --chart-2: hsl(var(--secondary));
+    --chart-3: hsl(var(--accent));
     --chart-4: 330 100% 60%;
-    --chart-5: 50 100% 55%;
+    --chart-5: 210 70% 70%;
 
     --sidebar-background: 230 30% 6%;
     --sidebar-foreground: 220 20% 90%;
-    --sidebar-primary: 195 100% 50%;
-    --sidebar-primary-foreground: 230 30% 10%;
-    --sidebar-accent: 165 90% 45%;
-    --sidebar-accent-foreground: 230 30% 10%;
+    --sidebar-primary: hsl(var(--primary));
+    --sidebar-primary-foreground: hsl(var(--primary-foreground));
+    --sidebar-accent: hsl(var(--accent));
+    --sidebar-accent-foreground: hsl(var(--accent-foreground));
     --sidebar-border: 230 25% 15%;
-    --sidebar-ring: 195 100% 55%;
+    --sidebar-ring: hsl(var(--ring));
   }
 
   .light {
-    /* Light Theme: Aurora/Bright Inspired */
+    /* Light Theme: Aurora/Bright Inspired - Professional Refinement */
     --background: 220 60% 97%; /* Very Light Airy Sky Blue/Lavender */
-    --foreground: 260 40% 25%; /* Deep Rich Indigo/Purple Text */
+    --foreground: 260 40% 20%; /* Deep Rich Indigo/Purple Text (Darker for prof. contrast) */
 
     --card: 0 0% 100%; /* White */
-    --card-foreground: 260 40% 25%;
+    --card-foreground: 260 40% 20%;
 
     --popover: 0 0% 100%;
-    --popover-foreground: 260 40% 25%;
+    --popover-foreground: 260 40% 20%;
 
-    /* Primary: Vibrant Pink/Fuchsia */
-    --primary: 320 85% 58%;
+    /* Primary: Professional Purple (Derived from Dark Secondary) */
+    --primary: 265 75% 58%;
     --primary-foreground: 0 0% 100%; /* White text */
 
     /* Secondary: Bright Aqua/Turquoise */
@@ -120,33 +120,33 @@ body {
     --muted: 220 40% 94%; /* Lighter Muted Sky Blue/Lavender */
     --muted-foreground: 240 20% 55%; /* Medium Cool Gray */
 
-    /* Accent: Sunny Yellow/Gold */
-    --accent: 45 100% 53%;
-    --accent-foreground: 30 50% 10%; /* Dark contrast text */
+    /* Accent: Refined Neon Green */
+    --accent: 111 80% 50%; /* Neon Green - adjusted for light mode visibility */
+    --accent-foreground: 110 100% 10%; /* Very dark green/black for contrast */
 
     --destructive: 0 75% 55%;
     --destructive-foreground: 0 0% 98%;
 
     --border: 220 30% 90%; /* Soft Light Blue-Gray Border */
     --input: 220 40% 96%;  /* Very Light Input, off-white */
-    --ring: 320 85% 60%;   /* Primary color for rings, slightly brighter */
+    --ring: 265 75% 60%;   /* Primary color for rings, slightly brighter */
 
-    /* Chart colors for light mode */
-    --chart-1: 320 85% 58%; /* Vibrant Pink/Fuchsia */
-    --chart-2: 175 75% 50%; /* Bright Aqua/Turquoise */
-    --chart-3: 45 100% 53%;  /* Sunny Yellow/Gold */
-    --chart-4: 250 70% 65%; /* Bright Lavender (Aurora) */
-    --chart-5: 140 60% 55%; /* Lively Green (Aurora) */
+    /* Chart colors for light mode - Professional Refinement */
+    --chart-1: hsl(var(--primary)); /* Professional Purple */
+    --chart-2: hsl(var(--secondary)); /* Bright Aqua/Turquoise */
+    --chart-3: hsl(var(--accent));  /* Refined Neon Green */
+    --chart-4: 250 70% 65%; /* Bright Lavender (Aurora - Keep) */
+    --chart-5: 140 60% 55%; /* Lively Green (Aurora - Keep, distinct from accent) */
 
     /* Sidebar variables for light theme */
     --sidebar-background: 220 50% 98%; /* Even lighter than main bg */
     --sidebar-foreground: 260 40% 30%;
-    --sidebar-primary: 320 85% 58%;
-    --sidebar-primary-foreground: 0 0% 100%;
-    --sidebar-accent: 45 100% 53%;
-    --sidebar-accent-foreground: 30 50% 10%;
+    --sidebar-primary: hsl(var(--primary));
+    --sidebar-primary-foreground: hsl(var(--primary-foreground));
+    --sidebar-accent: hsl(var(--accent));
+    --sidebar-accent-foreground: hsl(var(--accent-foreground));
     --sidebar-border: 220 30% 88%;
-    --sidebar-ring: 320 85% 60%;
+    --sidebar-ring: hsl(var(--ring));
   }
 }
 
