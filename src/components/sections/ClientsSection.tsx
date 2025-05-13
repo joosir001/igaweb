@@ -1,5 +1,4 @@
-// src/components/sections/ClientsSection.tsx
-"use client";
+'use client'; // This component uses client-side GSAP and Framer Motion, so it should be a client component.
 
 import { useRef, useEffect } from 'react';
 import { gsap } from 'gsap';
@@ -8,20 +7,14 @@ import Image from 'next/image';
 import { Card, CardContent } from '@/components/ui/card';
 import { Star } from 'lucide-react';
 import { motion } from 'framer-motion';
-import Marquee from '@/components/magicui/marquee'; // Import Marquee
+import Marquee from '@/components/magicui/marquee';
+import { useScopedI18n } from '@/i18n/client'; // Import client-side i18n hook
 
 gsap.registerPlugin(ScrollTrigger);
 
-const clientLogos = [
-  { name: "Client Alpha", src: "https://picsum.photos/seed/logoA/200/100", dataAiHint: "tech company logo" },
-  { name: "Client Beta", src: "https://picsum.photos/seed/logoB/200/100", dataAiHint: "gaming company logo" },
-  { name: "Client Gamma", src: "https://picsum.photos/seed/logoC/200/100", dataAiHint: "finance company logo" },
-  { name: "Client Delta", src: "https://picsum.photos/seed/logoD/200/100", dataAiHint: "startup logo" },
-  { name: "Client Epsilon", src: "https://picsum.photos/seed/logoE/200/100", dataAiHint: "software company logo" },
-  { name: "Client Zeta", src: "https://picsum.photos/seed/logoF/200/100", dataAiHint: "e-commerce logo" },
-  { name: "Client Eta", src: "https://picsum.photos/seed/logoG/200/100", dataAiHint: "consulting firm logo" },
-];
-
+// Testimonial data would ideally come from a CMS or data source, and be translated there or via i18n keys.
+// For this example, we'll keep them static in English, as translating user-generated content is complex.
+// Or, provide keys for them if they are standard testimonials.
 const testimonials = [
   {
     quote: "iGamX revolutionized our integration timeline. Their APIs are robust and their support is top-notch!",
@@ -46,7 +39,18 @@ const testimonials = [
   }
 ];
 
+const clientLogos = [
+  { name: "Client Alpha", src: "https://picsum.photos/seed/logoA/200/100", dataAiHint: "tech company logo" },
+  { name: "Client Beta", src: "https://picsum.photos/seed/logoB/200/100", dataAiHint: "gaming company logo" },
+  { name: "Client Gamma", src: "https://picsum.photos/seed/logoC/200/100", dataAiHint: "finance company logo" },
+  { name: "Client Delta", src: "https://picsum.photos/seed/logoD/200/100", dataAiHint: "startup logo" },
+  { name: "Client Epsilon", src: "https://picsum.photos/seed/logoE/200/100", dataAiHint: "software company logo" },
+  { name: "Client Zeta", src: "https://picsum.photos/seed/logoF/200/100", dataAiHint: "e-commerce logo" },
+  { name: "Client Eta", src: "https://picsum.photos/seed/logoG/200/100", dataAiHint: "consulting firm logo" },
+];
+
 export default function ClientsSection() {
+  const t = useScopedI18n('clients_section');
   const sectionRef = useRef<HTMLDivElement>(null);
   const testimonialsGridRef = useRef<HTMLDivElement>(null);
   const titleRef = useRef<HTMLHeadingElement>(null);
@@ -90,7 +94,7 @@ export default function ClientsSection() {
               toggleActions: 'play none none none',
               once: true,
             },
-            delay: 0.3, // Delay after title/paragraph
+            delay: 0.3,
           }
         );
       }
@@ -142,14 +146,14 @@ export default function ClientsSection() {
   }, []);
 
   return (
-    <section id="clients" className="bg-background py-24 md:py-32" ref={sectionRef}>
+    <section id="clients" className="bg-gradient-to-b from-background via-card/15 to-background dark:from-background dark:via-card/5 dark:to-background py-24 md:py-32" ref={sectionRef}>
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center">
           <h2 ref={titleRef} className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6 leading-tight">
-            Trusted by <span className="highlight-text-primary">Industry Leaders</span>
+            {t('title_prefix')} <span className="highlight-text-primary">{t('title_highlight')}</span>
           </h2>
           <p ref={paragraphRef} className="text-lg md:text-xl text-muted-foreground max-w-3xl mx-auto mb-20 md:mb-24">
-            We partner with innovative iGaming businesses worldwide, helping them achieve their technological and market goals.
+            {t('subheading')}
           </p>
         </div>
 
@@ -172,7 +176,7 @@ export default function ClientsSection() {
 
         <div>
           <h3 ref={testimonialsTitleRef} className="text-3xl md:text-4xl font-bold text-center mb-16">
-            What Our <span className="highlight-text-accent">Partners Say</span>
+            {t('testimonials_title_prefix')} <span className="highlight-text-accent">{t('testimonials_title_highlight')}</span>
           </h3>
           <div ref={testimonialsGridRef} className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 md:gap-10">
             {testimonials.map((testimonial, index) => (

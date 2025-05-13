@@ -8,11 +8,11 @@ import AboutUsSection from '@/components/sections/AboutUsSection';
 import ClientsSection from '@/components/sections/ClientsSection';
 import AiAdvisorSection from '@/components/sections/AiAdvisorSection';
 import ContactSection from '@/components/sections/ContactSection';
-import WhyChooseUsSection from '@/components/sections/WhyChooseUsSection'; // Import new section
+import WhyChooseUsSection from '@/components/sections/WhyChooseUsSection';
 import { Separator } from '@/components/ui/separator';
 import { cn } from '@/lib/utils';
+import { getI18n } from '@/i18n/server'; // Or getScopedI18n if preferred for page level
 
-// Reusable Separator Component for consistency
 const SectionSeparator = ({ className = '' }: { className?: string }) => (
   <Separator
     className={cn(
@@ -22,16 +22,18 @@ const SectionSeparator = ({ className = '' }: { className?: string }) => (
   />
 );
 
-export default function HomePage() {
+export default async function HomePage() {
+  // const t = await getI18n(); // If using general t for props
+  // If sections fetch their own translations, this is not strictly needed here unless HomePage itself has text.
+
   return (
     <div className="flex flex-col min-h-screen bg-background">
       <Navbar />
       <main>
         <HeroSection />
-        {/* No separator immediately after hero */}
         <ServicesSection />
         <SectionSeparator />
-        <WhyChooseUsSection /> {/* Add new section */}
+        <WhyChooseUsSection />
         <SectionSeparator className="dark:via-accent/15 via-accent/25" />
         <TechnologySection />
         <SectionSeparator className="dark:via-primary/15 via-primary/25" /> 
@@ -44,7 +46,6 @@ export default function HomePage() {
         <ClientsSection />
         <SectionSeparator className="dark:via-primary/15 via-primary/25" /> 
         <ContactSection />
-        {/* No separator immediately before footer */}
       </main>
       <Footer />
     </div>

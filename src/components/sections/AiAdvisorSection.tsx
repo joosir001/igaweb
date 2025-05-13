@@ -1,5 +1,4 @@
-
-"use client";
+'use client';
 
 import { useState, useRef, useEffect } from 'react';
 import { useForm, Controller, SubmitHandler } from 'react-hook-form';
@@ -16,37 +15,12 @@ import { motion } from 'framer-motion';
 import { useToast } from "@/hooks/use-toast";
 import { gsap } from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
+import { useScopedI18n } from '@/i18n/client';
 
 gsap.registerPlugin(ScrollTrigger);
 
-const servicesOptions = [
-  { id: 'casino_games', label: 'Casino Games' },
-  { id: 'sportsbook', label: 'Sportsbook' },
-  { id: 'payment_solutions', label: 'Payment Solutions' },
-  { id: 'pam', label: 'Player Account Management (PAM)' },
-  { id: 'kyc_aml', label: 'KYC/AML Solutions' },
-  { id: 'affiliate_systems', label: 'Affiliate Systems' },
-] as const;
-
-const platformTypeOptions = [
-  'Existing Platform',
-  'New Platform',
-  'White Label',
-] as const;
-
-const FormSchema = z.object({
-  servicesNeeded: z.array(z.string()).min(1, { message: 'Please select at least one service.' }),
-  platformType: z.string({ // Use z.string() for better error handling with Select
-    required_error: "Please select a platform type.",
-  }).refine(val => platformTypeOptions.includes(val as typeof platformTypeOptions[number]), {
-    message: "Invalid platform type selected.",
-  }),
-});
-
-
-type FormValues = z.infer<typeof FormSchema>;
-
 export default function AiAdvisorSection() {
+  const t = useScopedI18n('ai_advisor_section');
   const [isLoading, setIsLoading] = useState(false);
   const [advice, setAdvice] = useState<string | null>(null);
   const { toast } = useToast();
@@ -56,6 +30,32 @@ export default function AiAdvisorSection() {
   const adviceCardRef = useRef<HTMLDivElement>(null);
   const titleRef = useRef<HTMLHeadingElement>(null);
   const paragraphRef = useRef<HTMLParagraphElement>(null);
+
+  const servicesOptions = [
+    { id: 'casino_games', label: t('services_options.casino_games') },
+    { id: 'sportsbook', label: t('services_options.sportsbook') },
+    { id: 'payment_solutions', label: t('services_options.payment_solutions') },
+    { id: 'pam', label: t('services_options.pam') },
+    { id: 'kyc_aml', label: t('services_options.kyc_aml') },
+    { id: 'affiliate_systems', label: t('services_options.affiliate_systems') },
+  ] as const;
+
+  const platformTypeOptions = [
+    t('platform_type_options.existing'),
+    t('platform_type_options.new'),
+    t('platform_type_options.white_label'),
+  ] as const;
+  
+  const FormSchema = z.object({
+    servicesNeeded: z.array(z.string()).min(1, { message: t('form_validation.services_min') }),
+    platformType: z.string({
+      required_error: t('form_validation.platform_type_required'),
+    }).refine(val => platformTypeOptions.includes(val as typeof platformTypeOptions[number]), {
+      message: t('form_validation.platform_type_invalid'),
+    }),
+  });
+  
+  type FormValues = z.infer<typeof FormSchema>;
 
 
   const form = useForm<FormValues>({
@@ -70,14 +70,13 @@ export default function AiAdvisorSection() {
 
   useEffect(() => {
     const ctx = gsap.context(() => {
-      // Animate Title and Paragraph
       gsap.fromTo(
         [titleRef.current, paragraphRef.current],
         { opacity: 0, y: 40 },
         {
           opacity: 1,
           y: 0,
-          duration: 0.9, // Slower duration
+          duration: 0.9,
           stagger: 0.2,
           ease: 'power3.out',
           scrollTrigger: {
@@ -89,46 +88,44 @@ export default function AiAdvisorSection() {
         }
       );
 
-      // Animate Form Card
       if (formCardRef.current) {
         gsap.fromTo(
           formCardRef.current,
-          { opacity: 0, x: -50, scale: 0.98 }, // Start from left, slightly smaller
+          { opacity: 0, x: -50, scale: 0.98 },
           {
             opacity: 1,
             x: 0,
             scale: 1,
-            duration: 1.0, // Longer duration
-            ease: 'expo.out', // Smoother ease
+            duration: 1.0,
+            ease: 'expo.out',
             scrollTrigger: {
               trigger: formCardRef.current,
               start: 'top 80%',
               toggleActions: 'play none none none',
               once: true,
             },
-            delay: 0.2, // Slight delay after title
+            delay: 0.2,
           }
         );
       }
 
-      // Animate Advice Card
       if (adviceCardRef.current) {
          gsap.fromTo(
           adviceCardRef.current,
-          { opacity: 0, x: 50, scale: 0.98 }, // Start from right, slightly smaller
+          { opacity: 0, x: 50, scale: 0.98 },
           {
             opacity: 1,
             x: 0,
             scale: 1,
-            duration: 1.0, // Longer duration
-            ease: 'expo.out', // Smoother ease
+            duration: 1.0,
+            ease: 'expo.out',
             scrollTrigger: {
               trigger: adviceCardRef.current,
               start: 'top 80%',
               toggleActions: 'play none none none',
               once: true,
             },
-            delay: 0.3, // Slightly more delay
+            delay: 0.3,
           }
         );
       }
@@ -149,16 +146,16 @@ export default function AiAdvisorSection() {
       const result = await integrationAdvisor(input);
       setAdvice(result.integrationStrategy);
       toast({
-        title: "AI Advisor Success",
-        description: "Integration strategy generated successfully.",
-        variant: "default", // Use default (or custom success variant if defined)
+        title: t('toast_success_title'),
+        description: t('toast_success_description'),
+        variant: "default",
       });
     } catch (error) {
       console.error('Error fetching AI advice:', error);
-      setAdvice('Failed to generate advice. Please try again.');
+      setAdvice(t('toast_error_description')); // Using description for error message display
        toast({
-        title: "AI Advisor Error",
-        description: "Could not generate integration strategy. Please try again later.",
+        title: t('toast_error_title'),
+        description: t('toast_error_description'),
         variant: "destructive",
       });
     } finally {
@@ -167,34 +164,34 @@ export default function AiAdvisorSection() {
   };
 
   return (
-    <section id="ai-advisor" className="bg-gradient-to-b from-background to-background/90 backdrop-blur-sm" ref={sectionRef}> {/* Subtle gradient */}
+    <section id="ai-advisor" className="bg-gradient-to-b from-background to-background/90 backdrop-blur-sm py-24 md:py-32" ref={sectionRef}>
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         <div>
           <h2 ref={titleRef} className="text-3xl md:text-4xl lg:text-5xl font-bold text-center mb-4">
-            AI-Powered <span className="highlight-text-accent">Integration Advisor</span>
+            {t('title_prefix')} <span className="highlight-text-accent">{t('title_highlight')}</span>
           </h2>
           <p ref={paragraphRef} className="text-lg text-muted-foreground text-center max-w-2xl mx-auto mb-16 md:mb-20">
-            Get personalized recommendations for your API integration strategy. Tell us your needs, and our AI will suggest the optimal approach.
+            {t('subheading')}
           </p>
         </div>
 
         <div className="grid md:grid-cols-2 gap-8 md:gap-12 items-start">
           <div ref={formCardRef}>
-            <Card className="shadow-lg border border-border/20 highlight-border-primary hover:shadow-xl transition-shadow duration-300"> {/* Subtle border */}
+            <Card className="shadow-lg border border-border/20 highlight-border-primary hover:shadow-xl transition-shadow duration-300">
               <CardHeader>
-                <CardTitle className="text-2xl flex items-center gap-2 text-foreground"> {/* Use foreground color */}
-                  <Sparkles className="w-5 h-5 text-primary" /> {/* Adjusted icon size */}
-                  Tell Us About Your Project
+                <CardTitle className="text-2xl flex items-center gap-2 text-foreground">
+                  <Sparkles className="w-5 h-5 text-primary" />
+                  {t('form_card_title')}
                 </CardTitle>
                 <CardDescription>
-                  Provide details about your iGaming platform and service requirements.
+                  {t('form_card_description')}
                 </CardDescription>
               </CardHeader>
               <form onSubmit={handleSubmit(onSubmit)}>
-                <CardContent className="space-y-6 pt-0"> {/* Removed pt-0 from default */}
+                <CardContent className="space-y-6 pt-4">
                   <div>
-                    <Label className="text-base font-semibold mb-3 block text-foreground/90">Services Needed</Label> {/* Adjusted margin */}
-                    <div className="grid grid-cols-1 sm:grid-cols-2 gap-x-4 gap-y-2"> {/* Grid layout for checkboxes */}
+                    <Label className="text-base font-semibold mb-3 block text-foreground/90">{t('services_needed_label')}</Label>
+                    <div className="grid grid-cols-1 sm:grid-cols-2 gap-x-4 gap-y-2">
                       {servicesOptions.map((service) => (
                         <Controller
                           key={service.id}
@@ -231,14 +228,14 @@ export default function AiAdvisorSection() {
                   </div>
 
                   <div>
-                    <Label htmlFor="platformType" className="text-base font-semibold mb-3 block text-foreground/90">Platform Type</Label>
+                    <Label htmlFor="platformType" className="text-base font-semibold mb-3 block text-foreground/90">{t('platform_type_label')}</Label>
                     <Controller
                       name="platformType"
                       control={control}
                       render={({ field }) => (
                         <Select onValueChange={field.onChange} defaultValue={field.value}>
                           <SelectTrigger id="platformType" className="w-full">
-                            <SelectValue placeholder="Select platform type" />
+                            <SelectValue placeholder={t('platform_type_placeholder')} />
                           </SelectTrigger>
                           <SelectContent>
                             {platformTypeOptions.map((type) => (
@@ -257,7 +254,7 @@ export default function AiAdvisorSection() {
                 </CardContent>
                 <CardFooter>
                   <motion.div
-                    whileHover={{ scale: 1.02, boxShadow: "0 0 12px hsla(var(--primary), 0.3)" }} // Subtle shadow
+                    whileHover={{ scale: 1.02, boxShadow: "0 0 12px hsla(var(--primary), 0.3)" }}
                     whileTap={{ scale: 0.98 }}
                     className="w-full"
                   >
@@ -267,7 +264,7 @@ export default function AiAdvisorSection() {
                       ) : (
                         <Sparkles className="mr-2 h-4 w-4" />
                       )}
-                      Get AI Advice
+                      {t('cta_button')}
                     </Button>
                   </motion.div>
                 </CardFooter>
@@ -276,21 +273,21 @@ export default function AiAdvisorSection() {
           </div>
 
           <div ref={adviceCardRef}>
-            <Card className="min-h-[400px] shadow-lg border border-border/20 highlight-border-accent flex flex-col hover:shadow-xl transition-shadow duration-300"> {/* Subtle border, flex col */}
+            <Card className="min-h-[400px] shadow-lg border border-border/20 highlight-border-accent flex flex-col hover:shadow-xl transition-shadow duration-300">
               <CardHeader>
                 <CardTitle className="text-2xl flex items-center gap-2 text-foreground">
                   <Sparkles className="w-5 h-5 text-accent" />
-                  AI-Generated Strategy
+                  {t('advice_card_title')}
                 </CardTitle>
                 <CardDescription>
-                  Our AI will analyze your input and provide a tailored integration strategy.
+                  {t('advice_card_description')}
                 </CardDescription>
               </CardHeader>
-              <CardContent className="flex-grow flex items-center justify-center p-6"> {/* Flex grow, center content */}
+              <CardContent className="flex-grow flex items-center justify-center p-6">
                 {isLoading && (
                   <div className="flex flex-col items-center justify-center h-full text-muted-foreground space-y-2">
                     <Loader2 className="h-10 w-10 animate-spin text-accent" />
-                    <p className="text-sm">Generating your personalized strategy...</p>
+                    <p className="text-sm">{t('generating_strategy')}</p>
                   </div>
                 )}
                 {!isLoading && advice && (
@@ -298,18 +295,17 @@ export default function AiAdvisorSection() {
                     initial={{ opacity: 0, y: 10 }}
                     animate={{ opacity: 1, y: 0 }}
                     transition={{ duration: 0.5 }}
-                    className="prose prose-sm dark:prose-invert max-w-none p-4 bg-background/50 rounded-md max-h-[350px] overflow-y-auto w-full" // Adjusted max height
+                    className="prose prose-sm dark:prose-invert max-w-none p-4 bg-background/50 rounded-md max-h-[350px] overflow-y-auto w-full"
                   >
-                    {/* Render advice line by line */}
                     {advice.split('\n').map((line, index) => (
-                        <p key={index} className="mb-2 last:mb-0">{line || '\u00A0'}</p> // Preserve empty lines, adjust margin
+                        <p key={index} className="mb-2 last:mb-0">{line || '\u00A0'}</p>
                     ))}
                   </motion.div>
                 )}
                 {!isLoading && !advice && (
                   <div className="flex flex-col items-center justify-center h-full text-muted-foreground p-8 text-center space-y-3">
-                    <Sparkles className="h-12 w-12 text-accent/40" /> {/* Softer icon color */}
-                    <p className="text-sm">Your personalized integration strategy will appear here once generated.</p>
+                    <Sparkles className="h-12 w-12 text-accent/40" />
+                    <p className="text-sm">{t('strategy_placeholder')}</p>
                   </div>
                 )}
               </CardContent>

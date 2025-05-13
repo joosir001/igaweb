@@ -1,0 +1,317 @@
+{
+  "navbar": {
+    "services": "服务",
+    "technology": "技术",
+    "why_choose_us": "为何选择我们",
+    "benefits": "优势",
+    "ai_advisor": "AI顾问",
+    "about": "关于我们",
+    "clients": "客户",
+    "contact": "联系我们",
+    "get_started": "开始使用",
+    "igamx": "iGamX"
+  },
+  "hero": {
+    "badge": "高级iGaming集成方案",
+    "headline1": "无缝API集成",
+    "headline2_prefix": "铸就",
+    "headline2_highlight": "卓越性能",
+    "subheading": "iGamX 提供强大、可扩展且闪电般快速的API解决方案，助力您的iGaming平台取得成功。",
+    "cta": "探索解决方案"
+  },
+  "footer": {
+    "privacy_policy": "隐私政策",
+    "terms_of_service": "服务条款",
+    "rights_reserved": "© {year} iGamX. 版权所有。",
+    "tagline": "推动iGaming集成领域的发展。"
+  },
+  "theme_toggle": {
+    "switch_to_dark": "切换到深色模式",
+    "switch_to_light": "切换到浅色模式"
+  },
+  "privacy_policy_page": {
+    "title": "隐私政策",
+    "back_to_home": "返回首页",
+    "last_updated": "最后更新时间：{date}",
+    "intro": "iGamX（“我们”或“我们的”）运营iGamX网站（“服务”）。本页面告知您有关我们收集、使用和披露个人数据的政策，以及您使用我们服务时与这些数据相关的选择。",
+    "info_collection_title": "信息收集与使用",
+    "info_collection_para": "我们为各种目的收集几种不同类型的信息，以向您提供和改进我们的服务。",
+    "types_of_data_title": "收集的数据类型",
+    "personal_data_title": "个人数据",
+    "personal_data_para": "在使用我们的服务时，我们可能会要求您提供某些可用于联系或识别您的个人身份信息（“个人数据”）。个人身份信息可能包括但不限于：",
+    "personal_data_list": {
+      "email": "电子邮件地址",
+      "name": "名字和姓氏",
+      "phone": "电话号码",
+      "company": "公司名称",
+      "cookies": "Cookie和使用数据"
+    },
+    "usage_data_title": "使用数据",
+    "usage_data_para": "我们还可能收集有关如何访问和使用服务的信息（“使用数据”）。这些使用数据可能包括诸如您计算机的互联网协议地址（例如IP地址）、浏览器类型、浏览器版本、您访问我们服务的页面、访问时间和日期、在这些页面上花费的时间、唯一设备标识符和其他诊断数据等信息。",
+    "use_of_data_title": "数据的使用",
+    "use_of_data_para": "iGamX将收集的数据用于各种目的：",
+    "use_of_data_list": {
+      "provide_maintain": "提供和维护我们的服务",
+      "notify_changes": "通知您有关我们服务的更改",
+      "interactive_features": "允许您在选择时参与我们服务的互动功能",
+      "customer_support": "提供客户支持",
+      "gather_analysis": "收集分析或有价值的信息，以便我们改进服务",
+      "monitor_usage": "监控我们服务的使用情况",
+      "technical_issues": "检测、预防和解决技术问题"
+    },
+    "security_title": "数据安全",
+    "security_para": "您的数据安全对我们很重要，但请记住，没有任何通过互联网传输的方法或电子存储方法是100%安全的。虽然我们努力使用商业上可接受的方式来保护您的个人数据，但我们不能保证其绝对安全。",
+    "changes_title": "本隐私政策的变更",
+    "changes_para": "我们可能会不时更新我们的隐私政策。我们将通过在此页面上发布新的隐私政策来通知您任何更改。在更改生效之前，我们将通过电子邮件和/或我们服务上的显着通知告知您，并更新本隐私政策顶部的“最后更新时间”。建议您定期查看本隐私政策以了解任何更改。本隐私政策的更改在发布到此页面时生效。",
+    "contact_title": "联系我们",
+    "contact_para": "如果您对本隐私政策有任何疑问，请联系我们：",
+    "contact_email": "通过电子邮件：privacy@igamx.dev"
+  },
+  "terms_of_service_page": {
+    "title": "服务条款",
+    "back_to_home": "返回首页",
+    "last_updated": "最后更新时间：{date}",
+    "intro1": "在使用由iGamX（“我们”或“我们的”）运营的iGamX网站（“服务”）之前，请仔细阅读这些服务条款（“条款”，“服务条款”）。",
+    "intro2": "您访问和使用本服务的条件是您接受并遵守这些条款。这些条款适用于所有访问或使用本服务的访客、用户和其他人。",
+    "intro3": "通过访问或使用本服务，您即表示同意受这些条款的约束。如果您不同意条款的任何部分，则不得访问本服务。",
+    "accounts_title": "1. 账户",
+    "accounts_para1": "当您在我们这里创建账户时，您必须始终向我们提供准确、完整和最新的信息。未能这样做即构成对条款的违反，可能导致立即终止您在我们服务上的账户。",
+    "accounts_para2": "您有责任保护您用于访问服务的密码以及在您的密码下的任何活动或行为，无论您的密码是与我们的服务还是第三方服务相关联。",
+    "accounts_para3": "您同意不向任何第三方披露您的密码。一旦发现任何安全漏洞或未经授权使用您的账户，您必须立即通知我们。",
+    "ip_title": "2. 知识产权",
+    "ip_para": "本服务及其原始内容、特性和功能现在和将来都是iGamX及其许可方的专有财产。本服务受美国和外国的版权、商标和其他法律的保护。未经iGamX事先书面同意，我们的商标和商业外观不得用于任何产品或服务。",
+    "links_title": "3. 指向其他网站的链接",
+    "links_para1": "我们的服务可能包含指向非iGamX拥有或控制的第三方网站或服务的链接。",
+    "links_para2": "iGamX无法控制任何第三方网站或服务的内容、隐私政策或惯例，也不承担任何责任。您进一步承认并同意，iGamX对因使用或依赖任何此类网站或服务上或通过任何此类网站或服务提供的任何此类内容、商品或服务而造成或据称造成的任何损害或损失，概不直接或间接负责或承担责任。",
+    "links_para3": "我们强烈建议您阅读您访问的任何第三方网站或服务的条款和条件以及隐私政策。",
+    "termination_title": "4. 终止",
+    "termination_para1": "如果我们自行决定您违反了本条款，我们可能会立即终止或暂停您的账户，恕不另行通知或承担任何责任。",
+    "termination_para2": "终止后，您使用本服务的权利将立即终止。如果您希望终止您的账户，您可以简单地停止使用本服务。",
+    "liability_title": "5. 责任限制",
+    "liability_para": "在任何情况下，iGamX及其董事、雇员、合伙人、代理人、供应商或关联公司均不对任何间接的、偶然的、特殊的、后果性的或惩罚性的损害承担责任，包括但不限于利润损失、数据损失、使用损失、商誉损失或其他无形损失，这些损失是由于（i）您访问或使用或无法访问或使用本服务；（ii）本服务上任何第三方的任何行为或内容；（iii）从本服务获得的任何内容；以及（iv）未经授权访问、使用或更改您的传输或内容，无论是基于保证、合同、侵权（包括过失）还是任何其他法律理论，无论我们是否已被告知此类损害的可能性，即使本文规定的补救措施未能达到其基本目的。",
+    "disclaimer_title": "6. 免责声明",
+    "disclaimer_para1": "您使用本服务的风险由您自行承担。本服务按“原样”和“可用”的基础提供。本服务不提供任何明示或暗示的保证，包括但不限于适销性、特定用途适用性、非侵权性或履约过程的默示保证。",
+    "disclaimer_para2": "iGamX及其子公司、关联公司及其许可方不保证：a）服务将不间断、安全或在任何特定时间或地点可用；b）任何错误或缺陷将得到纠正；c）服务不含病毒或其他有害组件；或d）使用服务的结果将满足您的要求。",
+    "governing_law_title": "7. 管辖法律",
+    "governing_law_para1": "这些条款应受[您的司法管辖区 - 例如，美国特拉华州]法律的管辖和解释，而不考虑其法律冲突规定。",
+    "governing_law_para2": "我们未能执行这些条款的任何权利或规定，不应被视为放弃这些权利。如果这些条款的任何规定被法院裁定为无效或不可执行，则这些条款的其余规定将继续有效。这些条款构成我们之间关于我们服务的完整协议，并取代我们之间可能就服务达成的任何先前协议。",
+    "changes_title": "8. 变更",
+    "changes_para1": "我们保留自行决定随时修改或替换这些条款的权利。如果修订是重大的，我们将在任何新条款生效前至少提前30天发出通知。什么是重大变更将由我们自行决定。",
+    "changes_para2": "在这些修订生效后继续访问或使用我们的服务，即表示您同意受修订条款的约束。如果您不同意新条款，请停止使用服务。",
+    "contact_title": "联系我们",
+    "contact_para": "如果您对这些条款有任何疑问，请联系我们：",
+    "contact_email": "通过电子邮件：legal@igamx.dev"
+  },
+  "language_switcher": {
+    "change_language": "切换语言",
+    "en": "English (英语)",
+    "zh": "中文",
+    "fr": "Français (法语)"
+  },
+  "services_section": {
+    "title_prefix": "全面的",
+    "title_highlight": "API解决方案",
+    "subheading": "我们提供全套专为iGaming行业量身定制的API集成服务，确保无缝运营和最佳性能。",
+    "casino_aggregation": {
+      "title": "娱乐场游戏聚合",
+      "description": "集成来自顶级提供商的庞大娱乐场游戏组合。老虎机、真人荷官、桌面游戏等。"
+    },
+    "sportsbook_integration": {
+      "title": "体育博彩集成",
+      "description": "获取全面的体育博彩解决方案，覆盖广泛的市场、实时数据馈送和赔率管理。"
+    },
+    "payment_gateway": {
+      "title": "支付网关集成",
+      "description": "安全无缝的支付处理，支持多种支付方式、货币和欺诈预防。"
+    },
+    "pam": {
+      "title": "玩家账户管理 (PAM)",
+      "description": "强大的平台API，用于玩家注册、钱包管理、红利引擎和详细报告。"
+    },
+    "kyc_aml": {
+      "title": "KYC/AML解决方案",
+      "description": "通过集成的“了解您的客户”和反洗钱验证服务确保合规性。"
+    },
+    "affiliate_systems": {
+      "title": "联盟和代理系统",
+      "description": "强大的工具，用于管理联盟营销计划和代理网络，推动玩家获取。"
+    }
+  },
+  "why_choose_us_section": {
+    "title_prefix": "为何选择",
+    "title_highlight": "iGamX",
+    "title_suffix": "？",
+    "subheading": "了解使iGamX成为iGaming API集成和平台解决方案首选的关键优势。",
+    "unmatched_expertise": {
+      "name": "无与伦比的专业知识",
+      "description": "在iGaming和API技术领域拥有数十年的综合经验。",
+      "cta": "了解更多"
+    },
+    "cutting_edge_tech": {
+      "name": "尖端技术",
+      "description": "利用最新技术进步实现速度、安全性和可扩展性。",
+      "cta": "探索技术"
+    },
+    "dedicated_support": {
+      "name": "专属支持",
+      "description": "全天候专家支持，确保您的运营顺利进行。",
+      "cta": "联系支持"
+    },
+    "proven_track_record": {
+      "name": "卓越往绩",
+      "description": "深受行业领导者信赖，提供可靠和高性能的解决方案。",
+      "cta": "查看我们的客户"
+    },
+    "innovative_solutions": {
+      "name": "创新解决方案",
+      "description": "不断发展我们的产品，以满足未来的iGaming需求。",
+      "cta": "探索AI"
+    }
+  },
+  "technology_section": {
+    "title_prefix": "专为",
+    "title_highlight": "卓越性能而设计",
+    "subheading": "我们的平台建立在尖端技术的基础之上，旨在实现可靠性、速度和安全性，为您提供竞争优势。",
+    "blazing_speed": {
+      "title": "极速体验",
+      "description": "我们的API经过优化，可实现高性能和低延迟，确保所有交易的快速响应时间。"
+    },
+    "robust_security": {
+      "title": "强大安全",
+      "description": "最先进的安全协议可保护您的数据和交易，确保安全可靠的环境。"
+    },
+    "scalable_architecture": {
+      "title": "可扩展架构",
+      "description": "我们的解决方案专为增长而构建，可轻松扩展以满足您的业务需求，支持数百万用户。"
+    },
+    "easy_integration": {
+      "title": "轻松集成",
+      "description": "开发者友好的API，提供全面的文档和SDK，可实现快速直接的集成。"
+    },
+    "developer_first": "开发者优先：全面的SDK和专属支持。"
+  },
+  "benefits_section": {
+    "title_prefix": "释放您",
+    "title_highlight": "平台的潜力",
+    "subheading": "与iGamX合作将为您的iGaming业务带来切实的利益，加速增长并提高运营效率。",
+    "time_to_market": {
+      "title": "更快的上市时间",
+      "description": "通过我们快速的集成解决方案，快速启动您的平台或新功能。"
+    },
+    "reduced_costs": {
+      "title": "降低开发成本",
+      "description": "利用我们预构建的集成方案，节省大量的开发工作和资源。"
+    },
+    "best_content": {
+      "title": "获取顶级内容",
+      "description": "为您的玩家提供来自领先提供商的海量顶级游戏和投注市场库。"
+    },
+    "player_experience": {
+      "title": "增强玩家体验",
+      "description": "提供无缝、引人入胜且可靠的游戏体验，让玩家流连忘返。"
+    },
+    "scalable_growth": {
+      "title": "可扩展增长",
+      "description": "我们强大的基础设施支持您的增长，轻松处理不断增加的玩家数量和交易。"
+    },
+    "security_compliance": {
+      "title": "无懈可击的安全性与合规性",
+      "description": "受益于顶级的安全措施和内置的合规工具，让您高枕无忧。"
+    },
+    "stats": {
+      "games_integrated": "集成游戏",
+      "uptime_sla": "正常运行时间SLA",
+      "support": "支持"
+    }
+  },
+  "ai_advisor_section": {
+    "title_prefix": "AI驱动的",
+    "title_highlight": "集成顾问",
+    "subheading": "获取针对您API集成策略的个性化建议。告诉我们您的需求，我们的AI将建议最佳方法。",
+    "form_card_title": "告诉我们您的项目",
+    "form_card_description": "提供有关您的iGaming平台和服务需求的详细信息。",
+    "services_needed_label": "所需服务",
+    "platform_type_label": "平台类型",
+    "platform_type_placeholder": "选择平台类型",
+    "cta_button": "获取AI建议",
+    "advice_card_title": "AI生成的策略",
+    "advice_card_description": "我们的AI将分析您的输入并提供量身定制的集成策略。",
+    "generating_strategy": "正在生成您的个性化策略...",
+    "strategy_placeholder": "您的个性化集成策略将在此处显示。",
+    "services_options": {
+      "casino_games": "娱乐场游戏",
+      "sportsbook": "体育博彩",
+      "payment_solutions": "支付解决方案",
+      "pam": "玩家账户管理 (PAM)",
+      "kyc_aml": "KYC/AML解决方案",
+      "affiliate_systems": "联盟系统"
+    },
+    "platform_type_options": {
+      "existing": "现有平台",
+      "new": "新平台",
+      "white_label": "白标"
+    },
+     "form_validation": {
+        "services_min": "请至少选择一项服务。",
+        "platform_type_required": "请选择平台类型。",
+        "platform_type_invalid": "选择的平台类型无效。"
+    },
+    "toast_success_title": "AI顾问成功",
+    "toast_success_description": "集成策略生成成功。",
+    "toast_error_title": "AI顾问错误",
+    "toast_error_description": "无法生成集成策略。请稍后再试。"
+  },
+  "about_us_section": {
+    "title_prefix": "",
+    "title_highlight": "iGamX",
+    "title_suffix": "的故事",
+    "subheading": "我们是一支充满热情的iGaming专家和技术创新者团队，致力于简化复杂性并助力客户成功。",
+    "mission_title": "我们的使命",
+    "mission_text": "成为全球iGaming行业敏捷和强大API集成解决方案的领先提供商，使我们的客户能够更快地创新并实现市场领先地位。",
+    "vision_title": "我们的愿景",
+    "vision_text": "一个无缝连接的iGaming生态系统，消除技术壁垒，促进无与伦比的增长和玩家体验。",
+    "core_values_title_prefix": "我们的核心",
+    "core_values_title_highlight": "价值观",
+    "value_innovation_title": "创新",
+    "value_innovation_text": "不断探索新技术，提供尖端解决方案。",
+    "value_client_centricity_title": "客户至上",
+    "value_client_centricity_text": "客户的成功就是我们的成功。我们建立基于信任和共同成长的伙伴关系。",
+    "value_integrity_title": "诚信与可靠",
+    "value_integrity_text": "以透明的方式运营，并提供客户可以信赖的可靠解决方案。"
+  },
+  "clients_section": {
+    "title_prefix": "深受",
+    "title_highlight": "行业领导者信赖",
+    "subheading": "我们与全球创新的iGaming企业合作，帮助他们实现技术和市场目标。",
+    "testimonials_title_prefix": "我们的",
+    "testimonials_title_highlight": "合作伙伴怎么说"
+  },
+  "contact_section": {
+    "title_prefix": "让我们",
+    "title_highlight": "联系",
+    "subheading": "准备好提升您的iGaming平台了吗？联系我们进行咨询或获取定制报价。我们随时准备帮助您成功。",
+    "direct_contact_title": "直接联系",
+    "response_time_note": "我们通常在24个工作小时内回复。如需紧急咨询，请致电我们。",
+    "form_card_title": "给我们留言",
+    "form_card_description": "填写下面的表格，我们会尽快回复您。",
+    "name_label": "全名",
+    "name_placeholder": "您的姓名",
+    "email_label": "电子邮件地址",
+    "email_placeholder": "您的邮箱@example.com",
+    "company_label": "公司（可选）",
+    "company_placeholder": "您的公司名称",
+    "message_label": "消息",
+    "message_placeholder": "我们能为您做些什么？",
+    "send_button": "发送消息",
+    "submitting_button": "发送中...",
+    "toast_success_title": "消息已发送！",
+    "toast_success_description": "您的消息已成功发送！",
+    "toast_error_title": "发送失败",
+    "toast_error_description": "无法发送您的消息。请重试。",
+    "form_validation": {
+        "name_min": "姓名至少需要2个字符。",
+        "email_invalid": "请输入有效的电子邮件地址。",
+        "message_min": "消息至少需要10个字符。"
+    }
+  }
+}

@@ -1,12 +1,12 @@
-// src/components/sections/BenefitsSection.tsx
-"use client";
+'use client'; // BenefitsSection uses client-side hooks (useInView) and GSAP animations
 
 import { useEffect, useRef, useState } from 'react';
 import { gsap } from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import { motion, useInView, animate } from 'framer-motion';
 import { TrendingUp, Zap, ShieldCheck, Users, Clock, DollarSign } from 'lucide-react';
-import { AnimatedList, AnimatedListItem } from "@/components/magicui/animated-list"; // Import AnimatedList
+import { AnimatedList, AnimatedListItem } from "@/components/magicui/animated-list";
+import { useScopedI18n } from '@/i18n/client'; // Use client hook
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -14,47 +14,8 @@ interface Benefit {
   icon: React.ElementType;
   title: string;
   description: string;
-  id: string; // Add id for key prop
+  id: string;
 }
-
-const benefits: Benefit[] = [
-  {
-    id: 'benefit-time-to-market',
-    icon: Clock,
-    title: 'Faster Time-to-Market',
-    description: 'Launch your platform or new features quickly with our rapid integration solutions.',
-  },
-  {
-    id: 'benefit-reduced-costs',
-    icon: DollarSign,
-    title: 'Reduced Development Costs',
-    description: 'Save on extensive development efforts and resources by leveraging our pre-built integrations.',
-  },
-  {
-    id: 'benefit-best-content',
-    icon: TrendingUp,
-    title: 'Access to Best-in-Class Content',
-    description: 'Offer your players a vast library of top-tier games and betting markets from leading providers.',
-  },
-  {
-    id: 'benefit-player-experience',
-    icon: Users,
-    title: 'Enhanced Player Experience',
-    description: 'Provide a seamless, engaging, and reliable gaming experience that keeps players coming back.',
-  },
-  {
-    id: 'benefit-scalable-growth',
-    icon: Zap,
-    title: 'Scalable Growth',
-    description: 'Our robust infrastructure supports your growth, handling increasing player volume and transactions effortlessly.',
-  },
-  {
-    id: 'benefit-security-compliance',
-    icon: ShieldCheck,
-    title: 'Uncompromised Security & Compliance',
-    description: 'Benefit from top-tier security measures and built-in compliance tools for peace of mind.',
-  },
-];
 
 interface AnimatedCounterProps {
   to: number;
@@ -89,18 +50,58 @@ const AnimatedCounter: React.FC<AnimatedCounterProps> = ({ to, duration = 2.5, s
   return <span ref={ref} className={className}>{prefix}{formattedCount}{suffix}</span>;
 };
 
-
-const stats = [
-  { value: 5000, suffix: "+", label: "Games Integrated", decimals: 0 },
-  { value: 99.9, suffix: "%", label: "Uptime SLA", decimals: 1 },
-  { value: 24, prefix:"", suffix: "/7", label: "Support", decimals: 0 },
-];
-
 export default function BenefitsSection() {
+  const t = useScopedI18n('benefits_section');
   const sectionRef = useRef<HTMLDivElement>(null);
   const statsGridRef = useRef<HTMLDivElement>(null);
   const titleRef = useRef<HTMLHeadingElement>(null);
   const paragraphRef = useRef<HTMLParagraphElement>(null);
+
+  const benefits: Benefit[] = [
+    {
+      id: 'benefit-time-to-market',
+      icon: Clock,
+      title: t('time_to_market.title'),
+      description: t('time_to_market.description'),
+    },
+    {
+      id: 'benefit-reduced-costs',
+      icon: DollarSign,
+      title: t('reduced_costs.title'),
+      description: t('reduced_costs.description'),
+    },
+    {
+      id: 'benefit-best-content',
+      icon: TrendingUp,
+      title: t('best_content.title'),
+      description: t('best_content.description'),
+    },
+    {
+      id: 'benefit-player-experience',
+      icon: Users,
+      title: t('player_experience.title'),
+      description: t('player_experience.description'),
+    },
+    {
+      id: 'benefit-scalable-growth',
+      icon: Zap,
+      title: t('scalable_growth.title'),
+      description: t('scalable_growth.description'),
+    },
+    {
+      id: 'benefit-security-compliance',
+      icon: ShieldCheck,
+      title: t('security_compliance.title'),
+      description: t('security_compliance.description'),
+    },
+  ];
+
+  const stats = [
+    { value: 5000, suffix: "+", label: t('stats.games_integrated'), decimals: 0 },
+    { value: 99.9, suffix: "%", label: t('stats.uptime_sla'), decimals: 1 },
+    { value: 24, prefix:"", suffix: "/7", label: t('stats.support'), decimals: 0 },
+  ];
+
 
   useEffect(() => {
     const ctx = gsap.context(() => {
@@ -111,38 +112,37 @@ export default function BenefitsSection() {
           opacity: 1,
           y: 0,
           filter: "blur(0px)",
-          duration: 1.2, // Enhanced duration
-          stagger: 0.25, // Enhanced stagger
-          ease: 'power4.out', // Smoother ease
+          duration: 1.2,
+          stagger: 0.25,
+          ease: 'power4.out',
           scrollTrigger: {
             trigger: sectionRef.current,
-            start: 'top 80%', // Trigger slightly earlier
+            start: 'top 80%',
             toggleActions: 'play none none none',
             once: true,
           },
         }
       );
 
-      // GSAP for stats cards, as AnimatedList is for the benefits
       if (statsGridRef.current) {
         gsap.fromTo(
           statsGridRef.current.children,
-          { opacity: 0, y: 60, filter: "blur(6px)", scale: 0.9 }, // More pronounced start
+          { opacity: 0, y: 60, filter: "blur(6px)", scale: 0.9 },
           {
             opacity: 1,
             y: 0,
             filter: "blur(0px)",
             scale: 1,
-            duration: 1.3, // Enhanced duration
-            stagger: 0.25, // Enhanced stagger
+            duration: 1.3,
+            stagger: 0.25,
             ease: 'expo.out',
             scrollTrigger: {
               trigger: statsGridRef.current,
-              start: 'top 85%', // Trigger slightly later
+              start: 'top 85%',
               toggleActions: 'play none none none',
               once: true,
             },
-            delay: 0.4, // Delay after title/paragraph
+            delay: 0.4,
           }
         );
       }
@@ -156,10 +156,10 @@ export default function BenefitsSection() {
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center">
           <h2 ref={titleRef} className="text-4xl md:text-5xl lg:text-6xl font-black mb-6 leading-tight">
-            Unlock Your <span className="highlight-text-primary">Platform's Potential</span>
+            {t('title_prefix')} <span className="highlight-text-primary">{t('title_highlight')}</span>
           </h2>
           <p ref={paragraphRef} className="text-lg md:text-xl text-muted-foreground max-w-3xl mx-auto mb-20 md:mb-24">
-            Partnering with iGamX brings tangible benefits to your iGaming business, accelerating growth and enhancing operational efficiency.
+            {t('subheading')}
           </p>
         </div>
 

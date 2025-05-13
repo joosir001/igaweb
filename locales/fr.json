@@ -1,0 +1,317 @@
+{
+  "navbar": {
+    "services": "Services",
+    "technology": "Technologie",
+    "why_choose_us": "Pourquoi Nous",
+    "benefits": "Avantages",
+    "ai_advisor": "Conseiller IA",
+    "about": "À Propos",
+    "clients": "Clients",
+    "contact": "Contact",
+    "get_started": "Commencer",
+    "igamx": "iGamX"
+  },
+  "hero": {
+    "badge": "Intégrations iGaming Premium",
+    "headline1": "Intégration API Transparente",
+    "headline2_prefix": "pour une",
+    "headline2_highlight": "Performance Maximale",
+    "subheading": "iGamX fournit des solutions API robustes, évolutives et ultra-rapides, propulsant le succès de votre plateforme iGaming.",
+    "cta": "Explorer les Solutions"
+  },
+  "footer": {
+    "privacy_policy": "Politique de Confidentialité",
+    "terms_of_service": "Conditions d'Utilisation",
+    "rights_reserved": "© {year} iGamX. Tous droits réservés.",
+    "tagline": "Faire progresser le monde de l'intégration iGaming."
+  },
+  "theme_toggle": {
+    "switch_to_dark": "Passer en mode sombre",
+    "switch_to_light": "Passer en mode clair"
+  },
+  "privacy_policy_page": {
+    "title": "Politique de Confidentialité",
+    "back_to_home": "Retour à l'accueil",
+    "last_updated": "Dernière mise à jour : {date}",
+    "intro": "iGamX (\"nous\", \"notre\" ou \"nos\") exploite le site Web iGamX (le \"Service\"). Cette page vous informe de nos politiques concernant la collecte, l'utilisation et la divulgation des données personnelles lorsque vous utilisez notre Service et les choix qui s'offrent à vous concernant ces données.",
+    "info_collection_title": "Collecte et Utilisation des Informations",
+    "info_collection_para": "Nous collectons plusieurs types d'informations à des fins diverses pour vous fournir et améliorer notre Service.",
+    "types_of_data_title": "Types de Données Collectées",
+    "personal_data_title": "Données Personnelles",
+    "personal_data_para": "Lors de l'utilisation de notre Service, nous pouvons vous demander de nous fournir certaines informations personnellement identifiable qui peuvent être utilisées pour vous contacter ou vous identifier (\"Données Personnelles\"). Les informations personnellement identifiables peuvent inclure, mais sans s'y limiter :",
+    "personal_data_list": {
+      "email": "Adresse e-mail",
+      "name": "Prénom et nom",
+      "phone": "Numéro de téléphone",
+      "company": "Nom de l'entreprise",
+      "cookies": "Cookies et Données d'Utilisation"
+    },
+    "usage_data_title": "Données d'Utilisation",
+    "usage_data_para": "Nous pouvons également collecter des informations sur la manière dont le Service est accédé et utilisé (\"Données d'Utilisation\"). Ces Données d'Utilisation peuvent inclure des informations telles que l'adresse de protocole Internet de votre ordinateur (par exemple, adresse IP), le type de navigateur, la version du navigateur, les pages de notre Service que vous visitez, l'heure et la date de votre visite, le temps passé sur ces pages, les identifiants uniques d'appareils et d'autres données de diagnostic.",
+    "use_of_data_title": "Utilisation des Données",
+    "use_of_data_para": "iGamX utilise les données collectées à des fins diverses :",
+    "use_of_data_list": {
+      "provide_maintain": "Pour fournir et maintenir notre Service",
+      "notify_changes": "Pour vous informer des modifications apportées à notre Service",
+      "interactive_features": "Pour vous permettre de participer aux fonctionnalités interactives de notre Service lorsque vous choisissez de le faire",
+      "customer_support": "Pour fournir un support client",
+      "gather_analysis": "Pour recueillir des analyses ou des informations précieuses afin d'améliorer notre Service",
+      "monitor_usage": "Pour surveiller l'utilisation de notre Service",
+      "technical_issues": "Pour détecter, prévenir et résoudre les problèmes techniques"
+    },
+    "security_title": "Sécurité des Données",
+    "security_para": "La sécurité de vos données est importante pour nous, mais n'oubliez pas qu'aucune méthode de transmission sur Internet ou méthode de stockage électronique n'est sécurisée à 100 %. Bien que nous nous efforcions d'utiliser des moyens commercialement acceptables pour protéger vos Données Personnelles, nous ne pouvons garantir leur sécurité absolue.",
+    "changes_title": "Modifications de cette Politique de Confidentialité",
+    "changes_para": "Nous pouvons mettre à jour notre Politique de Confidentialité de temps à autre. Nous vous informerons de tout changement en publiant la nouvelle Politique de Confidentialité sur cette page. Nous vous informerons par e-mail et/ou par un avis bien visible sur notre Service, avant que le changement ne devienne effectif et mettrons à jour la date de \"Dernière mise à jour\" en haut de cette Politique de Confidentialité. Il vous est conseillé de consulter cette Politique de Confidentialité périodiquement pour tout changement. Les modifications apportées à cette Politique de Confidentialité entrent en vigueur lorsqu'elles sont publiées sur cette page.",
+    "contact_title": "Contactez-Nous",
+    "contact_para": "Si vous avez des questions concernant cette Politique de Confidentialité, veuillez nous contacter :",
+    "contact_email": "Par e-mail : privacy@igamx.dev"
+  },
+  "terms_of_service_page": {
+    "title": "Conditions d'Utilisation",
+    "back_to_home": "Retour à l'accueil",
+    "last_updated": "Dernière mise à jour : {date}",
+    "intro1": "Veuillez lire attentivement ces Conditions d'Utilisation (\"Conditions\", \"Conditions d'Utilisation\") avant d'utiliser le site Web iGamX (le \"Service\") exploité par iGamX (\"nous\", \"notre\" ou \"nos\").",
+    "intro2": "Votre accès et votre utilisation du Service sont conditionnés à votre acceptation et à votre respect de ces Conditions. Ces Conditions s'appliquent à tous les visiteurs, utilisateurs et autres personnes qui accèdent ou utilisent le Service.",
+    "intro3": "En accédant ou en utilisant le Service, vous acceptez d'être lié par ces Conditions. Si vous n'êtes pas d'accord avec une partie des conditions, vous ne pouvez pas accéder au Service.",
+    "accounts_title": "1. Comptes",
+    "accounts_para1": "Lorsque vous créez un compte chez nous, vous devez nous fournir des informations exactes, complètes et à jour en tout temps. Le non-respect de cette obligation constitue une violation des Conditions, ce qui peut entraîner la résiliation immédiate de votre compte sur notre Service.",
+    "accounts_para2": "Vous êtes responsable de la protection du mot de passe que vous utilisez pour accéder au Service et de toutes les activités ou actions effectuées sous votre mot de passe, que votre mot de passe soit avec notre Service ou un service tiers.",
+    "accounts_para3": "Vous acceptez de ne pas divulguer votre mot de passe à un tiers. Vous devez nous informer immédiatement dès que vous avez connaissance d'une violation de la sécurité ou d'une utilisation non autorisée de votre compte.",
+    "ip_title": "2. Propriété Intellectuelle",
+    "ip_para": "Le Service et son contenu original, ses fonctionnalités et ses fonctionnalités sont et resteront la propriété exclusive d'iGamX et de ses concédants de licence. Le Service est protégé par le droit d'auteur, les marques de commerce et d'autres lois des États-Unis et des pays étrangers. Nos marques de commerce et notre habillage commercial ne peuvent être utilisés en relation avec aucun produit ou service sans le consentement écrit préalable d'iGamX.",
+    "links_title": "3. Liens Vers d'Autres Sites Web",
+    "links_para1": "Notre Service peut contenir des liens vers des sites Web ou des services tiers qui ne sont pas détenus ou contrôlés par iGamX.",
+    "links_para2": "iGamX n'a aucun contrôle sur le contenu, les politiques de confidentialité ou les pratiques des sites Web ou services tiers et n'assume aucune responsabilité à cet égard. Vous reconnaissez et acceptez en outre qu'iGamX ne sera pas responsable, directement ou indirectement, de tout dommage ou perte causé ou présumé avoir été causé par ou en relation avec l'utilisation ou la confiance accordée à un tel contenu, biens ou services disponibles sur ou via ces sites Web ou services.",
+    "links_para3": "Nous vous conseillons vivement de lire les conditions générales et les politiques de confidentialité de tous les sites Web ou services tiers que vous visitez.",
+    "termination_title": "4. Résiliation",
+    "termination_para1": "Nous pouvons résilier ou suspendre votre compte immédiatement, sans préavis ni responsabilité, pour quelque raison que ce soit, y compris, sans s'y limiter, si vous ne respectez pas les Conditions.",
+    "termination_para2": "En cas de résiliation, votre droit d'utiliser le Service cessera immédiatement. Si vous souhaitez résilier votre compte, vous pouvez simplement cesser d'utiliser le Service.",
+    "liability_title": "5. Limitation de Responsabilité",
+    "liability_para": "En aucun cas, iGamX, ni ses administrateurs, employés, partenaires, agents, fournisseurs ou affiliés, ne pourront être tenus responsables de tout dommage indirect, accessoire, spécial, consécutif ou punitif, y compris, sans s'y limiter, la perte de profits, de données, d'utilisation, de clientèle ou d'autres pertes incorporelles, résultant de (i) votre accès ou votre utilisation ou votre incapacité à accéder ou à utiliser le Service ; (ii) toute conduite ou contenu d'un tiers sur le Service ; (iii) tout contenu obtenu à partir du Service ; et (iv) l'accès, l'utilisation ou la modification non autorisés de vos transmissions ou de votre contenu, que ce soit sur la base d'une garantie, d'un contrat, d'un délit (y compris la négligence) ou de toute autre théorie juridique, que nous ayons été informés ou non de la possibilité de tels dommages, et même si un recours énoncé dans les présentes s'avère avoir échoué dans son objectif essentiel.",
+    "disclaimer_title": "6. Clause de Non-Responsabilité",
+    "disclaimer_para1": "Votre utilisation du Service est à vos seuls risques. Le Service est fourni \"TEL QUEL\" et \"TEL QUE DISPONIBLE\". Le Service est fourni sans garantie d'aucune sorte, expresse ou implicite, y compris, mais sans s'y limiter, les garanties implicites de qualité marchande, d'adéquation à un usage particulier, de non-contrefaçon ou de déroulement des prestations.",
+    "disclaimer_para2": "iGamX, ses filiales, ses sociétés affiliées et ses concédants de licence ne garantissent pas que a) le Service fonctionnera sans interruption, sera sécurisé ou disponible à un moment ou à un endroit particulier ; b) toute erreur ou défaut sera corrigé ; c) le Service est exempt de virus ou d'autres composants nuisibles ; ou d) les résultats de l'utilisation du Service répondront à vos exigences.",
+    "governing_law_title": "7. Droit Applicable",
+    "governing_law_para1": "Ces Conditions seront régies et interprétées conformément aux lois de [Votre Juridiction - par ex., Delaware, États-Unis], sans égard à ses dispositions relatives aux conflits de lois.",
+    "governing_law_para2": "Notre incapacité à appliquer un droit ou une disposition des présentes Conditions ne sera pas considérée comme une renonciation à ces droits. Si une disposition des présentes Conditions est jugée invalide ou inapplicable par un tribunal, les autres dispositions des présentes Conditions resteront en vigueur. Ces Conditions constituent l'intégralité de l'accord entre nous concernant notre Service, et remplacent et annulent tous les accords antérieurs que nous aurions pu avoir entre nous concernant le Service.",
+    "changes_title": "8. Modifications",
+    "changes_para1": "Nous nous réservons le droit, à notre seule discrétion, de modifier ou de remplacer ces Conditions à tout moment. Si une révision est importante, nous essaierons de fournir un préavis d'au moins 30 jours avant l'entrée en vigueur des nouvelles conditions. Ce qui constitue un changement important sera déterminé à notre seule discrétion.",
+    "changes_para2": "En continuant à accéder ou à utiliser notre Service après l'entrée en vigueur de ces révisions, vous acceptez d'être lié par les conditions révisées. Si vous n'acceptez pas les nouvelles conditions, veuillez cesser d'utiliser le Service.",
+    "contact_title": "Contactez-Nous",
+    "contact_para": "Si vous avez des questions concernant ces Conditions, veuillez nous contacter :",
+    "contact_email": "Par e-mail : legal@igamx.dev"
+  },
+  "language_switcher": {
+    "change_language": "Changer de langue",
+    "en": "English (Anglais)",
+    "zh": "中文 (Chinois)",
+    "fr": "Français"
+  },
+  "services_section": {
+    "title_prefix": "Solutions API",
+    "title_highlight": "Complètes",
+    "subheading": "Nous fournissons une suite complète de services d'intégration d'API adaptés à l'industrie iGaming, garantissant un fonctionnement transparent et des performances maximales.",
+    "casino_aggregation": {
+      "title": "Agrégation de Jeux de Casino",
+      "description": "Intégrez un vaste portefeuille de jeux de casino des meilleurs fournisseurs. Machines à sous, croupiers en direct, jeux de table, et plus encore."
+    },
+    "sportsbook_integration": {
+      "title": "Intégration de Paris Sportifs",
+      "description": "Accédez à des solutions complètes de paris sportifs avec une large couverture du marché, des flux de données en temps réel et la gestion des cotes."
+    },
+    "payment_gateway": {
+      "title": "Intégration de Passerelle de Paiement",
+      "description": "Traitement des paiements sécurisé et transparent avec prise en charge de multiples méthodes, devises et prévention de la fraude."
+    },
+    "pam": {
+      "title": "Gestion de Compte Joueur (PAM)",
+      "description": "Plateforme API robuste pour l'enregistrement des joueurs, la gestion de portefeuille, les moteurs de bonus et des rapports détaillés."
+    },
+    "kyc_aml": {
+      "title": "Solutions KYC/AML",
+      "description": "Assurez la conformité avec les services intégrés de vérification Know Your Customer et Anti-Money Laundering."
+    },
+    "affiliate_systems": {
+      "title": "Systèmes d'Affiliation et d'Agents",
+      "description": "Outils puissants pour gérer les programmes de marketing d'affiliation et les réseaux d'agents, stimulant l'acquisition de joueurs."
+    }
+  },
+  "why_choose_us_section": {
+    "title_prefix": "Pourquoi Choisir",
+    "title_highlight": "iGamX",
+    "title_suffix": "?",
+    "subheading": "Découvrez les avantages clés qui font d'iGamX le choix privilégié pour l'intégration d'API iGaming et les solutions de plateforme.",
+    "unmatched_expertise": {
+      "name": "Expertise Inégalée",
+      "description": "Des décennies d'expérience combinée dans l'iGaming et la technologie API.",
+      "cta": "En Savoir Plus"
+    },
+    "cutting_edge_tech": {
+      "name": "Technologie de Pointe",
+      "description": "Utilisation des dernières avancées pour la vitesse, la sécurité et l'évolutivité.",
+      "cta": "Explorer la Technologie"
+    },
+    "dedicated_support": {
+      "name": "Support Dédié",
+      "description": "Support expert 24/7 pour assurer le bon fonctionnement de vos opérations.",
+      "cta": "Contacter le Support"
+    },
+    "proven_track_record": {
+      "name": "Expérience Éprouvée",
+      "description": "Approuvé par les leaders de l'industrie pour fournir des solutions fiables et performantes.",
+      "cta": "Voir Nos Clients"
+    },
+    "innovative_solutions": {
+      "name": "Solutions Innovantes",
+      "description": "Évolution continue de nos offres pour répondre aux futures demandes de l'iGaming.",
+      "cta": "Découvrir l'IA"
+    }
+  },
+  "technology_section": {
+    "title_prefix": "Conçu pour une",
+    "title_highlight": "Performance Optimale",
+    "subheading": "Notre plateforme est construite sur une base de technologie de pointe, conçue pour la fiabilité, la vitesse et la sécurité afin de vous donner un avantage concurrentiel.",
+    "blazing_speed": {
+      "title": "Vitesse Foudroyante",
+      "description": "Nos API sont optimisées pour des performances élevées et une faible latence, garantissant des temps de réponse rapides pour toutes les transactions."
+    },
+    "robust_security": {
+      "title": "Sécurité Robuste",
+      "description": "Des protocoles de sécurité de pointe protègent vos données et transactions, garantissant un environnement sûr et fiable."
+    },
+    "scalable_architecture": {
+      "title": "Architecture Évolutive",
+      "description": "Conçues pour la croissance, nos solutions s'adaptent sans effort aux besoins de votre entreprise, prenant en charge des millions d'utilisateurs."
+    },
+    "easy_integration": {
+      "title": "Intégration Facile",
+      "description": "API conviviales pour les développeurs avec une documentation complète et des SDK pour une intégration rapide et simple."
+    },
+    "developer_first": "Priorité aux développeurs : SDK complets et support dédié."
+  },
+  "benefits_section": {
+    "title_prefix": "Libérez le Potentiel de Votre",
+    "title_highlight": "Plateforme",
+    "subheading": "Un partenariat avec iGamX apporte des avantages tangibles à votre entreprise iGaming, accélérant la croissance et améliorant l'efficacité opérationnelle.",
+    "time_to_market": {
+      "title": "Mise sur le Marché Plus Rapide",
+      "description": "Lancez votre plateforme ou de nouvelles fonctionnalités rapidement grâce à nos solutions d'intégration rapide."
+    },
+    "reduced_costs": {
+      "title": "Coûts de Développement Réduits",
+      "description": "Économisez sur les efforts et les ressources de développement importants en tirant parti de nos intégrations prédéfinies."
+    },
+    "best_content": {
+      "title": "Accès au Meilleur Contenu",
+      "description": "Offrez à vos joueurs une vaste bibliothèque de jeux de premier ordre et de marchés de paris des principaux fournisseurs."
+    },
+    "player_experience": {
+      "title": "Expérience Joueur Améliorée",
+      "description": "Fournissez une expérience de jeu transparente, engageante et fiable qui fidélise les joueurs."
+    },
+    "scalable_growth": {
+      "title": "Croissance Évolutive",
+      "description": "Notre infrastructure robuste soutient votre croissance, gérant sans effort l'augmentation du volume de joueurs et des transactions."
+    },
+    "security_compliance": {
+      "title": "Sécurité et Conformité Intransigeantes",
+      "description": "Bénéficiez de mesures de sécurité de premier ordre et d'outils de conformité intégrés pour une tranquillité d'esprit."
+    },
+    "stats": {
+      "games_integrated": "Jeux Intégrés",
+      "uptime_sla": "Disponibilité SLA",
+      "support": "Support"
+    }
+  },
+  "ai_advisor_section": {
+    "title_prefix": "Conseiller d'Intégration",
+    "title_highlight": "Piloté par l'IA",
+    "subheading": "Obtenez des recommandations personnalisées pour votre stratégie d'intégration d'API. Décrivez-nous vos besoins, et notre IA suggérera l'approche optimale.",
+    "form_card_title": "Parlez-Nous de Votre Projet",
+    "form_card_description": "Fournissez des détails sur votre plateforme iGaming et vos besoins en services.",
+    "services_needed_label": "Services Requis",
+    "platform_type_label": "Type de Plateforme",
+    "platform_type_placeholder": "Sélectionnez le type de plateforme",
+    "cta_button": "Obtenir des Conseils IA",
+    "advice_card_title": "Stratégie Générée par l'IA",
+    "advice_card_description": "Notre IA analysera vos informations et fournira une stratégie d'intégration sur mesure.",
+    "generating_strategy": "Génération de votre stratégie personnalisée...",
+    "strategy_placeholder": "Votre stratégie d'intégration personnalisée apparaîtra ici une fois générée.",
+     "services_options": {
+      "casino_games": "Jeux de Casino",
+      "sportsbook": "Paris Sportifs",
+      "payment_solutions": "Solutions de Paiement",
+      "pam": "Gestion de Compte Joueur (PAM)",
+      "kyc_aml": "Solutions KYC/AML",
+      "affiliate_systems": "Systèmes d'Affiliation"
+    },
+    "platform_type_options": {
+      "existing": "Plateforme Existante",
+      "new": "Nouvelle Plateforme",
+      "white_label": "Marque Blanche"
+    },
+    "form_validation": {
+        "services_min": "Veuillez sélectionner au moins un service.",
+        "platform_type_required": "Veuillez sélectionner un type de plateforme.",
+        "platform_type_invalid": "Type de plateforme sélectionné invalide."
+    },
+    "toast_success_title": "Succès du Conseiller IA",
+    "toast_success_description": "Stratégie d'intégration générée avec succès.",
+    "toast_error_title": "Erreur du Conseiller IA",
+    "toast_error_description": "Impossible de générer la stratégie d'intégration. Veuillez réessayer plus tard."
+  },
+  "about_us_section": {
+    "title_prefix": "L'Histoire d'",
+    "title_highlight": "iGamX",
+    "title_suffix": "",
+    "subheading": "Nous sommes une équipe d'experts passionnés de l'iGaming et d'innovateurs technologiques dédiés à simplifier la complexité et à favoriser le succès de nos clients.",
+    "mission_title": "Notre Mission",
+    "mission_text": "Être le principal fournisseur de solutions d'intégration d'API agiles et robustes pour l'industrie mondiale de l'iGaming, permettant à nos clients d'innover plus rapidement et d'atteindre le leadership du marché.",
+    "vision_title": "Notre Vision",
+    "vision_text": "Un écosystème iGaming connecté de manière transparente où les barrières technologiques sont éliminées, favorisant une croissance et des expériences de jeu inégalées.",
+    "core_values_title_prefix": "Nos Valeurs",
+    "core_values_title_highlight": "Fondamentales",
+    "value_innovation_title": "Innovation",
+    "value_innovation_text": "Explorer continuellement de nouvelles technologies pour fournir des solutions de pointe.",
+    "value_client_centricity_title": "Orientation Client",
+    "value_client_centricity_text": "Le succès de nos clients est notre succès. Nous construisons des partenariats basés sur la confiance et la croissance mutuelle.",
+    "value_integrity_title": "Intégrité et Fiabilité",
+    "value_integrity_text": "Opérer avec transparence et fournir des solutions fiables sur lesquelles nos clients peuvent compter."
+  },
+  "clients_section": {
+    "title_prefix": "Approuvé par les",
+    "title_highlight": "Leaders de l'Industrie",
+    "subheading": "Nous collaborons avec des entreprises iGaming innovantes du monde entier, les aidant à atteindre leurs objectifs technologiques et commerciaux.",
+    "testimonials_title_prefix": "Ce Que Disent Nos",
+    "testimonials_title_highlight": "Partenaires"
+  },
+  "contact_section": {
+    "title_prefix": "Connectons-",
+    "title_highlight": "Nous",
+    "subheading": "Prêt à faire passer votre plateforme iGaming au niveau supérieur ? Contactez-nous pour une consultation ou un devis personnalisé. Nous sommes là pour vous aider à réussir.",
+    "direct_contact_title": "Contact Direct",
+    "response_time_note": "Nous répondons généralement dans les 24 heures ouvrables. Pour les demandes urgentes, veuillez nous appeler.",
+    "form_card_title": "Envoyez-Nous un Message",
+    "form_card_description": "Remplissez le formulaire ci-dessous et nous vous répondrons rapidement.",
+    "name_label": "Nom Complet",
+    "name_placeholder": "Votre Nom",
+    "email_label": "Adresse E-mail",
+    "email_placeholder": "votre@email.com",
+    "company_label": "Entreprise (Optionnel)",
+    "company_placeholder": "Nom de Votre Entreprise",
+    "message_label": "Message",
+    "message_placeholder": "Comment pouvons-nous vous aider ?",
+    "send_button": "Envoyer le Message",
+    "submitting_button": "Envoi en cours...",
+    "toast_success_title": "Message Envoyé !",
+    "toast_success_description": "Votre message a été envoyé avec succès !",
+    "toast_error_title": "Échec de l'Envoi",
+    "toast_error_description": "Impossible d'envoyer votre message. Veuillez réessayer.",
+    "form_validation": {
+        "name_min": "Le nom doit comporter au moins 2 caractères.",
+        "email_invalid": "Veuillez entrer une adresse e-mail valide.",
+        "message_min": "Le message doit comporter au moins 10 caractères."
+    }
+  }
+}
