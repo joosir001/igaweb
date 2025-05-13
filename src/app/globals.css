@@ -8,145 +8,145 @@ body {
 
 @layer base {
   :root {
-    /* Refined Dark Theme - Inspired by sophisticated palettes */
-    --background: 225 15% 9%; /* Deeper, slightly desaturated blue-black */
-    --foreground: 215 20% 90%; /* Off-white, slightly cool */
+    /* Dark Theme: Neon & Aurora Inspired */
+    --background: 230 30% 7%; /* Deep Space Blue/Indigo */
+    --foreground: 220 20% 93%; /* Light Cool Gray */
 
-    --card: 225 15% 12%; /* Slightly lighter dark for cards */
-    --card-foreground: 215 20% 90%;
+    --card: 230 30% 11%; /* Slightly Lighter Deep Space Blue */
+    --card-foreground: 220 20% 93%;
 
-    --popover: 225 15% 8%; /* Darker popover */
-    --popover-foreground: 215 20% 90%;
+    --popover: 230 35% 9%; /* Darker Popover, similar to card */
+    --popover-foreground: 220 20% 93%;
 
-    /* Primary: Refined Teal/Cyan */
-    --primary: 180 70% 60%; /* A balanced, less electric teal */
-    --primary-foreground: 225 15% 10%; /* Dark text on primary */
+    /* Primary: Electric Blue/Cyan (Neon) */
+    --primary: 195 100% 50%;
+    --primary-foreground: 230 30% 10%; /* Dark for contrast on neon */
 
-    /* Secondary: Muted Cool Gray */
-    --secondary: 220 10% 25%; /* Cooler, muted gray */
-    --secondary-foreground: 215 20% 85%;
+    /* Secondary: Vibrant Purple/Magenta (Aurora/Neon) */
+    --secondary: 280 80% 60%;
+    --secondary-foreground: 220 20% 95%; /* Light for contrast */
 
-    --muted: 220 10% 18%; /* Darker muted */
-    --muted-foreground: 220 15% 60%; /* Softer muted text */
+    --muted: 230 20% 18%; /* Darker Muted Blue/Indigo */
+    --muted-foreground: 220 15% 65%; /* Softer Muted Text */
 
-    /* Accent: Sophisticated Gold/Amber */
-    --accent: 40 85% 65%; /* Warm, rich gold/amber */
-    --accent-foreground: 225 15% 10%; /* Dark text on accent */
+    /* Accent: Bright Teal/Green (Aurora/Neon) */
+    --accent: 165 90% 45%;
+    --accent-foreground: 230 30% 10%; /* Dark for contrast */
 
-    --destructive: 0 65% 55%; /* Slightly deeper red */
+    --destructive: 0 85% 55%; /* More vivid red */
     --destructive-foreground: 0 0% 98%;
 
-    --border: 220 10% 20%; /* Subtle border */
-    --input: 220 10% 15%; /* Darker input background */
-    --ring: 180 70% 65%; /* Primary color for rings */
+    --border: 230 25% 20%; /* Muted Space Blue Border */
+    --input: 230 25% 15%; /* Darker Input Background */
+    --ring: 195 100% 55%; /* Primary color for rings, slightly brighter */
 
-    --radius: 0.75rem; /* Slightly larger radius for a softer feel */
+    --radius: 0.75rem;
 
-    /* Chart colors - Using Primary, Accent and complementary tones */
-    --chart-1: 180 70% 60%; /* Primary Teal */
-    --chart-2: 40 85% 65%;  /* Accent Gold */
-    --chart-3: 260 60% 70%; /* Complementary Soft Purple */
-    --chart-4: 210 70% 65%; /* Complementary Soft Blue */
-    --chart-5: 140 50% 60%; /* Complementary Soft Green */
+    /* Chart colors - Neon/Aurora Palette */
+    --chart-1: 195 100% 50%; /* Electric Blue/Cyan */
+    --chart-2: 280 80% 60%;  /* Vibrant Purple/Magenta */
+    --chart-3: 165 90% 45%;  /* Bright Teal/Green */
+    --chart-4: 330 100% 60%; /* Neon Pink */
+    --chart-5: 50 100% 55%;   /* Neon Yellow/Orange */
 
     /* Sidebar variables for dark theme */
-    --sidebar-background: 225 15% 7%;
-    --sidebar-foreground: 215 20% 85%;
-    --sidebar-primary: 180 70% 60%;
-    --sidebar-primary-foreground: 225 15% 10%;
-    --sidebar-accent: 40 85% 65%;
-    --sidebar-accent-foreground: 225 15% 10%;
-    --sidebar-border: 220 10% 18%;
-    --sidebar-ring: 180 70% 60%;
+    --sidebar-background: 230 30% 6%; /* Slightly darker than main bg */
+    --sidebar-foreground: 220 20% 90%;
+    --sidebar-primary: 195 100% 50%;
+    --sidebar-primary-foreground: 230 30% 10%;
+    --sidebar-accent: 165 90% 45%;
+    --sidebar-accent-foreground: 230 30% 10%;
+    --sidebar-border: 230 25% 15%;
+    --sidebar-ring: 195 100% 55%;
   }
 
   .dark {
-    /* Explicit dark theme overrides if needed, mostly inherits from :root */
-    --background: 225 15% 9%;
-    --foreground: 215 20% 90%;
-    --card: 225 15% 12%;
-    --card-foreground: 215 20% 90%;
-    --popover: 225 15% 8%;
-    --popover-foreground: 215 20% 90%;
-    --primary: 180 70% 60%;
-    --primary-foreground: 225 15% 10%;
-    --secondary: 220 10% 25%;
-    --secondary-foreground: 215 20% 85%;
-    --muted: 220 10% 18%;
-    --muted-foreground: 220 15% 60%;
-    --accent: 40 85% 65%;
-    --accent-foreground: 225 15% 10%;
-    --destructive: 0 65% 55%;
+    /* Dark Theme: Neon & Aurora Inspired (Mirrors :root for explicitness) */
+    --background: 230 30% 7%;
+    --foreground: 220 20% 93%;
+    --card: 230 30% 11%;
+    --card-foreground: 220 20% 93%;
+    --popover: 230 35% 9%;
+    --popover-foreground: 220 20% 93%;
+    --primary: 195 100% 50%;
+    --primary-foreground: 230 30% 10%;
+    --secondary: 280 80% 60%;
+    --secondary-foreground: 220 20% 95%;
+    --muted: 230 20% 18%;
+    --muted-foreground: 220 15% 65%;
+    --accent: 165 90% 45%;
+    --accent-foreground: 230 30% 10%;
+    --destructive: 0 85% 55%;
     --destructive-foreground: 0 0% 98%;
-    --border: 220 10% 20%;
-    --input: 220 10% 15%;
-    --ring: 180 70% 65%;
+    --border: 230 25% 20%;
+    --input: 230 25% 15%;
+    --ring: 195 100% 55%;
 
-    --chart-1: 180 70% 60%;
-    --chart-2: 40 85% 65%;
-    --chart-3: 260 60% 70%;
-    --chart-4: 210 70% 65%;
-    --chart-5: 140 50% 60%;
+    --chart-1: 195 100% 50%;
+    --chart-2: 280 80% 60%;
+    --chart-3: 165 90% 45%;
+    --chart-4: 330 100% 60%;
+    --chart-5: 50 100% 55%;
 
-    --sidebar-background: 225 15% 7%;
-    --sidebar-foreground: 215 20% 85%;
-    --sidebar-primary: 180 70% 60%;
-    --sidebar-primary-foreground: 225 15% 10%;
-    --sidebar-accent: 40 85% 65%;
-    --sidebar-accent-foreground: 225 15% 10%;
-    --sidebar-border: 220 10% 18%;
-    --sidebar-ring: 180 70% 60%;
+    --sidebar-background: 230 30% 6%;
+    --sidebar-foreground: 220 20% 90%;
+    --sidebar-primary: 195 100% 50%;
+    --sidebar-primary-foreground: 230 30% 10%;
+    --sidebar-accent: 165 90% 45%;
+    --sidebar-accent-foreground: 230 30% 10%;
+    --sidebar-border: 230 25% 15%;
+    --sidebar-ring: 195 100% 55%;
   }
 
   .light {
-    /* Refined Light Theme - Clean, airy, professional */
-    --background: 0 0% 99%; /* Very light, almost white */
-    --foreground: 220 15% 20%; /* Dark, slightly desaturated blue-gray text */
+    /* Light Theme: Aurora/Bright Inspired */
+    --background: 220 60% 97%; /* Very Light Airy Sky Blue/Lavender */
+    --foreground: 260 40% 25%; /* Deep Rich Indigo/Purple Text */
 
     --card: 0 0% 100%; /* White */
-    --card-foreground: 220 15% 20%;
+    --card-foreground: 260 40% 25%;
 
     --popover: 0 0% 100%;
-    --popover-foreground: 220 15% 20%;
+    --popover-foreground: 260 40% 25%;
 
-    /* Primary: Sophisticated Blue/Indigo */
-    --primary: 225 70% 55%; /* Deeper, more refined blue */
-    --primary-foreground: 0 0% 100%; /* White text on primary */
+    /* Primary: Vibrant Pink/Fuchsia */
+    --primary: 320 85% 58%;
+    --primary-foreground: 0 0% 100%; /* White text */
 
-    /* Secondary: Light Cool Gray */
-    --secondary: 220 20% 95%; /* Very light cool gray */
-    --secondary-foreground: 220 10% 40%; /* Darker gray text */
+    /* Secondary: Bright Aqua/Turquoise */
+    --secondary: 175 75% 50%;
+    --secondary-foreground: 200 50% 15%; /* Dark contrast text */
 
-    --muted: 220 15% 97%; /* Even lighter gray */
-    --muted-foreground: 220 10% 55%; /* Medium gray */
+    --muted: 220 40% 94%; /* Lighter Muted Sky Blue/Lavender */
+    --muted-foreground: 240 20% 55%; /* Medium Cool Gray */
 
-    /* Accent: Elegant Teal/Green */
-    --accent: 165 65% 45%; /* Rich, elegant teal */
-    --accent-foreground: 0 0% 100%; /* White text on accent */
+    /* Accent: Sunny Yellow/Gold */
+    --accent: 45 100% 53%;
+    --accent-foreground: 30 50% 10%; /* Dark contrast text */
 
-    --destructive: 0 75% 50%; /* Standard destructive red */
+    --destructive: 0 75% 55%;
     --destructive-foreground: 0 0% 98%;
 
-    --border: 220 15% 90%; /* Subtle light border */
-    --input: 220 10% 98%;  /* Very light input */
-    --ring: 225 70% 60%;   /* Primary color for rings */
+    --border: 220 30% 90%; /* Soft Light Blue-Gray Border */
+    --input: 220 40% 96%;  /* Very Light Input, off-white */
+    --ring: 320 85% 60%;   /* Primary color for rings, slightly brighter */
 
     /* Chart colors for light mode */
-    --chart-1: 225 70% 55%; /* Primary Blue */
-    --chart-2: 165 65% 45%; /* Accent Teal */
-    --chart-3: 330 70% 65%; /* Complementary Soft Pink */
-    --chart-4: 40 80% 60%;  /* Complementary Soft Orange */
-    --chart-5: 270 60% 70%; /* Complementary Soft Purple */
+    --chart-1: 320 85% 58%; /* Vibrant Pink/Fuchsia */
+    --chart-2: 175 75% 50%; /* Bright Aqua/Turquoise */
+    --chart-3: 45 100% 53%;  /* Sunny Yellow/Gold */
+    --chart-4: 250 70% 65%; /* Bright Lavender (Aurora) */
+    --chart-5: 140 60% 55%; /* Lively Green (Aurora) */
 
     /* Sidebar variables for light theme */
-    --sidebar-background: 220 25% 98%; /* Very light cool gray/blue */
-    --sidebar-foreground: 220 15% 30%; /* Darker text */
-    --sidebar-primary: 225 70% 55%;
+    --sidebar-background: 220 50% 98%; /* Even lighter than main bg */
+    --sidebar-foreground: 260 40% 30%;
+    --sidebar-primary: 320 85% 58%;
     --sidebar-primary-foreground: 0 0% 100%;
-    --sidebar-accent: 165 65% 45%;
-    --sidebar-accent-foreground: 0 0% 100%;
-    --sidebar-border: 220 15% 90%;
-    --sidebar-ring: 225 70% 60%;
+    --sidebar-accent: 45 100% 53%;
+    --sidebar-accent-foreground: 30 50% 10%;
+    --sidebar-border: 220 30% 88%;
+    --sidebar-ring: 320 85% 60%;
   }
 }
 
@@ -163,78 +163,74 @@ body {
   }
   h1, h2, h3, h4, h5, h6 {
     font-family: var(--font-geist-sans), system-ui, sans-serif;
-    @apply font-semibold tracking-tight; /* Slightly tighter tracking for headings */
+    @apply font-semibold tracking-tight;
   }
   h1 { @apply text-4xl md:text-5xl lg:text-6xl; }
   h2 { @apply text-3xl md:text-4xl lg:text-5xl; }
   h3 { @apply text-2xl md:text-3xl; }
   h4 { @apply text-xl md:text-2xl; }
-  
+
   section {
-    @apply py-20 md:py-28 lg:py-32; /* Increased padding */
+    @apply py-20 md:py-28 lg:py-32;
   }
 }
 
 /* Subtle Text Highlighting */
 .highlight-text-primary {
   color: hsl(var(--primary));
-  /* Removed text-shadow for a cleaner look, relying on color */
 }
 
 .highlight-text-accent {
   color: hsl(var(--accent));
-  /* Removed text-shadow */
 }
 
 /* Subtle Border Highlighting */
 .highlight-border-primary {
-  border-color: hsl(var(--primary) / 0.6); /* Softer border color */
-  box-shadow: 0 0 8px hsl(var(--primary) / 0.15); /* Very subtle glow */
+  border-color: hsl(var(--primary) / 0.6);
+  box-shadow: 0 0 12px hsl(var(--primary) / 0.2); /* Enhanced subtle glow */
 }
 .dark .highlight-border-primary {
   border-color: hsl(var(--primary) / 0.7);
-  box-shadow: 0 0 10px hsl(var(--primary) / 0.2);
+  box-shadow: 0 0 15px hsl(var(--primary) / 0.25);
 }
 
 .highlight-border-accent {
   border-color: hsl(var(--accent) / 0.6);
-  box-shadow: 0 0 8px hsl(var(--accent) / 0.15);
+  box-shadow: 0 0 12px hsl(var(--accent) / 0.2);
 }
 .dark .highlight-border-accent {
    border-color: hsl(var(--accent) / 0.7);
-  box-shadow: 0 0 10px hsl(var(--accent) / 0.2);
+  box-shadow: 0 0 15px hsl(var(--accent) / 0.25);
 }
 
 
-/* Gradient background for light mode - subtle */
+/* Gradient background for light mode - subtle aurora-inspired */
 .light body {
-  /* Removed the gradient background for a cleaner look. Can be re-added if desired. */
-  /* background: linear-gradient(145deg, hsl(var(--background)), hsl(var(--secondary) / 0.5)); */
-  background-color: hsl(var(--background)); /* Use solid background */
+  background: linear-gradient(145deg, hsl(var(--background)), hsl(var(--secondary) / 0.15), hsl(var(--accent) / 0.1));
   color: hsl(var(--foreground));
 }
 
-/* Scrollbar Styling */
+/* Scrollbar Styling - Themed */
 ::-webkit-scrollbar {
-  width: 6px; /* Narrower scrollbar */
-  height: 6px;
+  width: 8px; /* Slightly wider for better grab */
+  height: 8px;
 }
 ::-webkit-scrollbar-track {
-  background: hsl(var(--background) / 0.1); /* More transparent track */
+  background: hsl(var(--background) / 0.2); /* Use background with low alpha */
   border-radius: 10px;
 }
 ::-webkit-scrollbar-thumb {
-  background: hsl(var(--primary) / 0.5); /* Slightly transparent thumb */
+  background: hsl(var(--primary) / 0.6); /* Primary color for thumb */
   border-radius: 10px;
-  border: 1px solid hsl(var(--background) / 0.2); /* Subtle border */
+  border: 2px solid hsl(var(--background) / 0.1); /* Border matching track bg */
 }
 ::-webkit-scrollbar-thumb:hover {
-  background: hsl(var(--primary) / 0.7);
+  background: hsl(var(--primary) / 0.8); /* Brighter on hover */
 }
+
 
 /* Prose styles refinement */
 .prose {
-  /* Base prose styles adjustments */
    @apply text-foreground max-w-none;
 }
 .prose h2, .prose h3, .prose h4 {
@@ -244,13 +240,13 @@ body {
    @apply font-semibold text-foreground;
 }
 .prose a {
-   @apply text-primary hover:text-primary/80 transition-colors;
+   @apply text-primary hover:text-primary/80 transition-colors duration-200;
 }
 .prose blockquote {
    @apply border-l-4 border-primary pl-4 italic text-muted-foreground;
 }
 .prose ul > li::marker {
-    color: hsl(var(--muted-foreground)); /* Style list markers */
+    color: hsl(var(--muted-foreground));
 }
 
 /* Dark mode prose overrides */
@@ -261,14 +257,14 @@ body {
   --tw-prose-links: hsl(var(--primary));
   --tw-prose-bold: hsl(var(--foreground));
   --tw-prose-counters: hsl(var(--muted-foreground));
-  --tw-prose-bullets: hsl(var(--muted-foreground)); /* Use muted-foreground for better visibility */
+  --tw-prose-bullets: hsl(var(--primary) / 0.7); /* Use primary for bullets for neon pop */
   --tw-prose-hr: hsl(var(--border));
   --tw-prose-quotes: hsl(var(--foreground));
   --tw-prose-quote-borders: hsl(var(--primary));
   --tw-prose-captions: hsl(var(--muted-foreground));
-  --tw-prose-code: hsl(var(--primary));
+  --tw-prose-code: hsl(var(--accent)); /* Use accent for code for a different neon pop */
   --tw-prose-pre-code: hsl(var(--card-foreground));
-  --tw-prose-pre-bg: hsl(var(--muted)); /* Use darker muted for code bg */
+  --tw-prose-pre-bg: hsl(var(--card) / 0.8); /* Slightly transparent card for code bg */
   --tw-prose-th-borders: hsl(var(--border));
   --tw-prose-td-borders: hsl(var(--border));
 }
@@ -281,14 +277,14 @@ body {
   --tw-prose-links: hsl(var(--primary));
   --tw-prose-bold: hsl(var(--foreground));
   --tw-prose-counters: hsl(var(--muted-foreground));
-  --tw-prose-bullets: hsl(var(--muted-foreground));
+  --tw-prose-bullets: hsl(var(--primary) / 0.8);
   --tw-prose-hr: hsl(var(--border));
   --tw-prose-quotes: hsl(var(--foreground));
   --tw-prose-quote-borders: hsl(var(--primary));
   --tw-prose-captions: hsl(var(--muted-foreground));
-  --tw-prose-code: hsl(var(--primary));
+  --tw-prose-code: hsl(var(--accent));
   --tw-prose-pre-code: hsl(var(--card-foreground));
-  --tw-prose-pre-bg: hsl(var(--secondary)); /* Use light secondary for code bg */
+  --tw-prose-pre-bg: hsl(var(--card) / 0.9); /* Slightly transparent card for code bg */
   --tw-prose-th-borders: hsl(var(--border));
   --tw-prose-td-borders: hsl(var(--border));
 }
@@ -296,5 +292,5 @@ body {
 
 /* Apply background transition */
 body {
-  transition: background-color 0.3s ease-in-out, color 0.3s ease-in-out;
+  transition: background-color 0.4s ease-in-out, color 0.4s ease-in-out, background 0.4s ease-in-out;
 }
