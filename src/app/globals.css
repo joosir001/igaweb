@@ -29,9 +29,9 @@ body {
     --muted: 230 20% 18%; /* Darker Muted Blue/Indigo */
     --muted-foreground: 220 15% 65%; /* Softer Muted Text */
 
-    /* Accent: Neon Green (Neon) - For key visual elements as per guidelines */
-    --accent: 111 100% 55%; /* Approx #39FF14 */
-    --accent-foreground: 110 100% 10%; /* Very dark green/black for contrast */
+    /* Accent: Professional Teal/Cyan - Replaces Neon Green */
+    --accent: 175 70% 48%; /* Professional Teal/Cyan */
+    --accent-foreground: 175 70% 8%; /* Very dark for contrast */
 
     --destructive: 0 85% 55%; /* More vivid red */
     --destructive-foreground: 0 0% 98%;
@@ -45,7 +45,7 @@ body {
     /* Chart colors - Neon/Aurora Palette - Professional Refinement */
     --chart-1: hsl(var(--primary)); /* Electric Blue */
     --chart-2: hsl(var(--secondary));  /* Vibrant Purple */
-    --chart-3: hsl(var(--accent));  /* Neon Green */
+    --chart-3: hsl(var(--accent));  /* Professional Teal/Cyan */
     --chart-4: 330 100% 60%; /* Neon Pink (Distinct Highlight) */
     --chart-5: 210 70% 70%;   /* Light Steel Blue (Professional Alternative) */
 
@@ -74,8 +74,8 @@ body {
     --secondary-foreground: 220 20% 95%;
     --muted: 230 20% 18%;
     --muted-foreground: 220 15% 65%;
-    --accent: 111 100% 55%;
-    --accent-foreground: 110 100% 10%;
+    --accent: 175 70% 48%; /* Professional Teal/Cyan */
+    --accent-foreground: 175 70% 8%; /* Very dark for contrast */
     --destructive: 0 85% 55%;
     --destructive-foreground: 0 0% 98%;
     --border: 230 25% 20%;
@@ -120,9 +120,9 @@ body {
     --muted: 220 40% 94%; /* Lighter Muted Sky Blue/Lavender */
     --muted-foreground: 240 20% 55%; /* Medium Cool Gray */
 
-    /* Accent: Refined Neon Green */
-    --accent: 111 80% 50%; /* Neon Green - adjusted for light mode visibility */
-    --accent-foreground: 110 100% 10%; /* Very dark green/black for contrast */
+    /* Accent: Professional Teal/Cyan - Replaces Neon Green */
+    --accent: 175 65% 55%; /* Brighter Teal/Cyan for light mode */
+    --accent-foreground: 175 65% 10%; /* Dark for contrast */
 
     --destructive: 0 75% 55%;
     --destructive-foreground: 0 0% 98%;
@@ -134,7 +134,7 @@ body {
     /* Chart colors for light mode - Professional Refinement */
     --chart-1: hsl(var(--primary)); /* Professional Purple */
     --chart-2: hsl(var(--secondary)); /* Bright Aqua/Turquoise */
-    --chart-3: hsl(var(--accent));  /* Refined Neon Green */
+    --chart-3: hsl(var(--accent));  /* Professional Teal/Cyan */
     --chart-4: 250 70% 65%; /* Bright Lavender (Aurora - Keep) */
     --chart-5: 140 60% 55%; /* Lively Green (Aurora - Keep, distinct from accent) */
 
