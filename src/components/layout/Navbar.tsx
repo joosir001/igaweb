@@ -41,12 +41,15 @@ export default function Navbar() {
   }, []);
 
   const NavLink = ({ href, children }: { href: string; children: React.ReactNode }) => (
-    <Link href={`/${currentLocale}${href.startsWith('#') ? href : `/${href}`}`}
+    <Link 
+      href={`/${currentLocale}${href.startsWith('#') ? href : `/${href}`}`}
       onClick={() => setMobileMenuOpen(false)}
-      className="text-sm font-medium text-foreground/80 hover:text-primary transition-colors px-3 py-2 rounded-md relative group"
+      className="text-sm font-medium text-foreground/80 hover:text-primary transition-colors px-3 py-2 rounded-md group" // Removed relative from Link, will be on child span
     >
-      {children}
-      <span className="absolute bottom-0 left-0 w-full h-0.5 bg-primary scale-x-0 group-hover:scale-x-100 transition-transform duration-300 ease-out origin-center"></span>
+      <span className="relative inline-block"> {/* Single child for Link, now relative for positioning the underline */}
+        {children}
+        <span className="absolute bottom-[-2px] left-0 w-full h-0.5 bg-primary scale-x-0 group-hover:scale-x-100 transition-transform duration-300 ease-out origin-center"></span>
+      </span>
     </Link>
   );
 
@@ -79,7 +82,7 @@ export default function Navbar() {
             <LanguageSwitcher /> 
             <Button asChild variant="outline" size="sm" className="ml-3 border-primary text-primary hover:bg-primary/10 hover:text-primary highlight-border-primary shadow-sm hover:shadow-md">
               <Link href={`/${currentLocale}#contact`}>
-                <span>{t('get_started')}</span>
+                <span>{t('get_started')}</span> 
               </Link>
             </Button>
           </div>
