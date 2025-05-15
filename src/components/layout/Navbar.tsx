@@ -1,3 +1,4 @@
+
 'use client';
 
 import Link from 'next/link';
@@ -7,8 +8,8 @@ import { Button } from '@/components/ui/button';
 import { Sheet, SheetContent, SheetTrigger } from '@/components/ui/sheet';
 import { motion } from 'framer-motion';
 import ThemeToggle from '@/components/ThemeToggle';
-import LanguageSwitcher from '@/components/LanguageSwitcher'; // Import LanguageSwitcher
-import { useCurrentLocale, useScopedI18n } from '@/i18n/client'; // Import i18n hook
+import LanguageSwitcher from '@/components/LanguageSwitcher';
+import { useCurrentLocale, useScopedI18n } from '@/i18n/client';
 
 export default function Navbar() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
@@ -54,20 +55,20 @@ export default function Navbar() {
   return (
     <motion.nav
       ref={navbarRef}
-      initial={{ y: -120, opacity: 0 }} // Start further up and fully transparent
+      initial={{ y: -120, opacity: 0 }}
       animate={{ y: 0, opacity: 1 }}
-      transition={{ duration: 0.7, ease: "circOut", delay: 0.2 }} // Smoother ease, slightly longer
+      transition={{ duration: 0.7, ease: "circOut", delay: 0.2 }}
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ease-out ${
         scrolled
-          ? 'bg-background/95 backdrop-blur-xl shadow-lg border-b border-border/20' // More blur, prominent shadow
+          ? 'bg-background/95 backdrop-blur-xl shadow-lg border-b border-border/20'
           : 'bg-transparent backdrop-blur-none shadow-none border-b border-transparent'
       }`}
     >
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-16 md:h-20">
           <Link href={`/${currentLocale}`} passHref legacyBehavior>
-            <a className="flex items-center gap-2.5 group"> {/* Slightly more gap */}
-              <Gamepad2 className="h-7 w-7 md:h-8 md:w-8 text-primary group-hover:text-primary/80 transition-all duration-300 group-hover:rotate-[-12deg]" /> {/* Hover rotate */}
+            <a className="flex items-center gap-2.5 group">
+              <Gamepad2 className="h-7 w-7 md:h-8 md:w-8 text-primary group-hover:text-primary/80 transition-all duration-300 group-hover:rotate-[-12deg]" />
               <span className="text-xl md:text-2xl font-bold text-primary group-hover:text-primary/80 transition-colors">{t('igamx')}</span>
             </a>
           </Link>
@@ -81,8 +82,8 @@ export default function Navbar() {
             <ThemeToggle />
             <LanguageSwitcher /> 
             <Button asChild variant="outline" size="sm" className="ml-3 border-primary text-primary hover:bg-primary/10 hover:text-primary highlight-border-primary shadow-sm hover:shadow-md">
-              <Link href={`/${currentLocale}#contact`} legacyBehavior passHref>
-                <a>{t('get_started')}</a>
+              <Link href={`/${currentLocale}#contact`}>
+                {t('get_started')}
               </Link>
             </Button>
           </div>
@@ -122,8 +123,8 @@ export default function Navbar() {
                     </Link>
                   ))}
                   <Button asChild variant="default" className="w-full mt-4 bg-primary hover:bg-primary/90 text-primary-foreground">
-                     <Link href={`/${currentLocale}#contact`} legacyBehavior passHref>
-                       <a onClick={() => setMobileMenuOpen(false)}>{t('get_started')}</a>
+                     <Link href={`/${currentLocale}#contact`} onClick={() => setMobileMenuOpen(false)}>
+                       {t('get_started')}
                      </Link>
                   </Button>
                 </nav>
