@@ -19,12 +19,12 @@ body {
     --popover: 220 25% 10%; /* Darker Popover, similar to card */
     --popover-foreground: 210 30% 95%;
 
-    /* Primary: Vibrant Sapphire Blue */
-    --primary: 210 100% 58%;
-    --primary-foreground: 210 20% 10%; /* Dark for contrast on neon */
+    /* Primary: Sophisticated Blue (Less Neon) */
+    --primary: 210 85% 55%; /* Was 210 100% 58% */
+    --primary-foreground: 210 25% 95%; /* Was 210 20% 10% - Adjusted for better contrast on new primary */
 
-    /* Secondary: Rich Purple */
-    --secondary: 260 70% 65%;
+    /* Secondary: Deepened Purple (Less Neon) */
+    --secondary: 260 60% 60%; /* Was 260 70% 65% */
     --secondary-foreground: 260 20% 96%; /* Light for contrast */
 
     --muted: 220 20% 20%; /* Darker Muted Blue */
@@ -39,19 +39,19 @@ body {
 
     --border: 220 20% 25%; /* Muted Navy Border */
     --input: 220 20% 18%; /* Darker Input Background */
-    --ring: 210 100% 60%; /* Primary color for rings, slightly brighter */
+    --ring: 210 85% 58%; /* Was 210 100% 60% - Primary color for rings, slightly brighter */
 
     --radius: 0.75rem;
 
     /* Chart colors - Refined Palette */
-    --chart-1: hsl(var(--primary));      /* Vibrant Sapphire */
-    --chart-2: hsl(var(--secondary));     /* Rich Purple */
-    --chart-3: hsl(var(--accent));       /* Professional Teal */
-    --chart-4: 330 80% 65%;              /* Refined Pink */
-    --chart-5: 45 100% 60%;              /* Warm Gold/Orange */
+    --chart-1: hsl(var(--primary));
+    --chart-2: hsl(var(--secondary));
+    --chart-3: hsl(var(--accent));
+    --chart-4: 330 70% 62%; /* Refined Pink, slightly desaturated */
+    --chart-5: 40 90% 58%;  /* Warm Gold/Orange, slightly desaturated */
 
     /* Sidebar variables for dark theme */
-    --sidebar-background: 220 25% 7%; /* Slightly darker than main bg */
+    --sidebar-background: 220 25% 7%;
     --sidebar-foreground: 210 30% 92%;
     --sidebar-primary: hsl(var(--primary));
     --sidebar-primary-foreground: hsl(var(--primary-foreground));
@@ -69,9 +69,9 @@ body {
     --card-foreground: 210 30% 95%;
     --popover: 220 25% 10%;
     --popover-foreground: 210 30% 95%;
-    --primary: 210 100% 58%;
-    --primary-foreground: 210 20% 10%;
-    --secondary: 260 70% 65%;
+    --primary: 210 85% 55%;
+    --primary-foreground: 210 25% 95%;
+    --secondary: 260 60% 60%;
     --secondary-foreground: 260 20% 96%;
     --muted: 220 20% 20%;
     --muted-foreground: 220 15% 70%;
@@ -81,13 +81,13 @@ body {
     --destructive-foreground: 0 0% 98%;
     --border: 220 20% 25%;
     --input: 220 20% 18%;
-    --ring: 210 100% 60%;
+    --ring: 210 85% 58%;
 
     --chart-1: hsl(var(--primary));
     --chart-2: hsl(var(--secondary));
     --chart-3: hsl(var(--accent));
-    --chart-4: 330 80% 65%;
-    --chart-5: 45 100% 60%;
+    --chart-4: 330 70% 62%;
+    --chart-5: 40 90% 58%;
 
     --sidebar-background: 220 25% 7%;
     --sidebar-foreground: 210 30% 92%;
@@ -121,9 +121,9 @@ body {
     --muted: 220 30% 94%; /* Light Gray-Blue */
     --muted-foreground: 220 20% 50%; /* Medium Cool Gray */
 
-    /* Accent: Clear Indigo/Violet */
-    --accent: 255 65% 58%;
-    --accent-foreground: 0 0% 100%; /* White text on accent */
+    /* Accent: Softer Indigo/Violet (Less Neon) */
+    --accent: 250 60% 60%; /* Was 255 65% 58% */
+    --accent-foreground: 250 30% 15%; /* Was 0 0% 100% - Darker for contrast */
 
     --destructive: 0 70% 50%; /* Slightly more controlled red */
     --destructive-foreground: 0 0% 98%;
@@ -133,14 +133,14 @@ body {
     --ring: 210 80% 55%;   /* Primary color for rings, slightly brighter */
 
     /* Chart colors for light mode - Refined Palette */
-    --chart-1: hsl(var(--primary));    /* Classic Blue */
-    --chart-2: hsl(var(--secondary));  /* Professional Cyan/Light Blue */
-    --chart-3: hsl(var(--accent));     /* Clear Indigo/Violet */
-    --chart-4: 300 70% 60%;            /* Softer Magenta/Pink */
-    --chart-5: 35 80% 65%;             /* Pleasant Orange */
+    --chart-1: hsl(var(--primary));
+    --chart-2: hsl(var(--secondary));
+    --chart-3: hsl(var(--accent));
+    --chart-4: 300 65% 58%;            /* Softer Magenta/Pink */
+    --chart-5: 30 75% 62%;             /* Pleasant Orange */
 
     /* Sidebar variables for light theme */
-    --sidebar-background: 0 0% 97%; /* Slightly off-white, cleaner than main bg gradient */
+    --sidebar-background: 0 0% 97%;
     --sidebar-foreground: 220 20% 30%;
     --sidebar-primary: hsl(var(--primary));
     --sidebar-primary-foreground: hsl(var(--primary-foreground));
@@ -207,7 +207,7 @@ body {
 
 /* Gradient background for light mode - subtle professional */
 .light body {
-  background: linear-gradient(145deg, hsl(var(--background)), hsl(var(--secondary) / 0.08), hsl(var(--accent) / 0.05));
+  background: linear-gradient(145deg, hsl(var(--background)), hsl(var(--secondary) / 0.05), hsl(var(--accent) / 0.03));
   color: hsl(var(--foreground));
 }
 
@@ -308,4 +308,3 @@ body {
 .dark .text-gradient-primary-accent {
    @apply from-primary via-accent to-secondary; /* Ensure dark mode picks up theme colors */
 }
-
