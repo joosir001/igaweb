@@ -25,10 +25,12 @@ export default function TermsOfServicePage() {
       <main className="flex-grow container mx-auto px-4 sm:px-6 lg:px-8 py-24 pt-32 md:pt-40">
         <div className="max-w-3xl mx-auto">
            <Button variant="outline" size="sm" asChild className="mb-8 group border-primary/50 text-primary/90 hover:bg-primary/10 hover:text-primary">
-            <Link href={`/${currentLocale}`}>
-              <span className="inline-flex items-center">
-                <ArrowLeft className="mr-2 h-4 w-4 transition-transform duration-200 group-hover:-translate-x-1" /> {t('back_to_home')}
-              </span>
+            <Link href={`/${currentLocale}`} legacyBehavior>
+              <a>
+                <span className="inline-flex items-center">
+                  <ArrowLeft className="mr-2 h-4 w-4 transition-transform duration-200 group-hover:-translate-x-1" /> {t('back_to_home')}
+                </span>
+              </a>
             </Link>
           </Button>
           <h1 className="text-3xl md:text-4xl font-bold highlight-text-primary mb-8">{t('title')}</h1>

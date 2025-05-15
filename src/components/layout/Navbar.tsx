@@ -81,8 +81,8 @@ export default function Navbar() {
             <ThemeToggle />
             <LanguageSwitcher /> 
             <Button asChild variant="outline" size="sm" className="ml-3 border-primary text-primary hover:bg-primary/10 hover:text-primary highlight-border-primary shadow-sm hover:shadow-md">
-              <Link href={`/${currentLocale}#contact`}>
-                {t('get_started')}
+              <Link href={`/${currentLocale}#contact`} legacyBehavior>
+                <a>{t('get_started')}</a>
               </Link>
             </Button>
           </div>
@@ -118,8 +118,8 @@ export default function Navbar() {
                     </Link>
                   ))}
                   <Button asChild variant="default" className="w-full mt-4 bg-primary hover:bg-primary/90 text-primary-foreground">
-                     <Link href={`/${currentLocale}#contact`} onClick={() => setMobileMenuOpen(false)}>
-                       {t('get_started')}
+                     <Link href={`/${currentLocale}#contact`} onClick={() => setMobileMenuOpen(false)} legacyBehavior>
+                       <a>{t('get_started')}</a>
                      </Link>
                   </Button>
                 </nav>
