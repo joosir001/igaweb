@@ -17,13 +17,12 @@ export default function HeroSection() {
   const subheadingRef = useRef<HTMLParagraphElement>(null);
   const ctaRef = useRef<HTMLDivElement>(null);
   const badgeRef = useRef<HTMLDivElement>(null);
-  const sectionRef = useRef<HTMLElement>(null); // For overall section animation
+  const sectionRef = useRef<HTMLElement>(null); 
 
 
   useEffect(() => {
     const tl = gsap.timeline({ defaults: { ease: 'power4.out' }});
     
-    // Animate overall section opacity and slight upward movement
     if (sectionRef.current) {
       tl.fromTo(
         sectionRef.current,
@@ -37,7 +36,7 @@ export default function HeroSection() {
         badgeRef.current,
         { opacity: 0, y: -30, scale: 0.8 },
         { opacity: 1, y: 0, scale: 1, duration: 0.8, ease: 'back.out(1.7)'},
-        "+=0.2" // Start slightly after section fade-in
+        "+=0.2" 
       );
     }
 
@@ -74,10 +73,10 @@ export default function HeroSection() {
 
 
   return (
-    <AuroraBackground strength={1000} duration={5} chromaticAberration={0.02}>
+    <AuroraBackground interactive={false}>
       <motion.section 
         id="hero" 
-        ref={sectionRef} // Attach ref here
+        ref={sectionRef}
         className="relative min-h-screen flex items-center justify-center overflow-hidden pt-24 pb-16"
       >
       <div className="container mx-auto px-4 sm:px-6 lg:px-8 text-center relative z-20">
@@ -91,7 +90,7 @@ export default function HeroSection() {
         </div>
         <h1
           ref={headlineRef}
-          className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-black mb-7 tracking-tighter leading-tight bg-clip-text text-transparent bg-gradient-to-br from-foreground via-foreground/80 to-foreground/60 dark:from-foreground dark:via-foreground/90 dark:to-primary"
+          className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-black mb-7 tracking-tighter leading-tight bg-clip-text text-transparent bg-gradient-to-br from-primary via-accent to-secondary"
         >
           <span className="block">{t('headline1')}</span>
           <span className="block">{t('headline2_prefix')} <span className="highlight-text-primary">{t('headline2_highlight')}</span></span>
