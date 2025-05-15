@@ -75,8 +75,10 @@ export const BentoCard = ({
     >
       <Button variant="outline" asChild size="sm" className="pointer-events-auto bg-accent/10 hover:bg-accent/20 border-accent/30 text-accent hover:text-accent-foreground">
         <Link href={href}>
-          {cta}
-          <ArrowRight className="ml-2 h-4 w-4" />
+          <span className="inline-flex items-center">
+            {cta}
+            <ArrowRight className="ml-2 h-4 w-4" />
+          </span>
         </Link>
       </Button>
     </div>

@@ -41,14 +41,12 @@ export default function Navbar() {
   }, []);
 
   const NavLink = ({ href, children }: { href: string; children: React.ReactNode }) => (
-    <Link href={`/${currentLocale}${href.startsWith('#') ? href : `/${href}`}`} passHref legacyBehavior>
-      <a
-        onClick={() => setMobileMenuOpen(false)}
-        className="text-sm font-medium text-foreground/80 hover:text-primary transition-colors px-3 py-2 rounded-md relative group"
-      >
-        {children}
-        <span className="absolute bottom-0 left-0 w-full h-0.5 bg-primary scale-x-0 group-hover:scale-x-100 transition-transform duration-300 ease-out origin-center"></span>
-      </a>
+    <Link href={`/${currentLocale}${href.startsWith('#') ? href : `/${href}`}`}
+      onClick={() => setMobileMenuOpen(false)}
+      className="text-sm font-medium text-foreground/80 hover:text-primary transition-colors px-3 py-2 rounded-md relative group"
+    >
+      {children}
+      <span className="absolute bottom-0 left-0 w-full h-0.5 bg-primary scale-x-0 group-hover:scale-x-100 transition-transform duration-300 ease-out origin-center"></span>
     </Link>
   );
 
@@ -66,11 +64,9 @@ export default function Navbar() {
     >
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-16 md:h-20">
-          <Link href={`/${currentLocale}`} passHref legacyBehavior>
-            <a className="flex items-center gap-2.5 group">
-              <Gamepad2 className="h-7 w-7 md:h-8 md:w-8 text-primary group-hover:text-primary/80 transition-all duration-300 group-hover:rotate-[-12deg]" />
-              <span className="text-xl md:text-2xl font-bold text-primary group-hover:text-primary/80 transition-colors">{t('igamx')}</span>
-            </a>
+          <Link href={`/${currentLocale}`} className="flex items-center gap-2.5 group">
+            <Gamepad2 className="h-7 w-7 md:h-8 md:w-8 text-primary group-hover:text-primary/80 transition-all duration-300 group-hover:rotate-[-12deg]" />
+            <span className="text-xl md:text-2xl font-bold text-primary group-hover:text-primary/80 transition-colors">{t('igamx')}</span>
           </Link>
 
           <div className="hidden md:flex items-center space-x-1">
@@ -83,7 +79,7 @@ export default function Navbar() {
             <LanguageSwitcher /> 
             <Button asChild variant="outline" size="sm" className="ml-3 border-primary text-primary hover:bg-primary/10 hover:text-primary highlight-border-primary shadow-sm hover:shadow-md">
               <Link href={`/${currentLocale}#contact`}>
-                {t('get_started')}
+                <span>{t('get_started')}</span>
               </Link>
             </Button>
           </div>
@@ -100,11 +96,9 @@ export default function Navbar() {
               </SheetTrigger>
               <SheetContent side="right" className="w-full max-w-xs bg-background p-6 border-l border-border/50">
                 <div className="flex justify-between items-center mb-8">
-                   <Link href={`/${currentLocale}`} passHref legacyBehavior>
-                    <a className="flex items-center gap-2" onClick={() => setMobileMenuOpen(false)}>
+                   <Link href={`/${currentLocale}`} onClick={() => setMobileMenuOpen(false)} className="flex items-center gap-2">
                       <Gamepad2 className="h-7 w-7 text-primary" />
                       <span className="text-xl font-bold text-primary">{t('igamx')}</span>
-                    </a>
                   </Link>
                   <Button variant="ghost" size="icon" onClick={() => setMobileMenuOpen(false)} className="text-primary hover:bg-primary/10">
                     <X className="h-6 w-6" />
@@ -113,18 +107,16 @@ export default function Navbar() {
                 </div>
                 <nav className="flex flex-col space-y-4">
                   {navItems.map((item) => (
-                     <Link key={item.name} href={`/${currentLocale}${item.href.startsWith('#') ? item.href : `/${item.href}`}`} passHref legacyBehavior>
-                      <a
+                     <Link key={item.name} href={`/${currentLocale}${item.href.startsWith('#') ? item.href : `/${item.href}`}`}
                         onClick={() => setMobileMenuOpen(false)}
                         className="text-base font-medium text-foreground/90 hover:text-primary transition-colors py-2"
                       >
                         {item.name}
-                      </a>
                     </Link>
                   ))}
                   <Button asChild variant="default" className="w-full mt-4 bg-primary hover:bg-primary/90 text-primary-foreground">
                      <Link href={`/${currentLocale}#contact`} onClick={() => setMobileMenuOpen(false)}>
-                       {t('get_started')}
+                       <span>{t('get_started')}</span>
                      </Link>
                   </Button>
                 </nav>
