@@ -1,3 +1,4 @@
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
@@ -8,144 +9,144 @@ body {
 
 @layer base {
   :root {
-    /* Dark Theme: Neon & Aurora Inspired - Professional Refinement */
-    --background: 230 30% 7%; /* Deep Space Blue/Indigo */
-    --foreground: 220 20% 93%; /* Light Cool Gray */
+    /* Dark Theme: Refined Professional Palette */
+    --background: 220 25% 8%; /* Deep Navy */
+    --foreground: 210 30% 95%; /* Light Cool Gray */
 
-    --card: 230 30% 11%; /* Slightly Lighter Deep Space Blue */
-    --card-foreground: 220 20% 93%;
+    --card: 220 25% 12%; /* Slightly Lighter Deep Navy */
+    --card-foreground: 210 30% 95%;
 
-    --popover: 230 35% 9%; /* Darker Popover, similar to card */
-    --popover-foreground: 220 20% 93%;
+    --popover: 220 25% 10%; /* Darker Popover, similar to card */
+    --popover-foreground: 210 30% 95%;
 
-    /* Primary: Electric Blue (Neon) */
-    --primary: 195 100% 50%;
-    --primary-foreground: 230 30% 10%; /* Dark for contrast on neon */
+    /* Primary: Vibrant Sapphire Blue */
+    --primary: 210 100% 58%;
+    --primary-foreground: 210 20% 10%; /* Dark for contrast on neon */
 
-    /* Secondary: Vibrant Purple (Aurora) */
-    --secondary: 280 80% 60%;
-    --secondary-foreground: 220 20% 95%; /* Light for contrast */
+    /* Secondary: Rich Purple */
+    --secondary: 260 70% 65%;
+    --secondary-foreground: 260 20% 96%; /* Light for contrast */
 
-    --muted: 230 20% 18%; /* Darker Muted Blue/Indigo */
-    --muted-foreground: 220 15% 65%; /* Softer Muted Text */
+    --muted: 220 20% 20%; /* Darker Muted Blue */
+    --muted-foreground: 220 15% 70%; /* Softer Muted Text */
 
-    /* Accent: Professional Teal/Cyan - Replaces Neon Green */
-    --accent: 175 70% 48%; /* Professional Teal/Cyan */
-    --accent-foreground: 175 70% 8%; /* Very dark for contrast */
+    /* Accent: Professional Teal */
+    --accent: 180 70% 50%;
+    --accent-foreground: 180 70% 10%; /* Very dark for contrast */
 
-    --destructive: 0 85% 55%; /* More vivid red */
+    --destructive: 0 75% 55%; /* Vivid red, slightly less saturated */
     --destructive-foreground: 0 0% 98%;
 
-    --border: 230 25% 20%; /* Muted Space Blue Border */
-    --input: 230 25% 15%; /* Darker Input Background */
-    --ring: 195 100% 55%; /* Primary color for rings, slightly brighter */
+    --border: 220 20% 25%; /* Muted Navy Border */
+    --input: 220 20% 18%; /* Darker Input Background */
+    --ring: 210 100% 60%; /* Primary color for rings, slightly brighter */
 
     --radius: 0.75rem;
 
-    /* Chart colors - Neon/Aurora Palette - Professional Refinement */
-    --chart-1: hsl(var(--primary)); /* Electric Blue */
-    --chart-2: hsl(var(--secondary));  /* Vibrant Purple */
-    --chart-3: hsl(var(--accent));  /* Professional Teal/Cyan */
-    --chart-4: 330 100% 60%; /* Neon Pink (Distinct Highlight) */
-    --chart-5: 210 70% 70%;   /* Light Steel Blue (Professional Alternative) */
+    /* Chart colors - Refined Palette */
+    --chart-1: hsl(var(--primary));      /* Vibrant Sapphire */
+    --chart-2: hsl(var(--secondary));     /* Rich Purple */
+    --chart-3: hsl(var(--accent));       /* Professional Teal */
+    --chart-4: 330 80% 65%;              /* Refined Pink */
+    --chart-5: 45 100% 60%;              /* Warm Gold/Orange */
 
     /* Sidebar variables for dark theme */
-    --sidebar-background: 230 30% 6%; /* Slightly darker than main bg */
-    --sidebar-foreground: 220 20% 90%;
+    --sidebar-background: 220 25% 7%; /* Slightly darker than main bg */
+    --sidebar-foreground: 210 30% 92%;
     --sidebar-primary: hsl(var(--primary));
     --sidebar-primary-foreground: hsl(var(--primary-foreground));
     --sidebar-accent: hsl(var(--accent));
     --sidebar-accent-foreground: hsl(var(--accent-foreground));
-    --sidebar-border: 230 25% 15%;
+    --sidebar-border: 220 20% 22%;
     --sidebar-ring: hsl(var(--ring));
   }
 
   .dark {
-    /* Dark Theme: Neon & Aurora Inspired (Mirrors :root for explicitness) */
-    --background: 230 30% 7%;
-    --foreground: 220 20% 93%;
-    --card: 230 30% 11%;
-    --card-foreground: 220 20% 93%;
-    --popover: 230 35% 9%;
-    --popover-foreground: 220 20% 93%;
-    --primary: 195 100% 50%;
-    --primary-foreground: 230 30% 10%;
-    --secondary: 280 80% 60%;
-    --secondary-foreground: 220 20% 95%;
-    --muted: 230 20% 18%;
-    --muted-foreground: 220 15% 65%;
-    --accent: 175 70% 48%; /* Professional Teal/Cyan */
-    --accent-foreground: 175 70% 8%; /* Very dark for contrast */
-    --destructive: 0 85% 55%;
+    /* Dark Theme: Mirrors :root for explicitness */
+    --background: 220 25% 8%;
+    --foreground: 210 30% 95%;
+    --card: 220 25% 12%;
+    --card-foreground: 210 30% 95%;
+    --popover: 220 25% 10%;
+    --popover-foreground: 210 30% 95%;
+    --primary: 210 100% 58%;
+    --primary-foreground: 210 20% 10%;
+    --secondary: 260 70% 65%;
+    --secondary-foreground: 260 20% 96%;
+    --muted: 220 20% 20%;
+    --muted-foreground: 220 15% 70%;
+    --accent: 180 70% 50%;
+    --accent-foreground: 180 70% 10%;
+    --destructive: 0 75% 55%;
     --destructive-foreground: 0 0% 98%;
-    --border: 230 25% 20%;
-    --input: 230 25% 15%;
-    --ring: 195 100% 55%;
+    --border: 220 20% 25%;
+    --input: 220 20% 18%;
+    --ring: 210 100% 60%;
 
     --chart-1: hsl(var(--primary));
     --chart-2: hsl(var(--secondary));
     --chart-3: hsl(var(--accent));
-    --chart-4: 330 100% 60%;
-    --chart-5: 210 70% 70%;
+    --chart-4: 330 80% 65%;
+    --chart-5: 45 100% 60%;
 
-    --sidebar-background: 230 30% 6%;
-    --sidebar-foreground: 220 20% 90%;
+    --sidebar-background: 220 25% 7%;
+    --sidebar-foreground: 210 30% 92%;
     --sidebar-primary: hsl(var(--primary));
     --sidebar-primary-foreground: hsl(var(--primary-foreground));
     --sidebar-accent: hsl(var(--accent));
     --sidebar-accent-foreground: hsl(var(--accent-foreground));
-    --sidebar-border: 230 25% 15%;
+    --sidebar-border: 220 20% 22%;
     --sidebar-ring: hsl(var(--ring));
   }
 
   .light {
-    /* Light Theme: Aurora/Bright Inspired - Professional Refinement */
-    --background: 220 60% 97%; /* Very Light Airy Sky Blue/Lavender */
-    --foreground: 260 40% 20%; /* Deep Rich Indigo/Purple Text (Darker for prof. contrast) */
+    /* Light Theme: Clean & Professional Palette */
+    --background: 0 0% 98%; /* Clean Off-White */
+    --foreground: 220 20% 25%; /* Dark Slate Blue Text */
 
     --card: 0 0% 100%; /* White */
-    --card-foreground: 260 40% 20%;
+    --card-foreground: 220 20% 25%;
 
     --popover: 0 0% 100%;
-    --popover-foreground: 260 40% 20%;
+    --popover-foreground: 220 20% 25%;
 
-    /* Primary: Professional Purple (Derived from Dark Secondary) */
-    --primary: 265 75% 58%;
+    /* Primary: Classic Blue */
+    --primary: 210 80% 50%;
     --primary-foreground: 0 0% 100%; /* White text */
 
-    /* Secondary: Bright Aqua/Turquoise */
-    --secondary: 175 75% 50%;
-    --secondary-foreground: 200 50% 15%; /* Dark contrast text */
+    /* Secondary: Professional Cyan/Light Blue */
+    --secondary: 200 70% 55%;
+    --secondary-foreground: 200 30% 15%; /* Dark contrast text */
 
-    --muted: 220 40% 94%; /* Lighter Muted Sky Blue/Lavender */
-    --muted-foreground: 240 20% 55%; /* Medium Cool Gray */
+    --muted: 220 30% 94%; /* Light Gray-Blue */
+    --muted-foreground: 220 20% 50%; /* Medium Cool Gray */
 
-    /* Accent: Professional Teal/Cyan - Replaces Neon Green */
-    --accent: 175 65% 55%; /* Brighter Teal/Cyan for light mode */
-    --accent-foreground: 175 65% 10%; /* Dark for contrast */
+    /* Accent: Clear Indigo/Violet */
+    --accent: 255 65% 58%;
+    --accent-foreground: 0 0% 100%; /* White text on accent */
 
-    --destructive: 0 75% 55%;
+    --destructive: 0 70% 50%; /* Slightly more controlled red */
     --destructive-foreground: 0 0% 98%;
 
-    --border: 220 30% 90%; /* Soft Light Blue-Gray Border */
-    --input: 220 40% 96%;  /* Very Light Input, off-white */
-    --ring: 265 75% 60%;   /* Primary color for rings, slightly brighter */
+    --border: 220 20% 88%; /* Soft Light Blue-Gray Border */
+    --input: 220 20% 96%;  /* Very Light Input, off-white */
+    --ring: 210 80% 55%;   /* Primary color for rings, slightly brighter */
 
-    /* Chart colors for light mode - Professional Refinement */
-    --chart-1: hsl(var(--primary)); /* Professional Purple */
-    --chart-2: hsl(var(--secondary)); /* Bright Aqua/Turquoise */
-    --chart-3: hsl(var(--accent));  /* Professional Teal/Cyan */
-    --chart-4: 250 70% 65%; /* Bright Lavender (Aurora - Keep) */
-    --chart-5: 140 60% 55%; /* Lively Green (Aurora - Keep, distinct from accent) */
+    /* Chart colors for light mode - Refined Palette */
+    --chart-1: hsl(var(--primary));    /* Classic Blue */
+    --chart-2: hsl(var(--secondary));  /* Professional Cyan/Light Blue */
+    --chart-3: hsl(var(--accent));     /* Clear Indigo/Violet */
+    --chart-4: 300 70% 60%;            /* Softer Magenta/Pink */
+    --chart-5: 35 80% 65%;             /* Pleasant Orange */
 
     /* Sidebar variables for light theme */
-    --sidebar-background: 220 50% 98%; /* Even lighter than main bg */
-    --sidebar-foreground: 260 40% 30%;
+    --sidebar-background: 0 0% 97%; /* Slightly off-white, cleaner than main bg gradient */
+    --sidebar-foreground: 220 20% 30%;
     --sidebar-primary: hsl(var(--primary));
     --sidebar-primary-foreground: hsl(var(--primary-foreground));
     --sidebar-accent: hsl(var(--accent));
     --sidebar-accent-foreground: hsl(var(--accent-foreground));
-    --sidebar-border: 220 30% 88%;
+    --sidebar-border: 220 20% 85%;
     --sidebar-ring: hsl(var(--ring));
   }
 }
@@ -187,45 +188,45 @@ body {
 /* Subtle Border Highlighting */
 .highlight-border-primary {
   border-color: hsl(var(--primary) / 0.6);
-  box-shadow: 0 0 12px hsl(var(--primary) / 0.2); /* Enhanced subtle glow */
+  box-shadow: 0 0 12px hsl(var(--primary) / 0.15); /* Softened glow */
 }
 .dark .highlight-border-primary {
   border-color: hsl(var(--primary) / 0.7);
-  box-shadow: 0 0 15px hsl(var(--primary) / 0.25);
+  box-shadow: 0 0 15px hsl(var(--primary) / 0.2); /* Softened glow */
 }
 
 .highlight-border-accent {
   border-color: hsl(var(--accent) / 0.6);
-  box-shadow: 0 0 12px hsl(var(--accent) / 0.2);
+  box-shadow: 0 0 12px hsl(var(--accent) / 0.15); /* Softened glow */
 }
 .dark .highlight-border-accent {
    border-color: hsl(var(--accent) / 0.7);
-  box-shadow: 0 0 15px hsl(var(--accent) / 0.25);
+  box-shadow: 0 0 15px hsl(var(--accent) / 0.2); /* Softened glow */
 }
 
 
-/* Gradient background for light mode - subtle aurora-inspired */
+/* Gradient background for light mode - subtle professional */
 .light body {
-  background: linear-gradient(145deg, hsl(var(--background)), hsl(var(--secondary) / 0.15), hsl(var(--accent) / 0.1));
+  background: linear-gradient(145deg, hsl(var(--background)), hsl(var(--secondary) / 0.08), hsl(var(--accent) / 0.05));
   color: hsl(var(--foreground));
 }
 
 /* Scrollbar Styling - Themed */
 ::-webkit-scrollbar {
-  width: 8px; /* Slightly wider for better grab */
+  width: 8px;
   height: 8px;
 }
 ::-webkit-scrollbar-track {
-  background: hsl(var(--background) / 0.2); /* Use background with low alpha */
+  background: hsl(var(--background) / 0.1);
   border-radius: 10px;
 }
 ::-webkit-scrollbar-thumb {
-  background: hsl(var(--primary) / 0.6); /* Primary color for thumb */
+  background: hsl(var(--primary) / 0.5);
   border-radius: 10px;
-  border: 2px solid hsl(var(--background) / 0.1); /* Border matching track bg */
+  border: 2px solid hsl(var(--background) / 0.05);
 }
 ::-webkit-scrollbar-thumb:hover {
-  background: hsl(var(--primary) / 0.8); /* Brighter on hover */
+  background: hsl(var(--primary) / 0.7);
 }
 
 
@@ -257,19 +258,19 @@ body {
   --tw-prose-links: hsl(var(--primary));
   --tw-prose-bold: hsl(var(--foreground));
   --tw-prose-counters: hsl(var(--muted-foreground));
-  --tw-prose-bullets: hsl(var(--primary) / 0.7); /* Use primary for bullets for neon pop */
+  --tw-prose-bullets: hsl(var(--primary) / 0.7);
   --tw-prose-hr: hsl(var(--border));
   --tw-prose-quotes: hsl(var(--foreground));
   --tw-prose-quote-borders: hsl(var(--primary));
   --tw-prose-captions: hsl(var(--muted-foreground));
-  --tw-prose-code: hsl(var(--accent)); /* Use accent for code for a different neon pop */
+  --tw-prose-code: hsl(var(--accent));
   --tw-prose-pre-code: hsl(var(--card-foreground));
-  --tw-prose-pre-bg: hsl(var(--card) / 0.8); /* Slightly transparent card for code bg */
+  --tw-prose-pre-bg: hsl(var(--card) / 0.8);
   --tw-prose-th-borders: hsl(var(--border));
   --tw-prose-td-borders: hsl(var(--border));
 }
 
-/* Light mode prose overrides (using .light selector now) */
+/* Light mode prose overrides */
 .light .prose {
   --tw-prose-body: hsl(var(--foreground));
   --tw-prose-headings: hsl(var(--foreground));
@@ -284,7 +285,7 @@ body {
   --tw-prose-captions: hsl(var(--muted-foreground));
   --tw-prose-code: hsl(var(--accent));
   --tw-prose-pre-code: hsl(var(--card-foreground));
-  --tw-prose-pre-bg: hsl(var(--card) / 0.9); /* Slightly transparent card for code bg */
+  --tw-prose-pre-bg: hsl(var(--card) / 0.9);
   --tw-prose-th-borders: hsl(var(--border));
   --tw-prose-td-borders: hsl(var(--border));
 }
@@ -294,3 +295,17 @@ body {
 body {
   transition: background-color 0.4s ease-in-out, color 0.4s ease-in-out, background 0.4s ease-in-out;
 }
+
+/* Make sure Section Separator uses the new border variable */
+.section-separator {
+  @apply my-0 h-[1px] border-none bg-gradient-to-r from-transparent via-border to-transparent;
+}
+
+/* Additional gradient for text, if desired (example) */
+.text-gradient-primary-accent {
+  @apply bg-gradient-to-r from-primary via-accent to-secondary bg-clip-text text-transparent;
+}
+.dark .text-gradient-primary-accent {
+   @apply from-primary via-accent to-secondary; /* Ensure dark mode picks up theme colors */
+}
+
