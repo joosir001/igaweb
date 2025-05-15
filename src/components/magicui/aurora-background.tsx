@@ -59,7 +59,7 @@ export const AuroraBackground = ({
           animate={{ opacity: 1 }}
           transition={{ duration: 1.5, delay: 0.2 }}
           key={id} // Ensure re-render on key props change if any
-          className="absolute inset-[-10px] h-[calc(100%+20px)] w-[calc(100%+20px)] opacity-30"
+          className="absolute inset-[-10px] h-[calc(100%+20px)] w-[calc(100%+20px)] opacity-20" // Changed from opacity-30
           style={{
             filter: chromaticAberration > 0 ? `url(#${id}-chromaticAberration)` : "none",
           }}
